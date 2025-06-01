@@ -7,3 +7,11 @@ Upload documents: python test_document_upload.py --user user123 upload path/to/d
 
 
 Configure your agent: python test_document_upload.py --user user123 config --prompt "Your instructions here"
+
+
+.\venv\Scripts\activate
+
+python web-agent-run.py --user user1 (Diler)
+
+python run_agent.py --user user1 (web)
+

@@ -36,7 +36,7 @@ load_dotenv()
 logger = logging.getLogger("user-agent")
 
 # Base directory for all user data
-BASE_STORAGE_DIR = Path("./user_data")
+BASE_STORAGE_DIR = Path(os.environ.get("STORAGE_PATH", "./user_data"))
 
 # Global variables to store user information
 GLOBAL_USER_ID = os.environ.get("USER_AGENT_USER_ID")

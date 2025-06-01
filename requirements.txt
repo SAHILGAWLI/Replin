@@ -29,4 +29,9 @@ soundfile>=0.13.1
 
 # Other utilities
 tqdm>=4.66.1
-loguru>=0.7.0 
+loguru>=0.7.0
+
+# Translation modules
+english_to_hindi>=0.0.1
+bhashini-translation>=0.0.1
+aiohttp>=3.8.0

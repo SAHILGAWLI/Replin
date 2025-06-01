@@ -20,7 +20,7 @@ from llama_index.core.schema import Document
 logger = logging.getLogger("document-upload")
 
 # Base directory for all user data
-BASE_STORAGE_DIR = Path("./user_data")
+BASE_STORAGE_DIR = Path(os.environ.get("STORAGE_PATH", "./user_data"))
 
 class DocumentUploadResponse(BaseModel):
     """Response model for document uploads"""

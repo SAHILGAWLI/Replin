@@ -13,6 +13,7 @@ def main():
     parser.add_argument("--user", required=True, help="User ID")
     parser.add_argument("--collection", help="Collection name (optional)")
     parser.add_argument("--phone", help="Phone number for outbound call (optional)")
+    parser.add_argument("--port", type=int, help="Port number for the agent", default=0)
     
     args, unknown = parser.parse_known_args()
     
@@ -22,8 +23,11 @@ def main():
         os.environ["USER_AGENT_COLLECTION"] = args.collection
     if args.phone:
         os.environ["USER_AGENT_PHONE"] = args.phone
+    if args.port:
+        os.environ["USER_AGENT_PORT"] = str(args.port)
     
     # Build the command to run the user_agent.py script
+    # Don't pass the port directly as user_agent.py doesn't support it
     cmd = [sys.executable, "user_agent.py", "start"]
     
     # Run the command
@@ -32,6 +36,8 @@ def main():
         print(f"Using collection: {args.collection}")
     if args.phone:
         print(f"With outbound call to: {args.phone}")
+    if args.port:
+        print(f"Listening on port: {args.port}")
     
     subprocess.run(cmd)
 

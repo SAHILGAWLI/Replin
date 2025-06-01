@@ -1,0 +1,7 @@
+{
+  "system_prompt": "You are a helpful assistant. Provide accurate and concise information based on the documents provided.",
+  "voice": "alloy",
+  "model": "gpt-4o-mini",
+  "agent_name": "Assistant",
+  "language": "en"
+}
