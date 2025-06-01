@@ -158,12 +158,16 @@ class SimpleAgent(Agent):
         enhanced_prompt = (
             f"{system_prompt}\n\n"
             f"Your name is {agent_name}. "
-            "You have access to the user's documents and can search them to provide information. "
+            "You are speaking with customers of the document owner, not the document owner themselves. "
+            "The documents you have access to belong to the business or service provider, but you are "
+            "speaking with their customers or clients who are seeking information. "
             "When asked about document content, use the query_documents function and cite the specific information found. "
             "Be concise, clear, and helpful. When you reference document information, make sure to explain it in a way that's easy to understand. "
-            "Always answer using complete, grammatically correct sentences. Prioritize information from the user's documents when answering questions.\n\n"
+            "Always answer using complete, grammatically correct sentences. Prioritize information from the documents when answering questions.\n\n"
             "IMPORTANT: NEVER use asterisks (*), hash symbols (#), or any other markdown formatting in your responses. "
-            "Do not use any special characters or formatting that would cause issues in text-to-speech systems."
+            "Do not use any special characters or formatting that would cause issues in text-to-speech systems.\n\n"
+            "Remember that you represent the document owner's business or service when speaking with their customers. "
+            "Provide accurate information from the documents in a professional and helpful manner."
         )
         
         logger.info(f"Using system prompt: {enhanced_prompt}")
@@ -176,7 +180,7 @@ class SimpleAgent(Agent):
                 temperature=0.7,
             ),
         )
-        logger.info(f"SimpleAgent initialized with identity: {agent_name}")
+        logger.info(f"SimpleAgent initialized with identity: {agent_name} (speaking with customers)")
     
     async def on_enter(self):
         logger.info("Agent entering conversation, generating greeting")
