@@ -11,7 +11,6 @@ from livekit import api, rtc
 from livekit.agents import (
     Agent,
     AgentSession,
-    ChatContext,
     JobContext,
     RunContext,
     RoomInputOptions,
@@ -47,13 +46,7 @@ class UserData:
     user_id: Optional[str] = None
     collection_name: Optional[str] = None
     config: Dict[str, Any] = None
-    
-    # The index is set separately
-    def set_index(self, index):
-        self.index = index
-    
-    def get_index(self):
-        return getattr(self, 'index', None)
+    index = None
 
 def get_user_paths(user_id: str) -> Dict[str, Path]:
     """Get all paths for a specific user"""
@@ -70,24 +63,33 @@ def load_user_config(user_id: str) -> Dict[str, Any]:
     paths = get_user_paths(user_id)
     config_file = paths["config"]
     
+    # Default configuration
+    default_config = {
+        "system_prompt": (
+            "You are a helpful AI assistant. Provide accurate and concise information. "
+            "Answer questions based on your knowledge base."
+        ),
+        "voice": "alloy",
+        "model": "gpt-4o-mini",
+        "agent_name": "Assistant"
+    }
+    
     if not config_file.exists():
         logger.warning(f"Config file not found for user {user_id}, using defaults")
-        return {
-            "system_prompt": (
-                "You are a helpful AI assistant. Provide accurate and concise information. "
-                "Answer questions based on your knowledge base."
-            ),
-            "voice": "alloy",
-            "model": "gpt-4o-mini",
-            "agent_name": "Assistant"
-        }
+        return default_config
     
     try:
         with open(config_file, "r") as f:
-            return json.load(f)
+            user_config = json.load(f)
+            # Ensure we have all the required fields with defaults if missing
+            for key, default_value in default_config.items():
+                if key not in user_config or user_config[key] is None:
+                    user_config[key] = default_value
+                    logger.info(f"Missing {key} in config, using default: {default_value}")
+            return user_config
     except Exception as e:
         logger.error(f"Error loading config for user {user_id}: {str(e)}")
-        raise ValueError(f"Failed to load configuration for user {user_id}")
+        return default_config
 
 def load_user_index(user_id: str, collection_name: Optional[str] = None):
     """Load the index for a specific user and collection"""
@@ -138,26 +140,25 @@ async def create_sip_participant(room_name: str, phone_number: str):
     
     logger.info(f"SIP participant created for {phone_number} in room {room_name}")
 
-class PersonalAssistantAgent(Agent):
+class SimpleAgent(Agent):
+    """A simple agent that responds to user queries using document search"""
+    
     def __init__(self) -> None:
-        # Explicitly set TTS here in the constructor
-        # Use a simple fixed system prompt - ignoring any custom ones that might be causing issues
+        # Super simple initialization exactly like in main.py
         super().__init__(
             instructions=(
-                "You are a helpful AI assistant. Answer questions directly and concisely."
+                "You are a helpful assistant. Begin with a friendly greeting. "
+                "You help users find information in their documents."
             ),
             llm=openai.LLM(
                 model="gpt-4o-mini",
                 temperature=0.7,
             ),
-            # Explicitly set TTS here
-            tts=cartesia.TTS(),
         )
-        logger.info("PersonalAssistantAgent initialized with TTS and fixed system prompt")
+        logger.info("SimpleAgent initialized")
     
     async def on_enter(self):
-        # Generate initial greeting
-        logger.info("Agent on_enter called, generating initial greeting")
+        logger.info("Agent entering conversation, generating greeting")
         self.session.generate_reply()
     
     @function_tool
@@ -168,16 +169,27 @@ class PersonalAssistantAgent(Agent):
             query: The question to search for in the user's documents
         """
         try:
-            user_index = context.userdata.get_index()
-            if not user_index:
+            user_data = context.userdata
+            if not hasattr(user_data, 'index') or user_data.index is None:
+                logger.error("No index available")
                 return "I don't have access to your documents at the moment."
             
-            logger.info(f"Querying user documents with: {query}")
-            query_engine = user_index.as_query_engine(use_async=True)
+            logger.info(f"Querying documents with: {query}")
+            query_engine = user_data.index.as_query_engine(use_async=True)
             result = await query_engine.aquery(query)
             logger.info(f"Document query result: {result}")
             
-            return str(result)
+            # Clean up the response to remove markdown formatting
+            response_text = str(result)
+            # Remove markdown asterisks that might be read as "asterisk"
+            response_text = response_text.replace('*', '')
+            # Remove markdown formatting that might cause issues
+            response_text = response_text.replace('_', '')
+            response_text = response_text.replace('#', '')
+            response_text = response_text.replace('`', '')
+            
+            logger.info(f"Cleaned response: {response_text}")
+            return response_text
         except Exception as e:
             logger.error(f"Error querying documents: {str(e)}")
             return f"I encountered an error searching your documents: {str(e)}"
@@ -185,6 +197,7 @@ class PersonalAssistantAgent(Agent):
 def prewarm(proc):
     """Initialize components during prewarm"""
     proc.userdata["vad"] = silero.VAD.load()
+    logger.info("Prewarm completed - VAD loaded")
 
 async def entrypoint(ctx: JobContext):
     """Main entrypoint for the user agent"""
@@ -213,80 +226,76 @@ async def entrypoint(ctx: JobContext):
         index = load_user_index(GLOBAL_USER_ID, GLOBAL_COLLECTION_NAME)
         logger.info(f"Loaded index for user {GLOBAL_USER_ID}")
         
-        # Create user data with index
+        # Create user data
         userdata = UserData(
             user_id=GLOBAL_USER_ID,
             collection_name=GLOBAL_COLLECTION_NAME,
             config=config
         )
-        userdata.set_index(index)
+        userdata.index = index
         
         # If phone number is provided, initiate an outbound call
         if GLOBAL_PHONE_NUMBER:
             await create_sip_participant(ctx.room.name, GLOBAL_PHONE_NUMBER)
         
-        # Load VAD during initialization
+        # Get VAD from context
         vad = ctx.proc.userdata.get("vad")
         if not vad:
             logger.info("Loading new VAD instance")
             vad = silero.VAD.load()
         
-        # Log metrics as they are emitted
+        # Log metrics
         usage_collector = metrics.UsageCollector()
         
-        # Initialize agent session with explicit parameters
-        # Ignore any custom config that might be causing issues
-        logger.info("Creating agent session with fixed settings")
+        # Very simple initialization - exactly like main.py
+        logger.info("Creating basic agent session")
         session = AgentSession[UserData](
             vad=vad,
-            llm=openai.LLM(
-                model="gpt-4o-mini",
-                temperature=0.7,
-            ),
+            llm=openai.LLM(model="gpt-4o-mini", temperature=0.7),
             stt=deepgram.STT(model="nova-2-general"),
-            # Use simple TTS without any custom voice settings
-            tts=cartesia.TTS(),
+            tts=cartesia.TTS(),  # No customization at all
             userdata=userdata
         )
-        logger.info("Agent session created with fixed settings")
         
-        # Add monitoring for speech events
-        @session.on("speech_started")
-        def on_speech_started():
-            logger.info("SPEECH STARTED - User is speaking")
-        
-        @session.on("speech_stopped")
-        def on_speech_stopped():
-            logger.info("SPEECH STOPPED - User stopped speaking")
-        
-        @session.on("transcription")
-        def on_transcription(text):
-            logger.info(f"TRANSCRIPTION: {text}")
-            
-        @session.on("agent_speaking")
-        def on_agent_speaking():
-            logger.info("AGENT SPEAKING - TTS output started")
-            
-        @session.on("agent_done_speaking")
-        def on_agent_done_speaking():
-            logger.info("AGENT DONE SPEAKING - TTS output finished")
-        
+        # Add metrics collection
         @session.on("metrics_collected")
         def _on_metrics_collected(ev: MetricsCollectedEvent):
             metrics.log_metrics(ev.metrics)
             usage_collector.collect(ev.metrics)
-            logger.info(f"Collected metrics: {ev.metrics}")
+            logger.info(f"Metrics collected: {ev.metrics}")
         
+        # Add verbose logging
+        @session.on("speech_started")
+        def on_speech_started():
+            logger.info("SPEECH STARTED: User is speaking")
+        
+        @session.on("speech_stopped")
+        def on_speech_stopped():
+            logger.info("SPEECH STOPPED: User stopped speaking")
+        
+        @session.on("transcription")
+        def on_transcription(text):
+            logger.info(f"TRANSCRIPTION: {text}")
+        
+        @session.on("agent_speaking")
+        def on_agent_speaking():
+            logger.info("AGENT SPEAKING: TTS output started")
+        
+        @session.on("agent_done_speaking")
+        def on_agent_done_speaking():
+            logger.info("AGENT DONE SPEAKING: TTS output finished")
+        
+        # Add shutdown callback
         async def log_usage():
             summary = usage_collector.get_summary()
-            logger.info(f"Usage: {summary}")
+            logger.info(f"Usage summary: {summary}")
         
         ctx.add_shutdown_callback(log_usage)
         
-        # Start the session with our agent
-        logger.info("Starting agent session...")
+        # Start session - exactly like main.py
+        logger.info("Starting agent session")
         await session.start(
-            agent=PersonalAssistantAgent(),
+            agent=SimpleAgent(),
             room=ctx.room,
             room_input_options=RoomInputOptions(),
             room_output_options=RoomOutputOptions(transcription_enabled=True),
