@@ -26,6 +26,10 @@ from livekit.agents.llm import function_tool
 from livekit.agents.voice import MetricsCollectedEvent
 from livekit.plugins import deepgram, openai, silero, cartesia
 
+# Import the BhashiniTranslator modules
+from hindi_to_english import BhashiniTranslator
+from english_to_hindi import BhashiniTranslatorEnToHi
+
 # Import RAG components
 from llama_index.core import (
     SimpleDirectoryReader,
@@ -62,11 +66,14 @@ else:
 
 # Create query engine at module level
 query_engine = None
+# Create translator at module level for agent access
+english_to_hindi_translator = None
 
 common_instructions = (
     "Your name is Aaple Sarkar. You are a government AI assistant. "
     "Be extremely concise and to the point. Keep all responses brief. "
     "Avoid unnecessary greetings or explanations. "
+    "IMPORTANT: Always respond in English only. "
     "Always prioritize brevity - use 1-2 sentences maximum whenever possible. "
     "You have access to a knowledge base of government documents and can provide accurate information about government services."
 )
@@ -78,6 +85,8 @@ class CitizenData:
     name: Optional[str] = None
     district: Optional[str] = None
     query_type: Optional[str] = None
+    # Track if translation is active for this conversation
+    translation_active: bool = False
 
 
 class GreetingAgent(Agent):
@@ -105,6 +114,40 @@ class GreetingAgent(Agent):
         # when the agent is added to the session, it'll generate a reply
         # according to its instructions
         self.session.generate_reply()
+
+    async def tts_node(self, text: AsyncIterable[str], model_settings):
+        """
+        TTS node that translates English to Hindi before synthesizing speech.
+        """
+        global english_to_hindi_translator
+        
+        # Collect all text chunks and combine them
+        english_text_chunks = []
+        async for chunk in text:
+            english_text_chunks.append(chunk)
+            
+        if not english_text_chunks:
+            return
+            
+        # Combine all text chunks
+        english_text = "".join(english_text_chunks)
+        
+        # Translate the text from English to Hindi
+        logger.info(f"GreetingAgent TTS - Original English text: {english_text}")
+        hindi_text = english_to_hindi_translator.translate_english_to_hindi(english_text)
+        logger.info(f"GreetingAgent TTS - Translated Hindi text: {hindi_text}")
+        
+        # Get the TTS component from the activity
+        activity = self._get_activity_or_raise()
+        assert activity.tts is not None, "tts_node called but no TTS node is available"
+        
+        # Synthesize the translated text
+        async with activity.tts.stream() as stream:
+            stream.push_text(hindi_text)
+            stream.end_input()
+            
+            async for ev in stream:
+                yield ev.frame
 
     @function_tool
     async def information_collected(
@@ -166,6 +209,40 @@ class ServiceAgent(Agent):
         # when the agent is added to the session, we'll initiate the conversation by
         # using the LLM to generate a reply
         self.session.generate_reply()
+        
+    async def tts_node(self, text: AsyncIterable[str], model_settings):
+        """
+        TTS node that translates English to Hindi before synthesizing speech.
+        """
+        global english_to_hindi_translator
+        
+        # Collect all text chunks and combine them
+        english_text_chunks = []
+        async for chunk in text:
+            english_text_chunks.append(chunk)
+            
+        if not english_text_chunks:
+            return
+            
+        # Combine all text chunks
+        english_text = "".join(english_text_chunks)
+        
+        # Translate the text from English to Hindi
+        logger.info(f"ServiceAgent TTS - Original English text: {english_text}")
+        hindi_text = english_to_hindi_translator.translate_english_to_hindi(english_text)
+        logger.info(f"ServiceAgent TTS - Translated Hindi text: {hindi_text}")
+        
+        # Get the TTS component from the activity
+        activity = self._get_activity_or_raise()
+        assert activity.tts is not None, "tts_node called but no TTS node is available"
+        
+        # Synthesize the translated text
+        async with activity.tts.stream() as stream:
+            stream.push_text(hindi_text)
+            stream.end_input()
+            
+            async for ev in stream:
+                yield ev.frame
 
     @function_tool
     async def query_info(self, context: RunContext[CitizenData], query: str) -> str:
@@ -188,13 +265,63 @@ class ServiceAgent(Agent):
 
 def prewarm(proc: JobProcess):
     proc.userdata["vad"] = silero.VAD.load()
+    # Initialize translators in prewarm for better performance
+    proc.userdata["hindi_to_english_translator"] = BhashiniTranslator()
+    proc.userdata["english_to_hindi_translator"] = BhashiniTranslatorEnToHi()
     # Initialize and store query engine
-    global query_engine
+    global query_engine, english_to_hindi_translator
     query_engine = index.as_query_engine(use_async=True)
+    english_to_hindi_translator = proc.userdata["english_to_hindi_translator"]
+
+
+# Translation middleware for processing STT output before sending to LLM
+class InputTranslationProcessor:
+    def __init__(self, translator):
+        self.translator = translator
+    
+    def process_input(self, text):
+        """
+        Process input text: translate from Hindi to English if needed
+        """
+        logger.info(f"Original STT text: {text}")
+        
+        # Check if the text appears to be primarily Hindi
+        # This is a simple heuristic - for production, use proper language detection
+        contains_hindi_characters = any(ord(char) >= 0x0900 and ord(char) <= 0x097F for char in text)
+        
+        if contains_hindi_characters:
+            logger.info("Detected Hindi text, translating to English")
+            # Translate text from Hindi to English
+            translated_text = self.translator.translate_hindi_to_english(text)
+            logger.info(f"Translated text: {translated_text}")
+            return translated_text, True
+        else:
+            logger.info("Text appears to be in English, no translation needed")
+            return text, False
 
 
 async def entrypoint(ctx: JobContext):
     await ctx.connect()
+
+    # Get the translators from prewarm
+    hindi_to_english_translator = ctx.proc.userdata.get("hindi_to_english_translator")
+    
+    # Set the global translator for agents to use
+    global english_to_hindi_translator
+    english_to_hindi_translator = ctx.proc.userdata.get("english_to_hindi_translator")
+    
+    if not hindi_to_english_translator:
+        # Create a new translator if not prewarmed
+        logger.info("Creating new Hindi to English translator instance")
+        hindi_to_english_translator = BhashiniTranslator()
+        
+    if not english_to_hindi_translator:
+        # Create a new translator if not prewarmed
+        logger.info("Creating new English to Hindi translator instance")
+        english_to_hindi_translator = BhashiniTranslatorEnToHi()
+    
+    # Create translation processor for input
+    input_translation_processor = InputTranslationProcessor(hindi_to_english_translator)
     
     session = AgentSession[CitizenData](
         vad=ctx.proc.userdata["vad"],
@@ -210,11 +337,32 @@ async def entrypoint(ctx: JobContext):
         #     api_key=os.environ.get("GROQ_API_KEY"),
         #     base_url="https://api.groq.com/openai/v1",
         # ),
-        stt=deepgram.STT(model="nova-2-general"),
+        # Use nova-2-general model with Hindi language support
+        stt=deepgram.STT(model="nova-2-general", language="hi"),
         # Use standard TTS
         tts=cartesia.TTS(),
         userdata=CitizenData(),
     )
+
+    # Register event handler to process STT output before sending to LLM
+    @session.on("stt_result")
+    def on_stt_result(ev):
+        # If text is available, process it for translation
+        if ev.text:
+            # Translate the text and get whether it was translated
+            translated_text, was_translated = input_translation_processor.process_input(ev.text)
+            
+            # Track if translation is active for this session
+            if was_translated:
+                session.userdata.translation_active = True
+                logger.info("Hindi to English translation is active for this session")
+            
+            # Replace the original text with translated text
+            ev.text = translated_text
+            
+            # Add a note about translation for context (optional)
+            if was_translated:
+                logger.info(f"Translated Hindi input to English: '{ev.text}'")
 
     # log metrics as they are emitted, and total usage after session is over
     usage_collector = metrics.UsageCollector()
@@ -241,15 +389,5 @@ async def entrypoint(ctx: JobContext):
     )
 
 
-# if __name__ == "__main__":
-#     cli.run_app(WorkerOptions(entrypoint_fnc=entrypoint, prewarm_fnc=prewarm))
-
-
-
 if __name__ == "__main__":
-    cli.run_app(WorkerOptions(
-        entrypoint_fnc=entrypoint, 
-        prewarm_fnc=prewarm,
-        # Add a unique agent name for explicit dispatch
-        agent_name="aaple-sarkar-agent"
-    ))
+    cli.run_app(WorkerOptions(entrypoint_fnc=entrypoint, prewarm_fnc=prewarm))

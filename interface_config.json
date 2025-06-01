@@ -1,0 +1,7 @@
+{
+  "users": {
+    "user1": {
+      "use_named_agent": true
+    }
+  }
+}

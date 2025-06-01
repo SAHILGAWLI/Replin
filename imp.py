@@ -2,7 +2,6 @@ import logging
 import os
 import asyncio
 import re
-import json
 from dataclasses import dataclass
 from typing import Optional, Dict, Any
 from pathlib import Path
@@ -173,14 +172,13 @@ class SimpleAgent(Agent):
         
         logger.info(f"Using system prompt: {enhanced_prompt}")
         
-        # Initialize with user's system prompt - ONLY CHANGE: Add tts=cartesia.TTS()
+        # Initialize with user's system prompt
         super().__init__(
             instructions=enhanced_prompt,
             llm=openai.LLM(
                 model=user_config.get("model", "gpt-4o-mini"),
                 temperature=0.7,
             ),
-            tts=cartesia.TTS(),  # THIS IS THE ONLY CHANGE FROM imp.py
         )
         logger.info(f"SimpleAgent initialized with identity: {agent_name} (speaking with customers)")
     
@@ -312,15 +310,6 @@ async def entrypoint(ctx: JobContext):
         await ctx.connect()
         logger.info(f"Connected to room: {ctx.room.name}")
         
-        # ADD INBOUND SUPPORT: Register room event handlers for inbound calls
-        @ctx.room.on("participant_connected")
-        def on_participant_connected(participant):
-            logger.info(f"Participant joined: {participant.identity} ({participant.name})")
-        
-        @ctx.room.on("participant_disconnected")
-        def on_participant_disconnected(participant):
-            logger.info(f"Participant left: {participant.identity} ({participant.name})")
-        
         # Load user configuration
         config = load_user_config(GLOBAL_USER_ID)
         logger.info(f"Loaded user config: {config}")
@@ -355,11 +344,7 @@ async def entrypoint(ctx: JobContext):
         
         # If phone number is provided, initiate an outbound call
         if GLOBAL_PHONE_NUMBER:
-            logger.info(f"Outbound call mode: Calling {GLOBAL_PHONE_NUMBER}")
             await create_sip_participant(ctx.room.name, GLOBAL_PHONE_NUMBER)
-        else:
-            # ADD INBOUND SUPPORT: Log inbound mode
-            logger.info("Inbound call mode: Waiting for participants to join")
         
         # Get VAD from context
         vad = ctx.proc.userdata.get("vad")

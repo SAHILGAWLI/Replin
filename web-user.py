@@ -437,4 +437,9 @@ if __name__ == "__main__":
     import json
     
     # Run the app with the LiveKit CLI
-    cli.run_app(WorkerOptions(entrypoint_fnc=entrypoint, prewarm_fnc=prewarm)) 
+    cli.run_app(WorkerOptions(
+        entrypoint_fnc=entrypoint, 
+        prewarm_fnc=prewarm,
+        # Add a unique agent name for explicit dispatch
+        agent_name="aaple-sarkar-agent"
+    ))
