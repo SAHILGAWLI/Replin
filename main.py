@@ -24,7 +24,7 @@ from livekit.agents import (
 from livekit.agents.job import get_job_context
 from livekit.agents.llm import function_tool
 from livekit.agents.voice import MetricsCollectedEvent
-from livekit.plugins import deepgram, openai, silero, cartesia
+from livekit.plugins import deepgram, openai, silero, cartesia, elevenlabs
 
 # Import RAG components
 from llama_index.core import (
@@ -212,7 +212,11 @@ async def entrypoint(ctx: JobContext):
         # ),
         stt=deepgram.STT(model="nova-2-general"),
         # Use standard TTS
-        tts=cartesia.TTS(),
+        tts=elevenlabs.TTS(
+            model="eleven_monolingual_v1",
+            api_key=os.environ.get("ELEVEN_API_KEY"),
+            voice_id="21m00Tcm4TlvDq8ikWAM"  # Default voice (Rachel)
+        ),
         userdata=CitizenData(),
     )
 
@@ -249,7 +253,5 @@ async def entrypoint(ctx: JobContext):
 if __name__ == "__main__":
     cli.run_app(WorkerOptions(
         entrypoint_fnc=entrypoint, 
-        prewarm_fnc=prewarm,
-        # Add a unique agent name for explicit dispatch
-        agent_name="aaple-sarkar-agent"
+        prewarm_fnc=prewarm
     ))
