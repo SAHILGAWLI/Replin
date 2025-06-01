@@ -1,0 +1,7 @@
+{
+  "system_prompt": "YOU ARE AN HOSPITAL AGENT",
+  "voice": "alloy",
+  "model": "gpt-4o-mini",
+  "agent_name": null,
+  "language": "en"
+}

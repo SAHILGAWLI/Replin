@@ -1,0 +1,9 @@
+Start the document upload API: uvicorn document_upload:app --host 0.0.0.0 --port 8000
+
+
+
+Upload documents: python test_document_upload.py --user user123 upload path/to/documents.pdf
+
+
+
+Configure your agent: python test_document_upload.py --user user123 config --prompt "Your instructions here"
