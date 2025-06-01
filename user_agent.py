@@ -1,6 +1,7 @@
 import logging
 import os
 import asyncio
+import re
 from dataclasses import dataclass
 from typing import Optional, Dict, Any
 from pathlib import Path
@@ -40,6 +41,9 @@ BASE_STORAGE_DIR = Path("./user_data")
 GLOBAL_USER_ID = os.environ.get("USER_AGENT_USER_ID")
 GLOBAL_COLLECTION_NAME = os.environ.get("USER_AGENT_COLLECTION")
 GLOBAL_PHONE_NUMBER = os.environ.get("USER_AGENT_PHONE")
+
+# Global query engine - just like in main.py
+global_query_engine = None
 
 @dataclass
 class UserData:
@@ -143,23 +147,61 @@ async def create_sip_participant(room_name: str, phone_number: str):
 class SimpleAgent(Agent):
     """A simple agent that responds to user queries using document search"""
     
-    def __init__(self) -> None:
-        # Super simple initialization exactly like in main.py
+    def __init__(self, user_config: Dict[str, Any]) -> None:
+        # Get system prompt from user config
+        system_prompt = user_config.get("system_prompt", 
+            "You are a helpful assistant. You help users find information in their documents.")
+        
+        agent_name = user_config.get("agent_name", "Assistant")
+        
+        # Enhanced system prompt with identity awareness and improved instructions
+        enhanced_prompt = (
+            f"{system_prompt}\n\n"
+            f"Your name is {agent_name}. "
+            "You have access to the user's documents and can search them to provide information. "
+            "When asked about document content, use the query_documents function and cite the specific information found. "
+            "Be concise, clear, and helpful. When you reference document information, make sure to explain it in a way that's easy to understand. "
+            "Always answer using complete, grammatically correct sentences. Prioritize information from the user's documents when answering questions.\n\n"
+            "IMPORTANT: NEVER use asterisks (*), hash symbols (#), or any other markdown formatting in your responses. "
+            "Do not use any special characters or formatting that would cause issues in text-to-speech systems."
+        )
+        
+        logger.info(f"Using system prompt: {enhanced_prompt}")
+        
+        # Initialize with user's system prompt
         super().__init__(
-            instructions=(
-                "You are a helpful assistant. Begin with a friendly greeting. "
-                "You help users find information in their documents."
-            ),
+            instructions=enhanced_prompt,
             llm=openai.LLM(
-                model="gpt-4o-mini",
+                model=user_config.get("model", "gpt-4o-mini"),
                 temperature=0.7,
             ),
         )
-        logger.info("SimpleAgent initialized")
+        logger.info(f"SimpleAgent initialized with identity: {agent_name}")
     
     async def on_enter(self):
         logger.info("Agent entering conversation, generating greeting")
         self.session.generate_reply()
+    
+    # Override the generate_reply method to filter all responses
+    async def generate_reply(self, ctx):
+        # Call the original method to generate a reply
+        result = await super().generate_reply(ctx)
+        
+        # Filter the result to remove problematic characters from ALL responses
+        if hasattr(result, 'content') and result.content:
+            # Replace markdown formatting
+            filtered_content = result.content
+            
+            # Remove all problematic characters
+            problematic_chars = ['*', '#', '_', '`', '~', '|', '<', '>', '[', ']']
+            for char in problematic_chars:
+                filtered_content = filtered_content.replace(char, '')
+            
+            # Update the content
+            result.content = filtered_content
+            logger.info(f"Filtered agent response to remove problematic characters")
+        
+        return result
     
     @function_tool
     async def query_documents(self, context: RunContext[UserData], query: str) -> str:
@@ -168,31 +210,76 @@ class SimpleAgent(Agent):
         Args:
             query: The question to search for in the user's documents
         """
+        global global_query_engine
+        
         try:
-            user_data = context.userdata
-            if not hasattr(user_data, 'index') or user_data.index is None:
-                logger.error("No index available")
-                return "I don't have access to your documents at the moment."
+            # Log the query for debugging
+            logger.info(f"Document query request: {query}")
             
-            logger.info(f"Querying documents with: {query}")
-            query_engine = user_data.index.as_query_engine(use_async=True)
-            result = await query_engine.aquery(query)
-            logger.info(f"Document query result: {result}")
+            # Use global query engine if available, otherwise create one
+            if global_query_engine is None:
+                logger.info("Global query engine not initialized, creating new one")
+                
+                user_data = context.userdata
+                logger.info(f"User data index: {user_data.index is not None}")
+                
+                if not user_data.index:
+                    logger.error("No index available in user data")
+                    return "I don't have access to your documents at the moment."
+                
+                try:
+                    global_query_engine = user_data.index.as_query_engine(use_async=True)
+                    logger.info("Created new global query engine successfully")
+                except Exception as e:
+                    logger.error(f"Failed to create query engine: {str(e)}")
+                    return f"I encountered an error accessing your documents: {str(e)}"
             
-            # Clean up the response to remove markdown formatting
-            response_text = str(result)
-            # Remove markdown asterisks that might be read as "asterisk"
-            response_text = response_text.replace('*', '')
-            # Remove markdown formatting that might cause issues
-            response_text = response_text.replace('_', '')
-            response_text = response_text.replace('#', '')
-            response_text = response_text.replace('`', '')
+            # Execute the query with robust error handling
+            try:
+                logger.info(f"Executing RAG query: {query}")
+                res = await global_query_engine.aquery(query)
+                logger.info(f"RAG query successful, result length: {len(str(res))}")
+                raw_result = str(res)
+            except Exception as e:
+                logger.error(f"RAG query failed: {str(e)}")
+                return f"I tried to search your documents, but encountered an error: {str(e)}"
             
-            logger.info(f"Cleaned response: {response_text}")
-            return response_text
+            # If we get an empty result, inform the user
+            if not raw_result.strip():
+                logger.warning("Empty RAG result")
+                return "I searched your documents but couldn't find relevant information for your query."
+            
+            # Most aggressive cleaning possible - strip ALL potentially problematic characters
+            try:
+                # Strip ALL problematic characters completely
+                import re
+                
+                # Remove all markdown and special characters
+                problematic_chars = ['*', '#', '_', '`', '~', '|', '<', '>', '[', ']', '(', ')', '{', '}', '+', '-', '=', '$', '^', '&']
+                clean_text = raw_result
+                for char in problematic_chars:
+                    clean_text = clean_text.replace(char, '')
+                
+                # Remove URLs and email addresses
+                clean_text = re.sub(r'https?://\S+', '', clean_text)
+                clean_text = re.sub(r'\S+@\S+', '', clean_text)
+                
+                # Clean up whitespace
+                clean_text = re.sub(r'\s+', ' ', clean_text).strip()
+                
+                # Add prefix
+                final_text = f"Here's what I found in your documents: {clean_text}"
+                logger.info(f"Aggressively cleaned document result: {final_text[:100]}...")
+                return final_text
+            except Exception as e:
+                logger.error(f"Error in cleaning result: {str(e)}")
+                # Extreme fallback - only alphanumeric and basic punctuation
+                clean_fallback = ''.join(c for c in raw_result if c.isalnum() or c in ' .,;:?!')
+                return f"From your documents: {clean_fallback}"
+            
         except Exception as e:
-            logger.error(f"Error querying documents: {str(e)}")
-            return f"I encountered an error searching your documents: {str(e)}"
+            logger.error(f"General error in query_documents: {str(e)}")
+            return f"I encountered an error with the document search system: {str(e)}"
 
 def prewarm(proc):
     """Initialize components during prewarm"""
@@ -202,7 +289,7 @@ def prewarm(proc):
 async def entrypoint(ctx: JobContext):
     """Main entrypoint for the user agent"""
     # Use global variables
-    global GLOBAL_USER_ID, GLOBAL_COLLECTION_NAME, GLOBAL_PHONE_NUMBER
+    global GLOBAL_USER_ID, GLOBAL_COLLECTION_NAME, GLOBAL_PHONE_NUMBER, global_query_engine
     
     # Log the values to help debugging
     logger.info(f"User ID: {GLOBAL_USER_ID}")
@@ -221,10 +308,15 @@ async def entrypoint(ctx: JobContext):
         
         # Load user configuration
         config = load_user_config(GLOBAL_USER_ID)
+        logger.info(f"Loaded user config: {config}")
         
-        # Load user index
-        index = load_user_index(GLOBAL_USER_ID, GLOBAL_COLLECTION_NAME)
-        logger.info(f"Loaded index for user {GLOBAL_USER_ID}")
+        # Load user index with better error handling
+        try:
+            index = load_user_index(GLOBAL_USER_ID, GLOBAL_COLLECTION_NAME)
+            logger.info(f"Loaded index for user {GLOBAL_USER_ID}")
+        except Exception as e:
+            logger.error(f"Failed to load index: {str(e)}")
+            index = None
         
         # Create user data
         userdata = UserData(
@@ -233,6 +325,18 @@ async def entrypoint(ctx: JobContext):
             config=config
         )
         userdata.index = index
+        
+        # Initialize global query engine with error handling
+        if index:
+            try:
+                global_query_engine = index.as_query_engine(use_async=True)
+                logger.info("Initialized global query engine successfully")
+            except Exception as e:
+                logger.error(f"Failed to initialize global query engine: {str(e)}")
+                global_query_engine = None
+        else:
+            logger.warning("No index loaded, global query engine not initialized")
+            global_query_engine = None
         
         # If phone number is provided, initiate an outbound call
         if GLOBAL_PHONE_NUMBER:
@@ -247,13 +351,13 @@ async def entrypoint(ctx: JobContext):
         # Log metrics
         usage_collector = metrics.UsageCollector()
         
-        # Very simple initialization - exactly like main.py
-        logger.info("Creating basic agent session")
+        # EXACTLY like main.py
+        logger.info("Creating agent session exactly like main.py")
         session = AgentSession[UserData](
             vad=vad,
             llm=openai.LLM(model="gpt-4o-mini", temperature=0.7),
             stt=deepgram.STT(model="nova-2-general"),
-            tts=cartesia.TTS(),  # No customization at all
+            tts=cartesia.TTS(),  # Standard TTS with no modifications
             userdata=userdata
         )
         
@@ -292,10 +396,10 @@ async def entrypoint(ctx: JobContext):
         
         ctx.add_shutdown_callback(log_usage)
         
-        # Start session - exactly like main.py
+        # Start session
         logger.info("Starting agent session")
         await session.start(
-            agent=SimpleAgent(),
+            agent=SimpleAgent(config),
             room=ctx.room,
             room_input_options=RoomInputOptions(),
             room_output_options=RoomOutputOptions(transcription_enabled=True),
