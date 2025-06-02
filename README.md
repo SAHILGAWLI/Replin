@@ -200,4 +200,24 @@ uvicorn agent_manager:app --host 0.0.0.0 --port 8001
 ## API Documentation
 
 - Document Upload API: `/docs` endpoint
-- Agent Manager API: `/docs` endpoint 
+- Agent Manager API: `/docs` endpoint
+
+## Render Deployment Storage Note
+
+This application has been configured to work without persistent disk storage on Render free tier. This has the following limitations:
+
+1. **Data will be lost on redeployments**: Any uploaded documents and knowledge bases will be reset when the service is redeployed.
+
+2. **Limited storage space**: The free tier has limited storage in the application directory.
+
+3. **Not suitable for production**: This configuration is only suitable for testing. For production use, upgrade to a paid Render plan that supports disk mounts.
+
+If you upgrade to a paid plan, you can modify `render.yaml` to use disk storage:
+```yaml
+disk:
+  name: user-data
+  mountPath: /data
+  sizeGB: 10
+```
+
+And update the `STORAGE_PATH` environment variable to `/data/user_data`. 

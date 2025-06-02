@@ -4,10 +4,10 @@ services:
     env: python
     plan: starter
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn document_upload:app --host 0.0.0.0 --port $PORT
+    startCommand: python create_storage.py && uvicorn document_upload:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: STORAGE_PATH
-        value: /data/user_data
+        value: ./user_data
       - key: OPENAI_API_KEY
         sync: false # This will prompt you to enter the value during deployment
       - key: DEEPGRAM_API_KEY
@@ -16,20 +16,16 @@ services:
         sync: false # Required for text-to-speech
       - key: PYTHONUNBUFFERED
         value: "true"
-    disk:
-      name: user-data
-      mountPath: /data
-      sizeGB: 10
 
   - type: web
     name: agent-manager
     env: python
     plan: starter
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn agent_manager:app --host 0.0.0.0 --port $PORT
+    startCommand: python create_storage.py && uvicorn agent_manager:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: STORAGE_PATH
-        value: /data/user_data
+        value: ./user_data
       - key: PYTHONUNBUFFERED
         value: "true"
       - key: DEEPGRAM_API_KEY
@@ -43,8 +39,4 @@ services:
       - key: LIVEKIT_API_SECRET
         sync: false
       - key: SIP_TRUNK_ID
-        sync: false
-    disk:
-      name: user-data
-      mountPath: /data
-      sizeGB: 10 
+        sync: false 
