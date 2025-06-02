@@ -17,6 +17,7 @@ This is a system for creating user-configurable AI voice agents that can make ou
 - Python 3.9+
 - LlamaIndex and OpenAI modules
 - LiveKit account for voice call integration
+- Google Cloud Platform account with Storage enabled
 
 ### Installation
 
@@ -34,6 +35,12 @@ LIVEKIT_URL=your_livekit_url
 LIVEKIT_API_KEY=your_livekit_api_key
 LIVEKIT_API_SECRET=your_livekit_api_secret
 SIP_TRUNK_ID=your_sip_trunk_id
+STORAGE_PATH=./user_data
+
+# GCS Configuration (optional for local development)
+USE_GCS=false
+# GCS_BUCKET_NAME=your_bucket_name
+# GOOGLE_APPLICATION_CREDENTIALS=/path/to/credentials.json
 ```
 
 ## Usage
@@ -91,6 +98,12 @@ python user_agent.py --user user123 --phone +1234567890
 - `POST /upload/{user_id}` - Upload documents
 - `POST /config/{user_id}` - Save agent configuration
 - `GET /collections/{user_id}` - List document collections
+- `GET /storage-status` - Get storage configuration status
+
+### Voice Agent Web
+
+- `GET /` - Web interface
+- WebSocket: `/ws/{user_id}` - Real-time voice/text interaction
 
 ## Architecture
 
@@ -220,4 +233,52 @@ disk:
   sizeGB: 10
 ```
 
-And update the `STORAGE_PATH` environment variable to `/data/user_data`. 
+And update the `STORAGE_PATH` environment variable to `/data/user_data`.
+
+## Google Cloud Storage Setup
+
+To use Google Cloud Storage for production:
+
+1. **Create a GCP Project** (if you don't have one already):
+   - Go to [GCP Console](https://console.cloud.google.com/)
+   - Click on "New Project" and follow the instructions
+
+2. **Create a Storage Bucket**:
+   - Navigate to Cloud Storage > Buckets
+   - Click "Create Bucket"
+   - Choose a unique name
+   - Select region and settings
+   - Click "Create"
+
+3. **Create Service Account**:
+   - Go to IAM & Admin > Service Accounts
+   - Click "Create Service Account"
+   - Name your service account
+   - Assign the "Storage Admin" role
+   - Click "Create"
+
+4. **Generate Service Account Key**:
+   - Find your service account in the list
+   - Click the three dots menu > "Manage keys"
+   - Add new key > Create new key
+   - Select JSON format
+   - Save the JSON file securely
+
+## Local Testing with GCS
+
+To test GCS integration locally:
+
+1. Set `USE_GCS=true` in your `.env` file
+2. Set `GCS_BUCKET_NAME` to your bucket name
+3. Either:
+   - Set `GOOGLE_APPLICATION_CREDENTIALS` to the path of your JSON key file, or
+   - Set `GCS_CREDENTIALS_JSON` with the contents of your JSON key file
+
+## Architecture Notes
+
+The system is designed to work with both local file storage and Google Cloud Storage:
+
+- In local development, files are stored in the `STORAGE_PATH` directory
+- In production, files are stored in Google Cloud Storage, with local disk used only as a temporary cache
+
+The system automatically handles the transition between storage types based on the `USE_GCS` environment variable. 

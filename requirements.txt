@@ -1,15 +1,17 @@
 # Core dependencies
-fastapi>=0.104.0
-uvicorn>=0.23.2
-python-dotenv>=1.0.0
-python-multipart>=0.0.6
-pydantic>=2.8.0
+fastapi==0.109.2
+uvicorn==0.27.0
+httpx==0.26.0
+python-dotenv==1.0.0
+python-multipart==0.0.7
+pydantic==2.5.3
 requests>=2.31.0
 
 # LlamaIndex and embeddings
-llama-index-core>=0.12.0
-llama-index-embeddings-openai>=0.3.1
-llama-index-llms-openai>=0.3.1
+llama-index==0.10.16
+llama-index-vector-stores-postgres==0.1.4
+llama-index-embeddings-openai==0.1.5
+llama-index-llms-openai==0.1.5
 llama-index-readers-file>=0.1.6
 
 # LiveKit integration
@@ -21,7 +23,10 @@ livekit-plugins-cartesia>=1.0.13
 livekit-plugins-silero>=1.0.13
 
 # OpenAI
-openai>=1.1.0
+openai==1.12.0
+
+# Google Cloud Storage
+google-cloud-storage==2.13.0
 
 # Other utilities
 tqdm>=4.66.1
@@ -29,3 +34,11 @@ loguru>=0.7.0
 
 # HTTP client
 aiohttp>=3.8.0
+
+# Additional dependencies
+psycopg2-binary==2.9.9
+tiktoken==0.5.2
+lxml==4.9.4
+beautifulsoup4==4.12.2
+opencv-python-headless==4.9.0.80
+pymupdf==1.23.7

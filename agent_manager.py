@@ -218,8 +218,8 @@ async def start_agent(request: AgentRequest):
         else:
             # Unix-specific: Use preexec_fn to create a new process group
             kwargs["preexec_fn"] = os.setpgrp if hasattr(os, 'setpgrp') else None
-        
-        # Start the process
+    
+    # Start the process
         process = subprocess.Popen([sys.executable, agent_script], **kwargs)
         
         # Wait a moment to make sure PID file is created
@@ -261,8 +261,8 @@ async def stop_agent(user_id: str):
     
     try:
         # Try to read PID from file
-        pid_file = agent_info.get("pid_file")
-        if pid_file and os.path.exists(pid_file):
+            pid_file = agent_info.get("pid_file")
+            if pid_file and os.path.exists(pid_file):
             try:
                 with open(pid_file, 'r') as f:
                     pid = int(f.read().strip())
@@ -285,7 +285,7 @@ async def stop_agent(user_id: str):
                     logger.info(f"Killing process {proc.pid} with cmdline: {cmdline[:50]}...")
                     try:
                         kill_process_tree(proc.pid)
-                    except Exception as e:
+                        except Exception as e:
                         logger.warning(f"Error killing process {proc.pid}: {str(e)}")
             except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
                 pass

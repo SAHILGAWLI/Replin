@@ -39,4 +39,59 @@ services:
       - key: LIVEKIT_API_SECRET
         sync: false
       - key: SIP_TRUNK_ID
-        sync: false 
+        sync: false
+
+  - type: web
+    name: voice-agent-document-api
+    env: python
+    plan: free
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn document_upload:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: PORT
+        value: 10000
+      - key: STORAGE_PATH
+        value: /data/user_data
+      - key: USE_GCS
+        value: true
+      - key: GCS_BUCKET_NAME
+        sync: false
+      - key: GCS_CREDENTIALS_JSON
+        sync: false
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
+
+  - type: web
+    name: voice-agent-web
+    env: python
+    plan: free
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn WebVoiceAgent:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: PORT
+        value: 10001
+      - key: STORAGE_PATH
+        value: /data/user_data
+      - key: DOCUMENT_API_URL
+        fromService:
+          type: web
+          name: voice-agent-document-api
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: USE_GCS
+        value: true
+      - key: GCS_BUCKET_NAME
+        sync: false
+      - key: GCS_CREDENTIALS_JSON
+        sync: false
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1 
