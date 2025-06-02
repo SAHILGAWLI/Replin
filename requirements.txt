@@ -39,6 +39,6 @@ aiohttp>=3.8.0
 psycopg2-binary==2.9.9
 tiktoken==0.5.2
 lxml==4.9.4
-beautifulsoup4==4.12.2
+beautifulsoup4>=4.12.3
 opencv-python-headless==4.9.0.80
 pymupdf==1.23.7
