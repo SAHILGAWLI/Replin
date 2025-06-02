@@ -119,4 +119,85 @@ You can customize the system by:
 
 ## License
 
-MIT 
+MIT
+
+## Deployment to Render
+
+### Prerequisites
+
+1. A [Render](https://render.com/) account
+2. OpenAI API key
+3. LiveKit credentials (if using voice features)
+
+### Deployment Steps
+
+1. **Fork or clone this repository to your GitHub account**
+
+2. **Log in to Render**
+   - Go to https://dashboard.render.com/
+   - Sign in or create an account
+
+3. **Deploy using the render.yaml blueprint**
+   - Click "New" > "Blueprint"
+   - Connect your GitHub repository
+   - Follow the prompts to deploy all services
+
+4. **Alternative: Manual Deployment**
+
+   If you prefer to deploy manually:
+
+   a. **Deploy Document Upload API**
+      - Click "New" > "Web Service"
+      - Connect your GitHub repository
+      - Configure as follows:
+        - Name: `document-upload-api`
+        - Environment: Python
+        - Build Command: `pip install -r requirements.txt`
+        - Start Command: `uvicorn document_upload:app --host 0.0.0.0 --port $PORT`
+      - Add environment variables:
+        - `OPENAI_API_KEY`: Your OpenAI API key
+        - `STORAGE_PATH`: `/data/user_data`
+      - Add a disk:
+        - Name: `user-data`
+        - Mount Path: `/data`
+        - Size: 10 GB
+
+   b. **Deploy Agent Manager**
+      - Click "New" > "Web Service"
+      - Connect your GitHub repository
+      - Configure as follows:
+        - Name: `agent-manager`
+        - Environment: Python
+        - Build Command: `pip install -r requirements.txt`
+        - Start Command: `uvicorn agent_manager:app --host 0.0.0.0 --port $PORT`
+      - Add environment variables:
+        - `STORAGE_PATH`: `/data/user_data`
+        - `LIVEKIT_URL`: Your LiveKit URL
+        - `LIVEKIT_API_KEY`: Your LiveKit API key
+        - `LIVEKIT_API_SECRET`: Your LiveKit API secret
+        - `SIP_TRUNK_ID`: Your SIP trunk ID (if using outbound calling)
+      - Add a disk:
+        - Name: `user-data`
+        - Mount Path: `/data`
+        - Size: 10 GB
+
+5. **Verify Deployment**
+   - Test document uploads at `https://document-upload-api.onrender.com/docs`
+   - Test agent management at `https://agent-manager.onrender.com/docs`
+
+## Local Development
+
+To run the application locally:
+
+```bash
+# Start document upload API
+uvicorn document_upload:app --host 0.0.0.0 --port 8000
+
+# Start agent manager
+uvicorn agent_manager:app --host 0.0.0.0 --port 8001
+```
+
+## API Documentation
+
+- Document Upload API: `/docs` endpoint
+- Agent Manager API: `/docs` endpoint 

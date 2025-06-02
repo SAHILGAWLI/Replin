@@ -8,6 +8,8 @@ import random
 import string
 import signal
 import psutil
+import platform
+import sys
 from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -17,6 +19,10 @@ from pydantic import BaseModel
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("agent-manager")
+
+# Detect operating system
+IS_WINDOWS = platform.system() == "Windows"
+logger.info(f"Detected platform: {platform.system()}")
 
 app = FastAPI(title="Voice Agent Manager")
 
@@ -46,32 +52,116 @@ def generate_agent_id():
     """Generate a unique agent ID for tracking"""
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
 
-def create_killswitch(agent_id, user_id):
-    """Create a killswitch batch file for the agent"""
-    killswitch = os.path.join(AGENT_TRACKING_DIR, f"kill_{agent_id}.bat")
-    with open(killswitch, "w") as f:
-        f.write(f"@echo off\n")
-        f.write(f"echo Terminating agent {agent_id} for user {user_id}...\n")
+def create_agent_script(agent_id, user_id, agent_type, collection_name=None, phone_number=None, port=None):
+    """Create a platform-independent script to run the agent"""
+    script_path = os.path.join(AGENT_TRACKING_DIR, f"agent_{agent_id}.py")
+    
+    with open(script_path, "w") as f:
+        f.write("#!/usr/bin/env python3\n")
+        f.write("import os\n")
+        f.write("import sys\n")
+        f.write("import subprocess\n")
+        f.write("import signal\n")
+        f.write("import time\n\n")
         
-        # Try multiple termination strategies
-        # 1. PowerShell direct window closing (most reliable)
-        f.write(f"powershell -Command \"Get-Process | Where-Object {{$_.MainWindowTitle -like '*{agent_id}*'}} | ForEach-Object {{$_.CloseMainWindow()}} | Out-Null\"\n")
+        # Create the PID file
+        pid_file = os.path.join(AGENT_TRACKING_DIR, f"agent_{agent_id}.pid")
+        f.write(f"# Write PID to file\n")
+        f.write(f"with open(r'{pid_file}', 'w') as pid_file:\n")
+        f.write(f"    pid_file.write(str(os.getpid()))\n\n")
         
-        # 2. Try taskkill with various filters
-        f.write(f"taskkill /F /FI \"WINDOWTITLE eq Agent-{agent_id}*\" /T\n")
-        f.write(f"taskkill /F /FI \"WINDOWTITLE eq *{agent_id}*\" /T\n")
-        f.write(f"taskkill /F /FI \"IMAGENAME eq python.exe\" /FI \"COMMANDLINE eq *{agent_id}*\" /T\n")
-        f.write(f"taskkill /F /FI \"IMAGENAME eq cmd.exe\" /FI \"WINDOWTITLE eq *{agent_id}*\" /T\n")
+        # Set environment variables
+        f.write(f"# Set environment variables\n")
+        f.write(f"os.environ['USER_AGENT_USER_ID'] = '{user_id}'\n")
+        if collection_name:
+            f.write(f"os.environ['USER_AGENT_COLLECTION'] = '{collection_name}'\n")
+        if phone_number:
+            f.write(f"os.environ['USER_AGENT_PHONE'] = '{phone_number}'\n")
+        if port:
+            f.write(f"os.environ['USER_AGENT_PORT'] = '{port}'\n")
         
-        # 3. Kill cmd.exe processes more aggressively
-        f.write(f"wmic process where \"name='cmd.exe' and commandline like '%{agent_id}%'\" call terminate\n")
+        # Determine which script to run
+        script_name = "web-agent-run.py" if agent_type == "voice" else "run_agent.py"
         
-        # Clean up files
-        f.write(f"del \"{os.path.join(AGENT_TRACKING_DIR, f'agent_{agent_id}.pid')}\" 2>nul\n")
-        f.write(f"del \"{os.path.join(AGENT_TRACKING_DIR, f'agent_{agent_id}.bat')}\" 2>nul\n")
-        f.write(f"echo Agent terminated.\n")
-        f.write(f"del \"%~f0\"\n")  # Self-delete
-    return killswitch
+        # Build and execute the command
+        f.write(f"\n# Build and run the command\n")
+        f.write(f"cmd = [sys.executable, '{script_name}'")
+        f.write(f", '--user', '{user_id}'")
+        if collection_name:
+            f.write(f", '--collection', '{collection_name}'")
+        if phone_number:
+            f.write(f", '--phone', '{phone_number}'")
+        if port:
+            f.write(f", '--port', '{port}'")
+        f.write(f"]\n\n")
+        
+        # Handle signals for clean shutdown
+        f.write("def handle_signal(signum, frame):\n")
+        f.write("    print(f'Received signal {signum}, shutting down agent')\n")
+        f.write("    if 'process' in globals() and process:\n")
+        f.write("        process.terminate()\n")
+        f.write(f"    if os.path.exists(r'{pid_file}'):\n")
+        f.write(f"        os.remove(r'{pid_file}')\n")
+        f.write("    sys.exit(0)\n\n")
+        
+        f.write("signal.signal(signal.SIGTERM, handle_signal)\n")
+        f.write("signal.signal(signal.SIGINT, handle_signal)\n\n")
+        
+        # Run the process
+        f.write("try:\n")
+        f.write("    process = subprocess.Popen(cmd)\n")
+        f.write("    process.wait()\n")
+        f.write("except Exception as e:\n")
+        f.write("    print(f'Error running agent: {str(e)}')\n")
+        f.write("finally:\n")
+        f.write(f"    if os.path.exists(r'{pid_file}'):\n")
+        f.write(f"        os.remove(r'{pid_file}')\n")
+    
+    # Make script executable on Unix systems
+    if not IS_WINDOWS:
+        try:
+            os.chmod(script_path, 0o755)
+        except Exception as e:
+            logger.warning(f"Could not make script executable: {str(e)}")
+    
+    return script_path
+
+def kill_process_tree(pid):
+    """Kill a process and all its children in a platform-independent way"""
+    try:
+        parent = psutil.Process(pid)
+        children = parent.children(recursive=True)
+        
+        # First try to terminate children gracefully
+        for child in children:
+            try:
+                child.terminate()
+            except:
+                pass
+        
+        # Wait for children to terminate
+        _, still_alive = psutil.wait_procs(children, timeout=1)
+        
+        # Force kill any remaining children
+        for child in still_alive:
+            try:
+                child.kill()
+            except:
+                pass
+        
+        # Terminate parent
+        parent.terminate()
+        parent.wait(timeout=1)
+        
+        # Force kill if still alive
+        if parent.is_running():
+            parent.kill()
+            parent.wait(timeout=1)
+            
+    except psutil.NoSuchProcess:
+        pass  # Process already gone
+    except Exception as e:
+        logger.warning(f"Error killing process tree: {str(e)}")
 
 @app.post("/start-agent")
 async def start_agent(request: AgentRequest):
@@ -93,66 +183,44 @@ async def start_agent(request: AgentRequest):
     base_port = 9000
     agent_port = base_port + (hash(user_id) % 1000)  # Port between 9000-9999
     
-    # Choose script based on agent type
-    script = "web-agent-run.py" if request.agent_type == "voice" else "run_agent.py"
-    
-    # Create marker files
+    # Create PID file path
     pid_file = os.path.join(AGENT_TRACKING_DIR, f"agent_{agent_id}.pid")
     
-    # Create a wrapped Python script to run the agent
-    # This ensures the process can be cleanly terminated
-    wrapper_script = os.path.join(AGENT_TRACKING_DIR, f"wrapper_{agent_id}.py")
-    with open(wrapper_script, "w") as f:
-        f.write("import sys\n")
-        f.write("import os\n")
-        f.write("import subprocess\n")
-        f.write("import time\n\n")
-        
-        # Create the PID file
-        f.write(f"with open(r'{pid_file}', 'w') as pid_file:\n")
-        f.write(f"    pid_file.write(str(os.getpid()))\n\n")
-        
-        # Build the command
-        f.write(f"cmd = [sys.executable, '{script}', '--user', '{user_id}'")
-        if request.collection_name:
-            f.write(f", '--collection', '{request.collection_name}'")
-        if request.phone_number:
-            f.write(f", '--phone', '{request.phone_number}'")
-        f.write(f", '--port', '{agent_port}']\n\n")
-        
-        # Run the command
-        f.write("try:\n")
-        f.write("    process = subprocess.Popen(cmd)\n")
-        f.write("    process.wait()\n")
-        f.write("finally:\n")
-        f.write(f"    if os.path.exists(r'{pid_file}'):\n")
-        f.write(f"        os.remove(r'{pid_file}')\n")
+    # Create agent script
+    agent_script = create_agent_script(
+        agent_id=agent_id,
+        user_id=user_id,
+        agent_type=request.agent_type,
+        collection_name=request.collection_name,
+        phone_number=request.phone_number,
+        port=agent_port
+    )
     
-    # Create the batch file to run this specific agent
-    batch_file = os.path.join(AGENT_TRACKING_DIR, f"agent_{agent_id}.bat")
-    with open(batch_file, "w") as f:
-        f.write(f"@echo off\n")
-        f.write(f"title Agent-{agent_id}-{user_id}\n")  # Set window title for identification
-        f.write(f"echo Agent ID: {agent_id}\n")
-        f.write(f"echo User ID: {user_id}\n")
-        f.write(f"echo Port: {agent_port}\n")
-        # Use start /b to run the python script without creating a new window
-        f.write(f"start /b python \"{wrapper_script}\"\n")
-        # Self-delete this batch file after starting the agent
-        f.write(f"(goto) 2>nul & del \"%~f0\"\n")
-    
-    # Create killswitch file
-    killswitch = create_killswitch(agent_id, user_id)
-    
-    # Start the process
+    # Start the process in a platform-independent way
     try:
-        # Start the batch file in a new cmd window
-        # Use /c instead of /k to make the cmd window close after script execution
-        subprocess.Popen(
-            ["cmd", "/c", batch_file],
-            shell=True,
-            creationflags=subprocess.CREATE_NEW_CONSOLE
-        )
+        # Platform-specific process creation that works for both Windows and Linux
+        kwargs = {}
+        
+        # Common settings
+        kwargs["stdout"] = subprocess.DEVNULL
+        kwargs["stderr"] = subprocess.DEVNULL
+        
+        # Platform-specific settings
+        if IS_WINDOWS:
+            # Windows-specific: Use subprocess flags that work on Windows
+            # Import only on Windows to avoid errors on Linux
+            try:
+                from subprocess import CREATE_NEW_PROCESS_GROUP
+                kwargs["creationflags"] = CREATE_NEW_PROCESS_GROUP
+            except ImportError:
+                # Fall back if import fails
+                kwargs["creationflags"] = 0x00000200  # Value of CREATE_NEW_PROCESS_GROUP
+        else:
+            # Unix-specific: Use preexec_fn to create a new process group
+            kwargs["preexec_fn"] = os.setpgrp if hasattr(os, 'setpgrp') else None
+        
+        # Start the process
+        process = subprocess.Popen([sys.executable, agent_script], **kwargs)
         
         # Wait a moment to make sure PID file is created
         await asyncio.sleep(1)
@@ -160,10 +228,8 @@ async def start_agent(request: AgentRequest):
         # Store agent info
         running_agents[user_id] = {
             "agent_id": agent_id,
-            "batch_file": batch_file,
-            "wrapper_script": wrapper_script,
+            "script": agent_script,
             "pid_file": pid_file,
-            "killswitch": killswitch,
             "started_at": time.time(),
             "agent_type": request.agent_type,
             "port": agent_port
@@ -174,7 +240,7 @@ async def start_agent(request: AgentRequest):
     
     except Exception as e:
         # Clean up files if there was an error
-        for file in [batch_file, pid_file, killswitch, wrapper_script]:
+        for file in [agent_script, pid_file]:
             if os.path.exists(file):
                 try:
                     os.remove(file)
@@ -194,155 +260,38 @@ async def stop_agent(user_id: str):
     agent_id = agent_info["agent_id"]
     
     try:
-        # Get current process ID to exclude from termination
-        current_pid = os.getpid()
+        # Try to read PID from file
+        pid_file = agent_info.get("pid_file")
+        if pid_file and os.path.exists(pid_file):
+            try:
+                with open(pid_file, 'r') as f:
+                    pid = int(f.read().strip())
+                
+                # Try to terminate the process using platform-independent method
+                logger.info(f"Terminating process {pid} for user {user_id}")
+                try:
+                    # Use our custom function that works on any platform
+                    kill_process_tree(pid)
+                except Exception as e:
+                    logger.warning(f"Error terminating process {pid}: {str(e)}")
+            except Exception as e:
+                logger.warning(f"Error reading PID from file: {str(e)}")
         
-        # Create a special script that will kill ALL agent processes - with error handling
-        kill_script = os.path.join(AGENT_TRACKING_DIR, f"kill_{agent_id}.bat")
-        with open(kill_script, "w") as f:
-            f.write("@echo off\n")
-            f.write("setlocal enabledelayedexpansion\n")  # Enable better variable handling
-            f.write(f"echo KILL SCRIPT FOR AGENT {agent_id}\n")
-            f.write(f"echo Current server PID: {current_pid} (will be protected)\n")
-            
-            # Direct taskkill on PID file if it exists
-            f.write("echo Checking PID file...\n")
-            pid_file = agent_info.get("pid_file")
-            if pid_file and os.path.exists(pid_file):
-                f.write(f"if exist \"{pid_file}\" (\n")
-                f.write(f"  for /f \"tokens=*\" %%p in ('type \"{pid_file}\"') do (\n")
-                f.write("    echo Found PID: %%p\n")
-                f.write("    taskkill /F /PID %%p /T 2>nul\n")
-                f.write("    if !errorlevel! equ 0 (\n")
-                f.write("      echo Successfully killed process %%p\n")
-                f.write("    ) else (\n")
-                f.write("      echo Failed to kill process %%p, error !errorlevel!\n")
-                f.write("    )\n")
-                f.write("  )\n")
-                f.write(")\n\n")
-            
-            # Kill by process name and command line content - but skip server processes
-            script_types = ["user_agent.py", "run_agent.py", "web-agent-run.py", "web-user.py"]
-            for script_type in script_types:
-                f.write(f"echo Killing {script_type} processes...\n")
-                # Exclude server processes on ports 8000 and 8001, and exclude the current PID
-                f.write(f"for /f \"usebackq tokens=1\" %%p in (`wmic process where \"name='python.exe' and commandline like '%{script_type}%' and not commandline like '%--port 8000%' and not commandline like '%--port 8001%'\" get processid /format:value ^| find \"ProcessId\"`) do (\n")
-                f.write("  set pline=%%p\n")
-                f.write("  set pid=!pline:ProcessId=!\n")
-                f.write("  if not \"!pid!\" == \"\"{current_pid}\" (\n")
-                f.write("    echo Killing !pid! running {}\n".format(script_type))
-                f.write("    taskkill /F /PID !pid! /T 2>nul\n")
-                f.write("    if !errorlevel! equ 0 (\n")
-                f.write("      echo Successfully killed !pid!\n")
-                f.write("    ) else (\n")
-                f.write("      echo Failed to kill !pid!, error !errorlevel!\n")
-                f.write("    )\n")
-                f.write("  ) else (\n")
-                f.write("    echo Skipping server process !pid!\n")
-                f.write("  )\n")
-                f.write(")\n\n")
-            
-            # Specifically target agent-related processes only
-            if agent_id:
-                f.write(f"echo Killing processes with agent ID {agent_id}...\n")
-                f.write(f"for /f \"usebackq tokens=1\" %%p in (`wmic process where \"name='python.exe' and commandline like '%{agent_id}%' and not commandline like '%--port 8000%' and not commandline like '%--port 8001%'\" get processid /format:value ^| find \"ProcessId\"`) do (\n")
-                f.write("  set pline=%%p\n")
-                f.write("  set pid=!pline:ProcessId=!\n")
-                f.write("  if not \"!pid!\" == \"\"{current_pid}\" (\n")
-                f.write("    echo Killing agent ID process: !pid!\n")
-                f.write("    taskkill /F /PID !pid! /T 2>nul\n")
-                f.write("    if !errorlevel! equ 0 (\n")
-                f.write("      echo Successfully killed !pid!\n")
-                f.write("    ) else (\n")
-                f.write("      echo Failed to kill !pid!, error !errorlevel!\n")
-                f.write("    )\n")
-                f.write("  ) else (\n")
-                f.write("    echo Skipping server process !pid!\n")
-                f.write("  )\n")
-                f.write(")\n\n")
-            
-            # Target processes by user ID, but protect servers
-            f.write(f"echo Killing processes with user ID {user_id}...\n")
-            f.write(f"for /f \"usebackq tokens=1\" %%p in (`wmic process where \"name='python.exe' and commandline like '%{user_id}%' and not commandline like '%--port 8000%' and not commandline like '%--port 8001%'\" get processid /format:value ^| find \"ProcessId\"`) do (\n")
-            f.write("  set pline=%%p\n")
-            f.write("  set pid=!pline:ProcessId=!\n")
-            f.write("  if not \"!pid!\" == \"\"{current_pid}\" (\n")
-            f.write("    echo Killing user ID process: !pid!\n")
-            f.write("    taskkill /F /PID !pid! /T 2>nul\n")
-            f.write("    if !errorlevel! equ 0 (\n")
-            f.write("      echo Successfully killed !pid!\n")
-            f.write("    ) else (\n")
-            f.write("      echo Failed to kill !pid!, error !errorlevel!\n")
-            f.write("    )\n")
-            f.write("  ) else (\n")
-            f.write("    echo Skipping server process !pid!\n")
-            f.write("  )\n")
-            f.write(")\n\n")
-            
-            # Kill by window title - simpler approach
-            f.write(f"echo Killing CMD windows with agent ID {agent_id}...\n")
-            f.write(f"taskkill /F /FI \"WINDOWTITLE eq *{agent_id}*\" /T\n")
-            f.write("if %errorlevel% equ 0 (\n")
-            f.write("  echo Successfully killed processes by window title\n")
-            f.write(") else (\n")
-            f.write("  echo No processes found by window title, or error %errorlevel%\n")
-            f.write(")\n\n")
-            
-            # Clean up files
-            f.write("echo Cleaning up files...\n")
-            for file_key in ["pid_file", "wrapper_script"]:
-                if file_key in agent_info:
-                    file_path = agent_info[file_key]
-                    if file_path and os.path.exists(file_path):
-                        f.write(f"if exist \"{file_path}\" del \"{file_path}\" 2>nul\n")
-            
-            f.write("echo Agent termination complete.\n")
-            f.write("timeout /t 2\n")
-            f.write("del \"%~f0\"\n")  # Self-delete
+        # Clean up any running processes by agent ID or user ID (platform independent)
+        for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
+            try:
+                cmdline = ' '.join(proc.cmdline() if proc.cmdline() else [])
+                if (agent_id in cmdline or user_id in cmdline) and 'agent_manager' not in cmdline:
+                    logger.info(f"Killing process {proc.pid} with cmdline: {cmdline[:50]}...")
+                    try:
+                        kill_process_tree(proc.pid)
+                    except Exception as e:
+                        logger.warning(f"Error killing process {proc.pid}: {str(e)}")
+            except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+                pass
         
-        # Execute the kill script with explicit logging
-        logger.info(f"Executing kill script for agent {agent_id} (user {user_id})")
-        
-        # Run the script and capture output
-        process = subprocess.Popen(
-            kill_script,
-            shell=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True
-        )
-        
-        # Wait a bit for script to run
-        try:
-            stdout, stderr = process.communicate(timeout=10)
-            logger.info(f"Kill script output: {stdout}")
-            if stderr:
-                logger.error(f"Kill script errors: {stderr}")
-        except subprocess.TimeoutExpired:
-            logger.warning("Kill script timed out")
-            process.kill()
-        
-        # Final cleanup - direct process termination as backup
-        try:
-            # More selective taskkill for agent-specific processes only
-            # Explicitly exclude server ports 8000 and 8001
-            agent_port = agent_info.get("port", 0)
-            cmd = f"wmic process where \"name='python.exe' and commandline like '%--port {agent_port}%'\" get processid /format:value | find \"ProcessId\""
-            result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-            for line in result.stdout.splitlines():
-                if "ProcessId" in line:
-                    pid = line.replace("ProcessId=", "").strip()
-                    if pid and pid != str(current_pid):
-                        try:
-                            subprocess.run(f"taskkill /F /PID {pid} /T", shell=True, check=False)
-                            logger.info(f"Terminated agent process: {pid}")
-                        except Exception as e:
-                            logger.warning(f"Failed to terminate process {pid}: {str(e)}")
-        except Exception as e:
-            logger.warning(f"Error in final termination: {str(e)}")
-        
-        # Clean up any remaining tracking files
-        for file_key in ["batch_file", "pid_file", "wrapper_script"]:
+        # Clean up files
+        for file_key in ["script", "pid_file"]:
             if file_key in agent_info and agent_info[file_key] and os.path.exists(agent_info[file_key]):
                 try:
                     os.remove(agent_info[file_key])
@@ -367,7 +316,7 @@ async def list_agents():
         if pid_file and not os.path.exists(pid_file):
             # PID file is gone, agent is no longer running
             logger.info(f"Removing stale agent entry for user {user_id}")
-            for file_key in ["batch_file", "wrapper_script"]:
+            for file_key in ["script"]:
                 if file_key in running_agents[user_id] and running_agents[user_id][file_key] and os.path.exists(running_agents[user_id][file_key]):
                     try:
                         os.remove(running_agents[user_id][file_key])
@@ -399,7 +348,7 @@ async def cleanup_stale_agents():
                 pid_file = running_agents[user_id].get("pid_file")
                 if pid_file and not os.path.exists(pid_file):
                     logger.info(f"Cleaning up stale agent for user {user_id}")
-                    for file_key in ["batch_file", "wrapper_script"]:
+                    for file_key in ["script"]:
                         if file_key in running_agents[user_id] and running_agents[user_id][file_key] and os.path.exists(running_agents[user_id][file_key]):
                             try:
                                 os.remove(running_agents[user_id][file_key])
@@ -437,4 +386,6 @@ if __name__ == "__main__":
     loop.create_task(cleanup_stale_agents())
     
     # Start API server
-    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8001))) 
+    port = int(os.environ.get("PORT", 8001))
+    logger.info(f"Starting agent manager on port {port}")
+    uvicorn.run(app, host="0.0.0.0", port=port) 
