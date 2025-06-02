@@ -23,10 +23,6 @@ livekit-plugins-silero>=1.0.13
 # OpenAI
 openai>=1.1.0
 
-# Audio processing (for voice agents)
-pyaudio>=0.2.14
-soundfile>=0.13.1
-
 # Other utilities
 tqdm>=4.66.1
 loguru>=0.7.0
