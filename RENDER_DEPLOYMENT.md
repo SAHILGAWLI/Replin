@@ -39,6 +39,8 @@ git push
 6. Confirm and proceed with the deployment
 7. When prompted, enter your environment variables:
    - `OPENAI_API_KEY`: Your OpenAI API key
+   - `DEEPGRAM_API_KEY`: Your Deepgram API key for speech recognition
+   - `CARTESIA_API_KEY`: Your Cartesia API key for text-to-speech
    - `LIVEKIT_URL`: Your LiveKit URL
    - `LIVEKIT_API_KEY`: Your LiveKit API key
    - `LIVEKIT_API_SECRET`: Your LiveKit API secret
@@ -60,6 +62,8 @@ If Blueprint deployment doesn't work for any reason, you can deploy the services
    - Start Command: `uvicorn document_upload:app --host 0.0.0.0 --port $PORT`
 4. Add environment variables:
    - `OPENAI_API_KEY`: Your OpenAI API key
+   - `DEEPGRAM_API_KEY`: Your Deepgram API key for speech recognition
+   - `CARTESIA_API_KEY`: Your Cartesia API key for text-to-speech
    - `STORAGE_PATH`: `/data/user_data`
 5. Add a disk:
    - Name: `user-data`
@@ -78,6 +82,8 @@ If Blueprint deployment doesn't work for any reason, you can deploy the services
    - Start Command: `uvicorn agent_manager:app --host 0.0.0.0 --port $PORT`
 4. Add environment variables:
    - `STORAGE_PATH`: `/data/user_data`
+   - `DEEPGRAM_API_KEY`: Your Deepgram API key for speech recognition
+   - `CARTESIA_API_KEY`: Your Cartesia API key for text-to-speech
    - `LIVEKIT_URL`: Your LiveKit URL
    - `LIVEKIT_API_KEY`: Your LiveKit API key
    - `LIVEKIT_API_SECRET`: Your LiveKit API secret

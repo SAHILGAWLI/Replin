@@ -10,6 +10,10 @@ services:
         value: /data/user_data
       - key: OPENAI_API_KEY
         sync: false # This will prompt you to enter the value during deployment
+      - key: DEEPGRAM_API_KEY
+        sync: false # Required for speech recognition
+      - key: CARTESIA_API_KEY
+        sync: false # Required for text-to-speech
       - key: PYTHONUNBUFFERED
         value: "true"
     disk:
@@ -28,6 +32,10 @@ services:
         value: /data/user_data
       - key: PYTHONUNBUFFERED
         value: "true"
+      - key: DEEPGRAM_API_KEY
+        sync: false # Required for speech recognition
+      - key: CARTESIA_API_KEY
+        sync: false # Required for text-to-speech
       - key: LIVEKIT_URL
         sync: false
       - key: LIVEKIT_API_KEY

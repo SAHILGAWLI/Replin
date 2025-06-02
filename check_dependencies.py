@@ -33,6 +33,8 @@ REQUIRED_ENV_VARS = [
 # List of recommended environment variables
 RECOMMENDED_ENV_VARS = [
     "STORAGE_PATH",
+    "DEEPGRAM_API_KEY",
+    "CARTESIA_API_KEY",
     "LIVEKIT_URL",
     "LIVEKIT_API_KEY",
     "LIVEKIT_API_SECRET",
