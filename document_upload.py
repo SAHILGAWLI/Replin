@@ -5,6 +5,9 @@ import asyncio
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 
+os.environ["OPENAI_API_KEY"] = "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"
+
+
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -41,10 +44,18 @@ class UserConfig(BaseModel):
 
 app = FastAPI(title="Voice Agent Document Upload API")
 
-# Configure CORS
+# Define allowed origins
+allowed_origins = [
+    "https://replin.vercel.app",
+    "http://localhost:3000",
+    "https://quiet-colts-hammer.loca.lt",
+    "https://five-lines-burn.loca.lt",
+]
+
+# Add CORSMiddleware - THIS PLACEMENT IS CRITICAL
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Update this with your frontend URL in production
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

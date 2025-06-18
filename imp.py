@@ -8,7 +8,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from livekit import api, rtc
+from livekit_server_sdk import api, rtc
 from livekit.agents import (
     Agent,
     AgentSession,

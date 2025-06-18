@@ -3,6 +3,17 @@ import sys
 import argparse
 from dotenv import load_dotenv
 import subprocess
+import os
+
+os.environ["DEEPGRAM_API_KEY"] = "46dc27edd5a1de0dd3c652b9a6059649340ea5aa"
+os.environ["OPENAI_API_KEY"] = "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"
+os.environ["CARTESIA_API_KEY"] = "sk_car_xhtk8qBXANW8EajerEMSxn"
+
+os.environ["LIVEKIT_URL"] = "wss://best-xy0fdmnc.livekit.cloud"
+os.environ["LIVEKIT_API_KEY"] = "APIYm4aBpab8vTY"
+os.environ["LIVEKIT_API_SECRET"] = "wgEMadTahhxElFmAa6bMlQMullI83mbLeo8sqbchzFT"
+
+os.environ["SIP_TRUNK_ID"] = "ST_jgGFecEDULvV"  # Optional, leave blank if unused
 
 # Load environment variables
 load_dotenv()

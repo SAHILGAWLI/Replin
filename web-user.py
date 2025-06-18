@@ -3,13 +3,16 @@ import os
 import asyncio
 import re
 import json
+import ssl
 from dataclasses import dataclass
 from typing import Optional, Dict, Any
 from pathlib import Path
+import aiohttp
 
 from dotenv import load_dotenv
 
-from livekit import api, rtc
+from livekit import api
+from livekit import rtc
 from livekit.agents import (
     Agent,
     AgentSession,
@@ -297,6 +300,23 @@ async def entrypoint(ctx: JobContext):
     # Use global variables
     global GLOBAL_USER_ID, GLOBAL_COLLECTION_NAME, GLOBAL_PHONE_NUMBER, global_query_engine
     
+    # Create a custom SSL context that doesn't verify certificates
+    ssl_context = ssl.create_default_context()
+    ssl_context.check_hostname = False
+    ssl_context.verify_mode = ssl.CERT_NONE
+    
+    # Set this SSL context for aiohttp
+    os.environ["AIOHTTP_SSL_VERIFY"] = "0"
+    
+    # Monkey patch the aiohttp TCPConnector to disable SSL verification
+    original_init = aiohttp.TCPConnector.__init__
+    
+    def patched_init(self, *args, **kwargs):
+        kwargs['ssl'] = False
+        original_init(self, *args, **kwargs)
+    
+    aiohttp.TCPConnector.__init__ = patched_init
+    
     # Log the values to help debugging
     logger.info(f"User ID: {GLOBAL_USER_ID}")
     logger.info(f"Collection: {GLOBAL_COLLECTION_NAME}")
@@ -430,13 +450,6 @@ async def entrypoint(ctx: JobContext):
         raise
 
 if __name__ == "__main__":
-    # Initialize the default logging configuration
-    logging.basicConfig(level=logging.INFO)
-    
-    # Import json here to avoid circular import issues
-    import json
-    
-    # Run the app with the LiveKit CLI
     cli.run_app(WorkerOptions(
         entrypoint_fnc=entrypoint, 
         prewarm_fnc=prewarm,

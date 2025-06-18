@@ -69,7 +69,7 @@ python test_document_upload.py --user user123 config --prompt "You are a helpful
 For inbound calls:
 
 ```bash
-python user_agent.py --user user123
+python user_agent.py --user 100xEngineers
 ```
 
 With a specific collection:
@@ -91,7 +91,7 @@ python user_agent.py --user user123 --phone +1234567890
 - `POST /upload/{user_id}` - Upload documents
 - `POST /config/{user_id}` - Save agent configuration
 - `GET /collections/{user_id}` - List document collections
-
+ .\venv\Scripts\activate
 ## Architecture
 
 The system consists of these main components:
@@ -191,10 +191,23 @@ To run the application locally:
 
 ```bash
 # Start document upload API
+.\env\Scripts\activate 
+
 uvicorn document_upload:app --host 0.0.0.0 --port 8000
 
+cd C:\Users\Administrator\Downloads\loophole-cli_1.0.0-beta.15_windows_64bit\loophole-cli_1.0.0-beta.15_windows_64bit
+
+ .\loophole.exe http 8000
+
 # Start agent manager
+
+.\env\Scripts\activate 
+
 uvicorn agent_manager:app --host 0.0.0.0 --port 8001
+
+cd C:\Users\Administrator\Downloads\loophole-cli_1.0.0-beta.15_windows_64bit\loophole-cli_1.0.0-beta.15_windows_64bit
+
+.\loophole.exe http 8001
 ```
 
 ## API Documentation

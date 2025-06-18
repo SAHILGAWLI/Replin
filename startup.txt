@@ -17,6 +17,5 @@ python run_agent.py --user user1 (web)
 
     uvicorn document_upload:app --host 0.0.0.0 --port 8000
 
-uvicorn agent_manager:app --host 
-0.0.0.0 --port 8001
+uvicorn agent_manager:app --host 0.0.0.0 --port 8001
 
