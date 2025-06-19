@@ -1,0 +1,228 @@
+--- agent_runner.py: Initializing for user: shhaaag@gmail.com, using core script: web-user.py ---
+INFO (agent_runner.py): Successfully loaded configuration for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\config\agent_config.json
+INFO (agent_runner.py): Setting environment variables for user shhaaag@gmail.com...
+  SET USER_AGENT_USER_ID=shhaaag@gmail.com
+  INFO: USER_AGENT_COLLECTION not set (not found in user config).
+  INFO: USER_AGENT_PHONE not set (not found in user config).
+  SET OPENAI_API_KEY (from user config)
+  SET LIVEKIT_URL (from user config)
+  SET LIVEKIT_API_KEY (from user config)
+  SET LIVEKIT_API_SECRET (from user config)
+  SET DEEPGRAM_API_KEY (from user config)
+  SET CARTESIA_API_KEY (from user config)
+  SET SIP_TRUNK_ID (from user config)
+INFO (agent_runner.py): Environment variables set based on user 'shhaaag@gmail.com' configuration.
+INFO (agent_runner.py): Starting core agent script: C:\Users\User\Repnix\venv\Scripts\python.exe C:\Users\User\Repnix\web-user.py start
+--- agent_runner.py: Handing off to web-user.py for user shhaaag@gmail.com ---
+2025-06-19 07:44:44 - user-agent - [INFO] - web-user.py executed directly as __main__. User ID from ENV: shhaaag@gmail.com
+2025-06-19 07:44:44 - livekit.agents - [INFO] - starting worker
+{"message": "starting worker", "level": "INFO", "name": "livekit.agents", "version": "1.0.23", "rtc-version": "1.0.8", "timestamp": "2025-06-19T02:14:44.760227+00:00"}
+2025-06-19 07:44:44 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 2732, "timestamp": "2025-06-19T02:14:44.774983+00:00"}
+2025-06-19 07:44:44 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 13696, "timestamp": "2025-06-19T02:14:44.775872+00:00"}
+2025-06-19 07:44:44 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 2388, "timestamp": "2025-06-19T02:14:44.776455+00:00"}
+2025-06-19 07:44:44 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 15516, "timestamp": "2025-06-19T02:14:44.776915+00:00"}
+2025-06-19 07:44:44 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:44.777306+00:00"}
+2025-06-19 07:44:44 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:44.777677+00:00"}
+2025-06-19 07:44:44 - user-agent - [INFO] - Prewarming VAD model...
+2025-06-19 07:44:44 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:44.778123+00:00"}
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:44.778336+00:00"}
+2025-06-19 07:44:45 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:45.781835+00:00"}
+2025-06-19 07:44:45 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:45.788683+00:00"}
+2025-06-19 07:44:45 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:45.949691+00:00"}
+2025-06-19 07:44:45 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:45.954954+00:00"}
+2025-06-19 07:44:45 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 2388, "elapsed_time": 1.18, "timestamp": "2025-06-19T02:14:45.955951+00:00"}
+2025-06-19 07:44:45 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 15516, "elapsed_time": 1.18, "timestamp": "2025-06-19T02:14:45.957119+00:00"}
+2025-06-19 07:44:45 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 2732, "elapsed_time": 1.18, "timestamp": "2025-06-19T02:14:45.958104+00:00"}
+2025-06-19 07:44:45 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 13696, "elapsed_time": 1.18, "timestamp": "2025-06-19T02:14:45.958913+00:00"}
+2025-06-19 07:44:45 - livekit.agents - [INFO] - see tracing information at http://localhost:8081/debug
+{"message": "see tracing information at http://localhost:8081/debug", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:14:45.959914+00:00"}
+2025-06-19 07:44:46 - livekit.agents - [INFO] - registered worker
+{"message": "registered worker", "level": "INFO", "name": "livekit.agents", "id": "AW_4D32n3gZTR9b", "url": "wss://fgsdfg-92vkkxvz.livekit.cloud", "region": "Germany", "protocol": 16, "timestamp": "2025-06-19T02:14:46.785076+00:00"}
+2025-06-19 07:44:52 - livekit.agents - [INFO] - received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_qpQbtxpFo9Mi", "dispatch_id": "", "room_name": "sbx-1tv4rf-B59aE57oXb4AeoQFgCgWEx", "agent_name": "", "resuming": false, "timestamp": "2025-06-19T02:14:52.785031+00:00"}
+2025-06-19 07:44:52 - user-agent - [INFO] - Agent entrypoint started for job AJ_qpQbtxpFo9Mi, user_id: shhaaag@gmail.com
+{"message": "Agent entrypoint started for job AJ_qpQbtxpFo9Mi, user_id: shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:52.918691+00:00"}
+2025-06-19 07:44:52 - user-agent - [INFO] -   Collection from ENV: None
+{"message": "  Collection from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:52.918963+00:00"}
+2025-06-19 07:44:52 - user-agent - [INFO] -   Phone from ENV: None
+{"message": "  Phone from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:52.919155+00:00"}
+2025-06-19 07:44:52 - user-agent - [INFO] - Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}
+{"message": "Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:52.919906+00:00"}
+2025-06-19 07:44:52 - user-agent - [INFO] - No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:52.920214+00:00"}
+2025-06-19 07:44:52 - llama_index.core.indices.loading - [INFO] - Loading all indices.
+{"message": "Loading all indices.", "level": "INFO", "name": "llama_index.core.indices.loading", "timestamp": "2025-06-19T02:14:52.955740+00:00"}
+2025-06-19 07:44:52 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 13128, "timestamp": "2025-06-19T02:14:52.958668+00:00"}
+2025-06-19 07:44:52 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:52.959106+00:00"}
+2025-06-19 07:44:53 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:53.197723+00:00"}
+2025-06-19 07:44:53 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 13128, "elapsed_time": 0.24, "timestamp": "2025-06-19T02:14:53.199201+00:00"}
+2025-06-19 07:44:53 - user-agent - [INFO] - Successfully loaded index for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "Successfully loaded index for user shhaaag@gmail.com from user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:53.572539+00:00"}
+2025-06-19 07:44:53 - user-agent - [INFO] - Index loaded successfully for user shhaaag@gmail.com, collection 'None'.
+{"message": "Index loaded successfully for user shhaaag@gmail.com, collection 'None'.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:53.573039+00:00"}
+2025-06-19 07:44:53 - user-agent - [INFO] - Query engine initialized/updated successfully for this job.
+{"message": "Query engine initialized/updated successfully for this job.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:53.622138+00:00"}
+2025-06-19 07:44:55 - user-agent - [INFO] - Connected to LiveKit room: sbx-1tv4rf-B59aE57oXb4AeoQFgCgWEx for user shhaaag@gmail.com
+{"message": "Connected to LiveKit room: sbx-1tv4rf-B59aE57oXb4AeoQFgCgWEx for user shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:55.121382+00:00"}
+2025-06-19 07:44:55 - user-agent - [INFO] - Inbound/Web call mode for room sbx-1tv4rf-B59aE57oXb4AeoQFgCgWEx: Waiting for participants.
+{"message": "Inbound/Web call mode for room sbx-1tv4rf-B59aE57oXb4AeoQFgCgWEx: Waiting for participants.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:55.121696+00:00"}
+2025-06-19 07:44:55 - user-agent - [INFO] - Silero VAD loaded for session.
+{"message": "Silero VAD loaded for session.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:55.375123+00:00"}
+2025-06-19 07:44:55 - user-agent - [INFO] - SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'
+{"message": "SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:55.375378+00:00"}
+2025-06-19 07:44:56 - user-agent - [INFO] - Starting agent session processing for user shhaaag@gmail.com in room sbx-1tv4rf-B59aE57oXb4AeoQFgCgWEx...
+{"message": "Starting agent session processing for user shhaaag@gmail.com in room sbx-1tv4rf-B59aE57oXb4AeoQFgCgWEx...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:56.653510+00:00"}
+2025-06-19 07:44:56 - user-agent - [INFO] - Agent session processing finished for user shhaaag@gmail.com in room sbx-1tv4rf-B59aE57oXb4AeoQFgCgWEx.
+{"message": "Agent session processing finished for user shhaaag@gmail.com in room sbx-1tv4rf-B59aE57oXb4AeoQFgCgWEx.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:56.657925+00:00"}
+2025-06-19 07:44:56 - user-agent - [INFO] - Agent entrypoint cleanup for job AJ_qpQbtxpFo9Mi, user shhaaag@gmail.com.
+{"message": "Agent entrypoint cleanup for job AJ_qpQbtxpFo9Mi, user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:56.658264+00:00"}
+2025-06-19 07:44:56 - user-agent - [INFO] - Agent (ID: N/A) on_enter called for user shhaaag@gmail.com.
+{"message": "Agent (ID: N/A) on_enter called for user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:56.660390+00:00"}
+2025-06-19 07:44:57 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299297.6909215 idle_time=1.0308828999986872 inference_duration_total=0.03880870001739822 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299297.6909215 idle_time=1.0308828999986872 inference_duration_total=0.03880870001739822 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:57.691456+00:00"}
+2025-06-19 07:44:58 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299298.7114646 idle_time=2.0514305000033346 inference_duration_total=0.04640270001254976 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299298.7114646 idle_time=2.0514305000033346 inference_duration_total=0.04640270001254976 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:58.711724+00:00"}
+2025-06-19 07:44:58 - livekit.agents - [INFO] - TTS metrics: ttfb=0.3772384999974747, audio_duration=2.32
+{"message": "TTS metrics: ttfb=0.3772384999974747, audio_duration=2.32", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:14:58.816489+00:00"}
+2025-06-19 07:44:58 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='tts_metrics' label='livekit.plugins.cartesia.tts.TTS' request_id='61e3d57c0529' timestamp=1750299298.8159199 ttfb=0.3772384999974747 duration=1.5504625999965356 audio_duration=2.3219583333333342 cancelled=False characters_count=32 streamed=True speech_id='speech_d09e1941b757'
+{"message": "User shhaaag@gmail.com Metrics: type='tts_metrics' label='livekit.plugins.cartesia.tts.TTS' request_id='61e3d57c0529' timestamp=1750299298.8159199 ttfb=0.3772384999974747 duration=1.5504625999965356 audio_duration=2.3219583333333342 cancelled=False characters_count=32 streamed=True speech_id='speech_d09e1941b757'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:58.816770+00:00"}
+2025-06-19 07:44:59 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299299.7405348 idle_time=3.0805054000011296 inference_duration_total=0.04437389998201979 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299299.7405348 idle_time=3.0805054000011296 inference_duration_total=0.04437389998201979 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:14:59.740840+00:00"}
+2025-06-19 07:45:00 - user-agent - [INFO] - Agent N/A said greeting via on_enter.
+{"message": "Agent N/A said greeting via on_enter.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:00.492233+00:00"}
+2025-06-19 07:45:00 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299300.7597673 idle_time=4.099741700003506 inference_duration_total=0.04635459997371072 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299300.7597673 idle_time=4.099741700003506 inference_duration_total=0.04635459997371072 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:00.760133+00:00"}
+2025-06-19 07:45:01 - livekit.agents - [INFO] - STT metrics: audio_duration=5.00
+{"message": "STT metrics: audio_duration=5.00", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:15:01.689697+00:00"}
+2025-06-19 07:45:01 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='c9fb0d80-b4bb-4da3-bd92-69f09401cca3' timestamp=1750299301.6894045 duration=0.0 audio_duration=4.99999999999999 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='c9fb0d80-b4bb-4da3-bd92-69f09401cca3' timestamp=1750299301.6894045 duration=0.0 audio_duration=4.99999999999999 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:01.690149+00:00"}
+2025-06-19 07:45:01 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299301.7907403 idle_time=5.130719100001443 inference_duration_total=0.045893199981946964 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299301.7907403 idle_time=5.130719100001443 inference_duration_total=0.045893199981946964 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:01.791168+00:00"}
+2025-06-19 07:45:02 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299302.8110673 idle_time=6.1510507999992114 inference_duration_total=0.0517439000250306 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299302.8110673 idle_time=6.1510507999992114 inference_duration_total=0.0517439000250306 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:02.811407+00:00"}
+2025-06-19 07:45:03 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299303.832214 idle_time=7.172201599998516 inference_duration_total=0.05023620002612006 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299303.832214 idle_time=7.172201599998516 inference_duration_total=0.05023620002612006 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:03.832471+00:00"}
+2025-06-19 07:45:04 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299304.8599272 idle_time=0.7989213000037125 inference_duration_total=0.0428868999806582 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299304.8599272 idle_time=0.7989213000037125 inference_duration_total=0.0428868999806582 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:04.860155+00:00"}
+2025-06-19 07:45:05 - livekit.agents - [INFO] - EOU metrics: end_of_utterance_delay=0.58, transcription_delay=0.47
+{"message": "EOU metrics: end_of_utterance_delay=0.58, transcription_delay=0.47", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:15:05.531914+00:00"}
+2025-06-19 07:45:05 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='eou_metrics' timestamp=1750299305.531473 end_of_utterance_delay=0.5762174129486084 transcription_delay=0.4700734615325928 on_user_turn_completed_delay=1.9073486328125e-06 speech_id='speech_59ebf8524fd8'
+{"message": "User shhaaag@gmail.com Metrics: type='eou_metrics' timestamp=1750299305.531473 end_of_utterance_delay=0.5762174129486084 transcription_delay=0.4700734615325928 on_user_turn_completed_delay=1.9073486328125e-06 speech_id='speech_59ebf8524fd8'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:05.532361+00:00"}
+2025-06-19 07:45:05 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299305.970267 idle_time=0.43907300000137184 inference_duration_total=0.05762779998622136 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299305.970267 idle_time=0.43907300000137184 inference_duration_total=0.05762779998622136 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:05.970710+00:00"}
+2025-06-19 07:45:06 - livekit.agents - [INFO] - STT metrics: audio_duration=5.05
+{"message": "STT metrics: audio_duration=5.05", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:15:06.749926+00:00"}
+2025-06-19 07:45:06 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='c9fb0d80-b4bb-4da3-bd92-69f09401cca3' timestamp=1750299306.7495918 duration=0.0 audio_duration=5.04999999999999 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='c9fb0d80-b4bb-4da3-bd92-69f09401cca3' timestamp=1750299306.7495918 duration=0.0 audio_duration=5.04999999999999 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:06.750540+00:00"}
+2025-06-19 07:45:06 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299306.9106634 idle_time=1.3794731000016327 inference_duration_total=0.04962760001217248 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299306.9106634 idle_time=1.3794731000016327 inference_duration_total=0.04962760001217248 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:06.910922+00:00"}
+2025-06-19 07:45:07 - livekit.agents - [INFO] - LLM metrics: ttft=1.65, input_tokens=268,  cached_input_tokens=0, output_tokens=28, tokens_per_second=14.62
+{"message": "LLM metrics: ttft=1.65, input_tokens=268,  cached_input_tokens=0, output_tokens=28, tokens_per_second=14.62", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:15:07.450781+00:00"}
+2025-06-19 07:45:07 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='llm_metrics' label='livekit.plugins.openai.llm.LLM' request_id='chatcmpl-Bjz5uJfsyyyxdsI61PZCdui6k1SIz' timestamp=1750299307.4497726 duration=1.9158199000012246 ttft=1.6503050000028452 cancelled=False completion_tokens=28 prompt_tokens=268 prompt_cached_tokens=0 total_tokens=296 tokens_per_second=14.61515249945055 speech_id='speech_59ebf8524fd8'
+{"message": "User shhaaag@gmail.com Metrics: type='llm_metrics' label='livekit.plugins.openai.llm.LLM' request_id='chatcmpl-Bjz5uJfsyyyxdsI61PZCdui6k1SIz' timestamp=1750299307.4497726 duration=1.9158199000012246 ttft=1.6503050000028452 cancelled=False completion_tokens=28 prompt_tokens=268 prompt_cached_tokens=0 total_tokens=296 tokens_per_second=14.61515249945055 speech_id='speech_59ebf8524fd8'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:07.451167+00:00"}
+2025-06-19 07:45:07 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299307.930499 idle_time=2.3993131999959587 inference_duration_total=0.054813899980217684 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299307.930499 idle_time=2.3993131999959587 inference_duration_total=0.054813899980217684 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:07.930930+00:00"}
+2025-06-19 07:45:08 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299308.9552555 idle_time=3.424073900001531 inference_duration_total=0.042042200002470054 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299308.9552555 idle_time=3.424073900001531 inference_duration_total=0.042042200002470054 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:08.955498+00:00"}
+2025-06-19 07:45:09 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299309.9800289 idle_time=4.448851699999068 inference_duration_total=0.04511409998667659 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299309.9800289 idle_time=4.448851699999068 inference_duration_total=0.04511409998667659 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:09.980322+00:00"}
+2025-06-19 07:45:11 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299311.000029 idle_time=5.468856499996036 inference_duration_total=0.042783000018971507 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299311.000029 idle_time=5.468856499996036 inference_duration_total=0.042783000018971507 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:11.000414+00:00"}
+2025-06-19 07:45:11 - livekit.agents - [INFO] - TTS metrics: ttfb=0.39041310000175145, audio_duration=8.08
+{"message": "TTS metrics: ttfb=0.39041310000175145, audio_duration=8.08", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:15:11.518943+00:00"}
+2025-06-19 07:45:11 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='tts_metrics' label='livekit.plugins.cartesia.tts.TTS' request_id='c0de1062ed33' timestamp=1750299311.5185432 ttfb=0.39041310000175145 duration=4.332867299999634 audio_duration=8.080499999999988 cancelled=False characters_count=114 streamed=True speech_id='speech_59ebf8524fd8'
+{"message": "User shhaaag@gmail.com Metrics: type='tts_metrics' label='livekit.plugins.cartesia.tts.TTS' request_id='c0de1062ed33' timestamp=1750299311.5185432 ttfb=0.39041310000175145 duration=4.332867299999634 audio_duration=8.080499999999988 cancelled=False characters_count=114 streamed=True speech_id='speech_59ebf8524fd8'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:11.519323+00:00"}
+2025-06-19 07:45:11 - livekit.agents - [INFO] - STT metrics: audio_duration=5.05
+{"message": "STT metrics: audio_duration=5.05", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:15:11.769612+00:00"}
+2025-06-19 07:45:11 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='c9fb0d80-b4bb-4da3-bd92-69f09401cca3' timestamp=1750299311.769366 duration=0.0 audio_duration=5.04999999999999 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='c9fb0d80-b4bb-4da3-bd92-69f09401cca3' timestamp=1750299311.769366 duration=0.0 audio_duration=5.04999999999999 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:11.770001+00:00"}
+2025-06-19 07:45:12 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299312.030079 idle_time=6.498910599999363 inference_duration_total=0.04468139999517007 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299312.030079 idle_time=6.498910599999363 inference_duration_total=0.04468139999517007 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:12.030352+00:00"}
+2025-06-19 07:45:13 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299313.0496805 idle_time=7.518516299998737 inference_duration_total=0.04468460001226049 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299313.0496805 idle_time=7.518516299998737 inference_duration_total=0.04468460001226049 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:13.049935+00:00"}
+2025-06-19 07:45:14 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299314.0704443 idle_time=0.8891454999975394 inference_duration_total=0.0450060000148369 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299314.0704443 idle_time=0.8891454999975394 inference_duration_total=0.0450060000148369 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:14.070718+00:00"}
+2025-06-19 07:45:15 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299315.1006398 idle_time=1.9193454999985988 inference_duration_total=0.041168100033246446 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299315.1006398 idle_time=1.9193454999985988 inference_duration_total=0.041168100033246446 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:15.101159+00:00"}
+2025-06-19 07:45:15 - livekit.agents - [INFO] - EOU metrics: end_of_utterance_delay=0.60, transcription_delay=0.59
+{"message": "EOU metrics: end_of_utterance_delay=0.60, transcription_delay=0.59", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:15:15.531076+00:00"}
+2025-06-19 07:45:15 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='eou_metrics' timestamp=1750299315.5309248 end_of_utterance_delay=0.5960252285003662 transcription_delay=0.5933938026428223 on_user_turn_completed_delay=2.6226043701171875e-06 speech_id='speech_3b689250e902'
+{"message": "User shhaaag@gmail.com Metrics: type='eou_metrics' timestamp=1750299315.5309248 end_of_utterance_delay=0.5960252285003662 transcription_delay=0.5933938026428223 on_user_turn_completed_delay=2.6226043701171875e-06 speech_id='speech_3b689250e902'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:15.531342+00:00"}
+2025-06-19 07:45:16 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299316.1192114 idle_time=0.6086685999980546 inference_duration_total=0.041414800012717023 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299316.1192114 idle_time=0.6086685999980546 inference_duration_total=0.041414800012717023 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:16.119651+00:00"}
+2025-06-19 07:45:16 - user-agent - [INFO] - User shhaaag@gmail.com document query request: 'services provided by the bank'
+{"message": "User shhaaag@gmail.com document query request: 'services provided by the bank'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:16.715863+00:00"}
+2025-06-19 07:45:16 - user-agent - [INFO] - Executing RAG query for user shhaaag@gmail.com: 'services provided by the bank'
+{"message": "Executing RAG query for user shhaaag@gmail.com: 'services provided by the bank'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:16.716111+00:00"}
+2025-06-19 07:45:17 - livekit.agents - [INFO] - LLM metrics: ttft=1.18, input_tokens=309,  cached_input_tokens=0, output_tokens=18, tokens_per_second=10.03
+{"message": "LLM metrics: ttft=1.18, input_tokens=309,  cached_input_tokens=0, output_tokens=18, tokens_per_second=10.03", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:15:17.329181+00:00"}
+2025-06-19 07:45:17 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='llm_metrics' label='livekit.plugins.openai.llm.LLM' request_id='chatcmpl-Bjz64cJ2pdsJybwU3eyO9N0yXZ8qP' timestamp=1750299317.3289313 duration=1.7942898999972385 ttft=1.1792451000001165 cancelled=False completion_tokens=18 prompt_tokens=309 prompt_cached_tokens=0 total_tokens=327 tokens_per_second=10.03182373150944 speech_id='speech_3b689250e902'
+{"message": "User shhaaag@gmail.com Metrics: type='llm_metrics' label='livekit.plugins.openai.llm.LLM' request_id='chatcmpl-Bjz64cJ2pdsJybwU3eyO9N0yXZ8qP' timestamp=1750299317.3289313 duration=1.7942898999972385 ttft=1.1792451000001165 cancelled=False completion_tokens=18 prompt_tokens=309 prompt_cached_tokens=0 total_tokens=327 tokens_per_second=10.03182373150944 speech_id='speech_3b689250e902'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:17.329446+00:00"}
+2025-06-19 07:45:17 - livekit.agents - [INFO] - STT metrics: audio_duration=4.95
+{"message": "STT metrics: audio_duration=4.95", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:15:17.342696+00:00"}
+2025-06-19 07:45:17 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='c9fb0d80-b4bb-4da3-bd92-69f09401cca3' timestamp=1750299317.3424466 duration=0.0 audio_duration=4.94999999999999 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='c9fb0d80-b4bb-4da3-bd92-69f09401cca3' timestamp=1750299317.3424466 duration=0.0 audio_duration=4.94999999999999 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:17.342954+00:00"}
+2025-06-19 07:45:17 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299317.3644118 idle_time=1.8538742999953683 inference_duration_total=0.04291209999064449 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299317.3644118 idle_time=1.8538742999953683 inference_duration_total=0.04291209999064449 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:17.364659+00:00"}
+2025-06-19 07:45:18 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299318.1697047 idle_time=2.659170599996287 inference_duration_total=0.039403399983712006 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299318.1697047 idle_time=2.659170599996287 inference_duration_total=0.039403399983712006 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:18.169993+00:00"}
+2025-06-19 07:45:19 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299319.1906197 idle_time=3.680089899993618 inference_duration_total=0.04064329995890148 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299319.1906197 idle_time=3.680089899993618 inference_duration_total=0.04064329995890148 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:19.190855+00:00"}
+2025-06-19 07:45:20 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299320.2210197 idle_time=4.710494200000539 inference_duration_total=0.0420089000108419 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299320.2210197 idle_time=4.710494200000539 inference_duration_total=0.0420089000108419 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:20.221263+00:00"}
+2025-06-19 07:45:20 - user-agent - [INFO] - RAG query for user shhaaag@gmail.com successful, result length: 177
+{"message": "RAG query for user shhaaag@gmail.com successful, result length: 177", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:20.385951+00:00"}
+2025-06-19 07:45:20 - user-agent - [INFO] - User shhaaag@gmail.com: Filtered agent response. Original: 'The bank provides the following services:
+- Saving...', Filtered: 'The bank provides the following services: - Saving...'
+{"message": "User shhaaag@gmail.com: Filtered agent response. Original: 'The bank provides the following services:\n- Saving...', Filtered: 'The bank provides the following services: - Saving...'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:20.386242+00:00"}
+2025-06-19 07:45:20 - user-agent - [INFO] - Cleaned document search result for user shhaaag@gmail.com: Based on the available documents: The bank provides the following services: - Savings, Current, and ...
+{"message": "Cleaned document search result for user shhaaag@gmail.com: Based on the available documents: The bank provides the following services: - Savings, Current, and ...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:20.386410+00:00"}
+2025-06-19 07:45:21 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299321.2402408 idle_time=5.729719999995723 inference_duration_total=0.0385049000105937 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299321.2402408 idle_time=5.729719999995723 inference_duration_total=0.0385049000105937 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:21.240482+00:00"}
+2025-06-19 07:45:22 - livekit.agents - [INFO] - LLM metrics: ttft=0.81, input_tokens=377,  cached_input_tokens=0, output_tokens=71, tokens_per_second=38.46
+{"message": "LLM metrics: ttft=0.81, input_tokens=377,  cached_input_tokens=0, output_tokens=71, tokens_per_second=38.46", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:15:22.234069+00:00"}
+2025-06-19 07:45:22 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='llm_metrics' label='livekit.plugins.openai.llm.LLM' request_id='chatcmpl-Bjz68lzsxCLXAt8z9eT32C57KgZbj' timestamp=1750299322.2338238 duration=1.8462536000006367 ttft=0.8110098000033759 cancelled=False completion_tokens=71 prompt_tokens=377 prompt_cached_tokens=0 total_tokens=448 tokens_per_second=38.456255413652556 speech_id='speech_ddb7288747e2'
+{"message": "User shhaaag@gmail.com Metrics: type='llm_metrics' label='livekit.plugins.openai.llm.LLM' request_id='chatcmpl-Bjz68lzsxCLXAt8z9eT32C57KgZbj' timestamp=1750299322.2338238 duration=1.8462536000006367 ttft=0.8110098000033759 cancelled=False completion_tokens=71 prompt_tokens=377 prompt_cached_tokens=0 total_tokens=448 tokens_per_second=38.456255413652556 speech_id='speech_ddb7288747e2'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:22.234369+00:00"}
+2025-06-19 07:45:22 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299322.2698617 idle_time=6.7593450999993365 inference_duration_total=0.05519209998601582 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299322.2698617 idle_time=6.7593450999993365 inference_duration_total=0.05519209998601582 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:22.270317+00:00"}
+2025-06-19 07:45:22 - livekit.agents - [INFO] - STT metrics: audio_duration=5.60
+{"message": "STT metrics: audio_duration=5.60", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:15:22.349898+00:00"}
+2025-06-19 07:45:22 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='c9fb0d80-b4bb-4da3-bd92-69f09401cca3' timestamp=1750299322.3495557 duration=0.0 audio_duration=5.599999999999988 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='c9fb0d80-b4bb-4da3-bd92-69f09401cca3' timestamp=1750299322.3495557 duration=0.0 audio_duration=5.599999999999988 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:22.350259+00:00"}
+2025-06-19 07:45:23 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299323.28983 idle_time=7.779317799999262 inference_duration_total=0.04930999998032348 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299323.28983 idle_time=7.779317799999262 inference_duration_total=0.04930999998032348 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:23.290279+00:00"}
+2025-06-19 07:45:24 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299324.3117568 idle_time=8.801249099997221 inference_duration_total=0.04514770000241697 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299324.3117568 idle_time=8.801249099997221 inference_duration_total=0.04514770000241697 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:24.311992+00:00"}
+2025-06-19 07:45:24 - user-agent - [INFO] - Room sbx-1tv4rf-B59aE57oXb4AeoQFgCgWEx: Participant left: real-time-byte ()
+{"message": "Room sbx-1tv4rf-B59aE57oXb4AeoQFgCgWEx: Participant left: real-time-byte ()", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:24.360872+00:00"}
+2025-06-19 07:45:32 - livekit.agents - [INFO] - TTS metrics: ttfb=0.39740630000596866, audio_duration=22.99
+{"message": "TTS metrics: ttfb=0.39740630000596866, audio_duration=22.99", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:15:32.663485+00:00"}
+2025-06-19 07:45:32 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='tts_metrics' label='livekit.plugins.cartesia.tts.TTS' request_id='5f33955a2d3c' timestamp=1750299332.6631825 ttfb=0.39740630000596866 duration=11.159569400006148 audio_duration=22.987708333333387 cancelled=False characters_count=375 streamed=True speech_id='speech_ddb7288747e2'
+{"message": "User shhaaag@gmail.com Metrics: type='tts_metrics' label='livekit.plugins.cartesia.tts.TTS' request_id='5f33955a2d3c' timestamp=1750299332.6631825 ttfb=0.39740630000596866 duration=11.159569400006148 audio_duration=22.987708333333387 cancelled=False characters_count=375 streamed=True speech_id='speech_ddb7288747e2'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:32.663763+00:00"}
+2025-06-19 07:45:44 - user-agent - [INFO] - User shhaaag@gmail.com Final Usage Summary for job AJ_qpQbtxpFo9Mi: UsageSummary(llm_prompt_tokens=954, llm_prompt_cached_tokens=0, llm_completion_tokens=117, tts_characters_count=521, stt_audio_duration=25.64999999999995)
+{"message": "User shhaaag@gmail.com Final Usage Summary for job AJ_qpQbtxpFo9Mi: UsageSummary(llm_prompt_tokens=954, llm_prompt_cached_tokens=0, llm_completion_tokens=117, tts_characters_count=521, stt_audio_duration=25.64999999999995)", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:15:44.841885+00:00"}
+2025-06-19 07:45:44 - livekit - [WARNING] - livekit::rtc_engine:450:livekit::rtc_engine - received session close: "signal client closed: \"stream closed\"" UnknownReason Resume
+{"message": "livekit::rtc_engine:450:livekit::rtc_engine - received session close: \"signal client closed: \\\"stream closed\\\"\" UnknownReason Resume", "level": "WARNING", "name": "livekit", "timestamp": "2025-06-19T02:15:44.845310+00:00"}
+2025-06-19 07:45:44 - root - [ERROR] - Error while closing connector: ClientConnectionError('Connection lost: SSL shutdown timed out')
+{"message": "Error while closing connector: ClientConnectionError('Connection lost: SSL shutdown timed out')", "level": "ERROR", "name": "root", "timestamp": "2025-06-19T02:15:44.987605+00:00"}
+2025-06-19 07:45:44 - root - [ERROR] - Error while closing connector: ClientConnectionError('Connection lost: SSL shutdown timed out')
+{"message": "Error while closing connector: ClientConnectionError('Connection lost: SSL shutdown timed out')", "level": "ERROR", "name": "root", "timestamp": "2025-06-19T02:15:44.988420+00:00"}

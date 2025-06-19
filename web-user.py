@@ -1,23 +1,23 @@
+# web-user.py
 import logging
 import os
 import asyncio
 import re
 import json
 import ssl
-from dataclasses import dataclass
-from typing import Optional, Dict, Any
+from dataclasses import dataclass, field
+from typing import Optional, Dict, Any, List
 from pathlib import Path
 import aiohttp
 
 from dotenv import load_dotenv
 
 from livekit import api
-from livekit import rtc
 from livekit.agents import (
     Agent,
     AgentSession,
     JobContext,
-    RunContext,
+    # RunContext, # Not explicitly used for this level of function_tool
     RoomInputOptions,
     RoomOutputOptions,
     WorkerOptions,
@@ -33,132 +33,123 @@ from llama_index.core import (
     load_index_from_storage,
 )
 
-# Load environment variables
 load_dotenv()
-
 logger = logging.getLogger("user-agent")
-
-# Base directory for all user data
 BASE_STORAGE_DIR = Path(os.environ.get("STORAGE_PATH", "./user_data"))
-
-# Global variables to store user information
-GLOBAL_USER_ID = os.environ.get("USER_AGENT_USER_ID")
-GLOBAL_COLLECTION_NAME = os.environ.get("USER_AGENT_COLLECTION")
-GLOBAL_PHONE_NUMBER = os.environ.get("USER_AGENT_PHONE")
-
-# Global query engine - just like in main.py
 global_query_engine = None
 
 @dataclass
 class UserData:
     user_id: Optional[str] = None
     collection_name: Optional[str] = None
-    config: Dict[str, Any] = None
-    index = None
+    agent_behavior_config: Dict[str, Any] = field(default_factory=dict)
+    index: Any = None
 
 def get_user_paths(user_id: str) -> Dict[str, Path]:
-    """Get all paths for a specific user"""
+    if not user_id:
+        logger.error("get_user_paths called with no user_id")
+        raise ValueError("user_id cannot be None for get_user_paths")
     user_dir = BASE_STORAGE_DIR / user_id
-    
     return {
         "base": user_dir,
-        "index": user_dir / "knowledge-storage",
-        "config": user_dir / "config" / "agent_config.json"
+        "index_base": user_dir / "knowledge-storage",
+        "config_file": user_dir / "config" / "agent_config.json"
     }
 
-def load_user_config(user_id: str) -> Dict[str, Any]:
-    """Load user configuration from JSON file"""
+def load_user_behavioral_config(user_id: str) -> Dict[str, Any]:
+    if not user_id:
+        logger.error("load_user_behavioral_config called with no user_id.")
+        return {
+            "system_prompt": "You are a generic AI assistant.",
+            "voice": "alloy", "model": "gpt-4o-mini", "agent_name": "Assistant"
+        }
     paths = get_user_paths(user_id)
-    config_file = paths["config"]
-    
-    # Default configuration
-    default_config = {
-        "system_prompt": (
-            "You are a helpful AI assistant. Provide accurate and concise information. "
-            "Answer questions based on your knowledge base."
-        ),
-        "voice": "alloy",
-        "model": "gpt-4o-mini",
-        "agent_name": "Assistant"
+    config_file = paths["config_file"]
+    default_behavior_config = {
+        "system_prompt": "You are a helpful AI assistant. Please be concise.",
+        "voice": "alloy", "model": "gpt-4o-mini", "agent_name": "Assistant"
     }
-    
     if not config_file.exists():
-        logger.warning(f"Config file not found for user {user_id}, using defaults")
-        return default_config
-    
+        logger.warning(f"Behavioral config file not found for user {user_id} at {config_file}. Using defaults.")
+        return default_behavior_config
     try:
         with open(config_file, "r") as f:
-            user_config = json.load(f)
-            # Ensure we have all the required fields with defaults if missing
-            for key, default_value in default_config.items():
-                if key not in user_config or user_config[key] is None:
-                    user_config[key] = default_value
-                    logger.info(f"Missing {key} in config, using default: {default_value}")
-            return user_config
+            full_user_config = json.load(f)
+        loaded_behavior_config = {}
+        for key, default_value in default_behavior_config.items():
+            loaded_behavior_config[key] = full_user_config.get(key, default_value)
+            if key not in full_user_config or full_user_config.get(key) is None:
+                 logger.info(f"Behavioral setting '{key}' not found or null in config for user {user_id}, using default: '{default_value}'")
+        return loaded_behavior_config
     except Exception as e:
-        logger.error(f"Error loading config for user {user_id}: {str(e)}")
-        return default_config
+        logger.error(f"Error loading behavioral config for user {user_id} from {config_file}: {str(e)}. Using defaults.")
+        return default_behavior_config
 
 def load_user_index(user_id: str, collection_name: Optional[str] = None):
-    """Load the index for a specific user and collection"""
+    if not user_id:
+        logger.error("load_user_index called with no user_id.")
+        return None
     paths = get_user_paths(user_id)
-    index_dir = paths["index"]
-    
+    index_storage_dir = paths["index_base"]
+    actual_index_dir_to_load = index_storage_dir
     if collection_name:
-        index_dir = index_dir / collection_name
-    
-    if not index_dir.exists():
-        raise ValueError(f"Index directory not found: {index_dir}")
-    
+        actual_index_dir_to_load = index_storage_dir / collection_name
+        logger.info(f"Attempting to load index for user {user_id} from specific collection: {collection_name} at {actual_index_dir_to_load}")
+    else:
+        logger.info(f"No specific collection name provided for user {user_id}. Attempting to load index from default location: {actual_index_dir_to_load}")
+
+    if not actual_index_dir_to_load.is_dir() or not (actual_index_dir_to_load / "docstore.json").exists():
+        logger.warning(f"Index directory/files not found for user {user_id} at {actual_index_dir_to_load}.")
+        return None
     try:
-        storage_context = StorageContext.from_defaults(persist_dir=index_dir)
-        return load_index_from_storage(storage_context)
+        storage_context = StorageContext.from_defaults(persist_dir=str(actual_index_dir_to_load))
+        index = load_index_from_storage(storage_context)
+        logger.info(f"Successfully loaded index for user {user_id} from {actual_index_dir_to_load}")
+        return index
     except Exception as e:
-        logger.error(f"Error loading index for user {user_id}: {str(e)}")
-        raise ValueError(f"Failed to load index for user {user_id}")
+        logger.error(f"Error loading index for user {user_id} from {actual_index_dir_to_load}: {str(e)}")
+        return None
 
 async def create_sip_participant(room_name: str, phone_number: str):
-    """Create a SIP participant for outbound calling"""
-    # Get LiveKit credentials from environment
     LIVEKIT_URL = os.getenv('LIVEKIT_URL')
     LIVEKIT_API_KEY = os.getenv('LIVEKIT_API_KEY')
     LIVEKIT_API_SECRET = os.getenv('LIVEKIT_API_SECRET')
     SIP_TRUNK_ID = os.getenv('SIP_TRUNK_ID')
     
-    if not all([LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET, SIP_TRUNK_ID]):
-        raise ValueError("Missing required environment variables for SIP call")
+    if not all([LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET]):
+        logger.error("Missing LiveKit URL/API Key/Secret environment variables for SIP call.")
+        raise ValueError("Missing LiveKit credentials for SIP call.")
+    if not SIP_TRUNK_ID:
+        logger.error("Missing SIP_TRUNK_ID environment variable for SIP call.")
+        raise ValueError("SIP_TRUNK_ID is required for outbound SIP calls.")
 
-    logger.info(f"Initiating outbound call to {phone_number}")
-    
-    livekit_api = api.LiveKitAPI(
-        LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET
-    )
-
-    await livekit_api.sip.create_sip_participant(
-        api.CreateSIPParticipantRequest(
-            sip_trunk_id=SIP_TRUNK_ID,
-            sip_call_to=phone_number,
-            room_name=room_name,
-            participant_identity=f"sip_{phone_number}",
-            participant_name="Call Recipient",
-            play_ringtone=1
+    logger.info(f"Initiating outbound SIP call to {phone_number} in room {room_name} using trunk {SIP_TRUNK_ID}")
+    lk_api = api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET)
+    try:
+        await lk_api.sip.create_sip_participant(
+            request=api.CreateSIPParticipantRequest(
+                sip_trunk_id=SIP_TRUNK_ID,
+                sip_call_to=phone_number,
+                room_name=room_name,
+                participant_identity=f"sip_out_{phone_number.replace('+', '').replace(' ', '')}",
+                participant_name=f"Call to {phone_number}",
+                play_ringtone=True
+            )
         )
-    )
-    await livekit_api.aclose()
-    
-    logger.info(f"SIP participant created for {phone_number} in room {room_name}")
+        logger.info(f"SIP participant creation requested for {phone_number} in room {room_name}")
+    except Exception as e:
+        logger.error(f"Failed to create SIP participant for {phone_number}: {e}")
+        raise
+    finally:
+        await lk_api.aclose()
 
 class SimpleAgent(Agent):
-    """A simple agent that responds to user queries using document search"""
-    
-    def __init__(self, user_config: Dict[str, Any]) -> None:
-        # Get system prompt from user config
-        system_prompt = user_config.get("system_prompt", 
-            "You are a helpful assistant. You help users find information in their documents.")
-        
-        agent_name = user_config.get("agent_name", "Assistant")
-        
-        # Enhanced system prompt with identity awareness and improved instructions
+    def __init__(self, agent_behavior_config: Dict[str, Any]) -> None:
+        system_prompt = agent_behavior_config.get("system_prompt", "You are a helpful assistant.")
+        agent_name = agent_behavior_config.get("agent_name", "Assistant")
+        llm_model = agent_behavior_config.get("model", "gpt-4o-mini")
+        self.tts_voice_setting = agent_behavior_config.get("voice", "alloy")
+
         enhanced_prompt = (
             f"{system_prompt}\n\n"
             f"Your name is {agent_name}. "
@@ -173,286 +164,264 @@ class SimpleAgent(Agent):
             "Remember that you represent the document owner's business or service when speaking with their customers. "
             "Provide accurate information from the documents in a professional and helpful manner."
         )
+        logger.info(f"SimpleAgent initializing with: Name='{agent_name}', Model='{llm_model}'. Prompt starts: '{enhanced_prompt[:100]}...'")
         
-        logger.info(f"Using system prompt: {enhanced_prompt}")
-        
-        # Initialize with user's system prompt - ONLY CHANGE: Add tts=cartesia.TTS()
         super().__init__(
             instructions=enhanced_prompt,
-            llm=openai.LLM(
-                model=user_config.get("model", "gpt-4o-mini"),
-                temperature=0.7,
-            ),
-            tts=cartesia.TTS(),  # THIS IS THE ONLY CHANGE FROM imp.py
+            llm=openai.LLM(model=llm_model, temperature=0.7),
+            tts=cartesia.TTS()
         )
-        logger.info(f"SimpleAgent initialized with identity: {agent_name} (speaking with customers)")
     
     async def on_enter(self):
-        logger.info("Agent entering conversation, generating greeting")
-        self.session.generate_reply()
-    
-    # Override the generate_reply method to filter all responses
-    async def generate_reply(self, ctx):
-        # Call the original method to generate a reply
-        result = await super().generate_reply(ctx)
-        
-        # Filter the result to remove problematic characters from ALL responses
-        if hasattr(result, 'content') and result.content:
-            # Replace markdown formatting
-            filtered_content = result.content
+        user_id_log = "UnknownUser (session not yet fully linked in on_enter)"
+        if hasattr(self, 'session') and self.session:
+            if self.session.userdata and hasattr(self.session.userdata, 'user_id'): 
+                user_id_log = self.session.userdata.user_id
             
-            # Remove all problematic characters
-            problematic_chars = ['*', '#', '_', '`', '~', '|', '<', '>', '[', ']']
-            for char in problematic_chars:
-                filtered_content = filtered_content.replace(char, '')
-            
-            # Update the content
-            result.content = filtered_content
-            logger.info(f"Filtered agent response to remove problematic characters")
-        
-        return result
-    
-    @function_tool
-    async def query_documents(self, context: RunContext[UserData], query: str) -> str:
-        """Search the user's personal documents for information.
-        
-        Args:
-            query: The question to search for in the user's documents
-        """
+            logger.info(f"Agent (ID: {self.id if hasattr(self, 'id') else 'N/A'}) on_enter called for user {user_id_log}.")
+            greeting_text = "Hello! How can I help you today?"
+            # CORRECTED: Removed 'interrupt=False' from the call to self.session.say()
+            await self.session.say(greeting_text) 
+            logger.info(f"Agent {self.id if hasattr(self, 'id') else 'N/A'} said greeting via on_enter.")
+        else:
+            logger.warning(f"Agent on_enter called, but self.session (or self.session.userdata) is not yet available to say greeting or log user_id.")
+
+    async def process_user_text(self, session: AgentSession, text: str):
+        user_id_log = session.userdata.user_id if session.userdata else "UnknownUser"
+        logger.info(f"User {user_id_log} said: '{text}' - Agent will generate reply.")
+        await session.generate_reply_for_user_text(text)
+
+    def _filter_text_for_speech(self, text_to_filter: Optional[str]) -> Optional[str]:
+        if not text_to_filter: return text_to_filter
+        filtered_content = text_to_filter
+        problematic_chars = ['*', '#', '_', '`', '~', '|', '<', '>', '[', ']']
+        for char in problematic_chars:
+            filtered_content = filtered_content.replace(char, '')
+        filtered_content = re.sub(r'\s+', ' ', filtered_content).strip()
+        if text_to_filter != filtered_content:
+            user_id_for_log = "UnknownUser"
+            if hasattr(self, 'session') and self.session and hasattr(self.session, 'userdata') and self.session.userdata:
+                user_id_for_log = self.session.userdata.user_id
+            logger.info(f"User {user_id_for_log}: Filtered agent response. Original: '{text_to_filter[:50]}...', Filtered: '{filtered_content[:50]}...'")
+        return filtered_content
+
+    @function_tool()
+    async def query_documents(self, query: str) -> str: # Removed session from args
         global global_query_engine
         
+        if not hasattr(self, 'session') or not self.session:
+            logger.error("query_documents called but self.session is not available on the agent instance.")
+            return "I'm having trouble accessing session details right now."
+        
+        user_data: UserData = self.session.userdata
+        if not user_data or not user_data.user_id:
+            logger.error("query_documents called but user_id is not available in self.session.userdata.")
+            return "User context is missing for document search."
+
         try:
-            # Log the query for debugging
-            logger.info(f"Document query request: {query}")
+            logger.info(f"User {user_data.user_id} document query request: '{query}'")
             
-            # Use global query engine if available, otherwise create one
-            if global_query_engine is None:
-                logger.info("Global query engine not initialized, creating new one")
-                
-                user_data = context.userdata
-                logger.info(f"User data index: {user_data.index is not None}")
-                
-                if not user_data.index:
-                    logger.error("No index available in user data")
-                    return "I don't have access to your documents at the moment."
-                
-                try:
-                    global_query_engine = user_data.index.as_query_engine(use_async=True)
-                    logger.info("Created new global query engine successfully")
-                except Exception as e:
-                    logger.error(f"Failed to create query engine: {str(e)}")
-                    return f"I encountered an error accessing your documents: {str(e)}"
+            current_job_query_engine = global_query_engine
+            if current_job_query_engine is None:
+                logger.error(f"Query engine not available for user {user_data.user_id}. Index might not have loaded or engine init failed.")
+                return "I currently don't have access to the documents to answer that."
             
-            # Execute the query with robust error handling
-            try:
-                logger.info(f"Executing RAG query: {query}")
-                res = await global_query_engine.aquery(query)
-                logger.info(f"RAG query successful, result length: {len(str(res))}")
-                raw_result = str(res)
-            except Exception as e:
-                logger.error(f"RAG query failed: {str(e)}")
-                return f"I tried to search your documents, but encountered an error: {str(e)}"
+            logger.info(f"Executing RAG query for user {user_data.user_id}: '{query}'")
+            res = await current_job_query_engine.aquery(query)
+            raw_result = str(res)
+            logger.info(f"RAG query for user {user_data.user_id} successful, result length: {len(raw_result)}")
             
-            # If we get an empty result, inform the user
             if not raw_result.strip():
-                logger.warning("Empty RAG result")
-                return "I searched your documents but couldn't find relevant information for your query."
+                logger.warning(f"Empty RAG result for user {user_data.user_id} on query: '{query}'")
+                return "I searched the documents but couldn't find relevant information for your query."
             
-            # Most aggressive cleaning possible - strip ALL potentially problematic characters
-            try:
-                # Strip ALL problematic characters completely
-                import re
-                
-                # Remove all markdown and special characters
-                problematic_chars = ['*', '#', '_', '`', '~', '|', '<', '>', '[', ']', '(', ')', '{', '}', '+', '-', '=', '$', '^', '&']
-                clean_text = raw_result
-                for char in problematic_chars:
-                    clean_text = clean_text.replace(char, '')
-                
-                # Remove URLs and email addresses
-                clean_text = re.sub(r'https?://\S+', '', clean_text)
-                clean_text = re.sub(r'\S+@\S+', '', clean_text)
-                
-                # Clean up whitespace
-                clean_text = re.sub(r'\s+', ' ', clean_text).strip()
-                
-                # Add prefix
-                final_text = f"Here's what I found in your documents: {clean_text}"
-                logger.info(f"Aggressively cleaned document result: {final_text[:100]}...")
-                return final_text
-            except Exception as e:
-                logger.error(f"Error in cleaning result: {str(e)}")
-                # Extreme fallback - only alphanumeric and basic punctuation
-                clean_fallback = ''.join(c for c in raw_result if c.isalnum() or c in ' .,;:?!')
-                return f"From your documents: {clean_fallback}"
+            cleaned_document_text = self._filter_text_for_speech(raw_result)
+            final_text = f"Based on the available documents: {cleaned_document_text}"
+            logger.info(f"Cleaned document search result for user {user_data.user_id}: {final_text[:100]}...")
+            return final_text
             
         except Exception as e:
-            logger.error(f"General error in query_documents: {str(e)}")
-            return f"I encountered an error with the document search system: {str(e)}"
+            logger.error(f"General error in query_documents for user {user_data.user_id} on query '{query}': {str(e)}", exc_info=True)
+            return f"I encountered an unexpected issue while searching the documents: {str(e)}"
 
-def prewarm(proc):
-    """Initialize components during prewarm"""
-    proc.userdata["vad"] = silero.VAD.load()
-    logger.info("Prewarm completed - VAD loaded")
+def prewarm(worker: WorkerOptions):
+    logger.info("Prewarming VAD model...")
+    try:
+        silero.VAD.load()
+        logger.info("Silero VAD model prewarmed (cached).")
+    except Exception as e:
+        logger.error(f"Error during VAD prewarming: {e}")
 
 async def entrypoint(ctx: JobContext):
-    """Main entrypoint for the user agent"""
-    # Use global variables
-    global GLOBAL_USER_ID, GLOBAL_COLLECTION_NAME, GLOBAL_PHONE_NUMBER, global_query_engine
-    
-    # Create a custom SSL context that doesn't verify certificates
-    ssl_context = ssl.create_default_context()
-    ssl_context.check_hostname = False
-    ssl_context.verify_mode = ssl.CERT_NONE
-    
-    # Set this SSL context for aiohttp
-    os.environ["AIOHTTP_SSL_VERIFY"] = "0"
-    
-    # Monkey patch the aiohttp TCPConnector to disable SSL verification
-    original_init = aiohttp.TCPConnector.__init__
-    
-    def patched_init(self, *args, **kwargs):
-        kwargs['ssl'] = False
-        original_init(self, *args, **kwargs)
-    
-    aiohttp.TCPConnector.__init__ = patched_init
-    
-    # Log the values to help debugging
-    logger.info(f"User ID: {GLOBAL_USER_ID}")
-    logger.info(f"Collection: {GLOBAL_COLLECTION_NAME}")
-    logger.info(f"Phone: {GLOBAL_PHONE_NUMBER}")
-    
-    # Verify we have a user ID
-    if not GLOBAL_USER_ID:
-        logger.error("No user ID provided")
+    user_id = os.environ.get("USER_AGENT_USER_ID")
+    collection_name = os.environ.get("USER_AGENT_COLLECTION")
+    phone_number_to_dial = os.environ.get("USER_AGENT_PHONE")
+    global global_query_engine
+
+    if not user_id:
+        logger.error("CRITICAL: USER_AGENT_USER_ID not found in environment. Agent cannot start job.")
         return
-    
-    try:
-        # Connect to room
-        await ctx.connect()
-        logger.info(f"Connected to room: {ctx.room.name}")
-        
-        # ADD INBOUND SUPPORT: Register room event handlers for inbound calls
-        @ctx.room.on("participant_connected")
-        def on_participant_connected(participant):
-            logger.info(f"Participant joined: {participant.identity} ({participant.name})")
-        
-        @ctx.room.on("participant_disconnected")
-        def on_participant_disconnected(participant):
-            logger.info(f"Participant left: {participant.identity} ({participant.name})")
-        
-        # Load user configuration
-        config = load_user_config(GLOBAL_USER_ID)
-        logger.info(f"Loaded user config: {config}")
-        
-        # Load user index with better error handling
+
+    logger.info(f"Agent entrypoint started for job {ctx.job.id}, user_id: {user_id}")
+    logger.info(f"  Collection from ENV: {collection_name}")
+    logger.info(f"  Phone from ENV: {phone_number_to_dial}")
+
+    if os.environ.get("DISABLE_SSL_VERIFY") == "1":
         try:
-            index = load_user_index(GLOBAL_USER_ID, GLOBAL_COLLECTION_NAME)
-            logger.info(f"Loaded index for user {GLOBAL_USER_ID}")
-        except Exception as e:
-            logger.error(f"Failed to load index: {str(e)}")
-            index = None
+            logger.warning("DISABLE_SSL_VERIFY=1 found. Disabling SSL certificate verification for aiohttp.")
+            ssl_context_no_verify = ssl.create_default_context()
+            ssl_context_no_verify.check_hostname = False
+            ssl_context_no_verify.verify_mode = ssl.CERT_NONE
+            os.environ["AIOHTTP_SSL_VERIFY"] = "0" 
+            original_tcp_connector_init = aiohttp.TCPConnector.__init__
+            def patched_tcp_connector_init(self, *args_patch, **kwargs_patch):
+                kwargs_patch['ssl'] = False
+                original_tcp_connector_init(self, *args_patch, **kwargs_patch)
+            aiohttp.TCPConnector.__init__ = patched_tcp_connector_init
+            logger.info("aiohttp.TCPConnector SSL verification monkey-patched to be disabled for new instances.")
+        except Exception as e_ssl:
+            logger.error(f"Error during SSL monkey-patching: {e_ssl}")
+
+    try:
+        agent_b_config = load_user_behavioral_config(user_id)
+        logger.info(f"Loaded behavioral config for user {user_id}: {agent_b_config}")
         
-        # Create user data
-        userdata = UserData(
-            user_id=GLOBAL_USER_ID,
-            collection_name=GLOBAL_COLLECTION_NAME,
-            config=config
-        )
-        userdata.index = index
-        
-        # Initialize global query engine with error handling
+        index = load_user_index(user_id, collection_name)
         if index:
+            logger.info(f"Index loaded successfully for user {user_id}, collection '{collection_name}'.")
             try:
                 global_query_engine = index.as_query_engine(use_async=True)
-                logger.info("Initialized global query engine successfully")
-            except Exception as e:
-                logger.error(f"Failed to initialize global query engine: {str(e)}")
+                logger.info("Query engine initialized/updated successfully for this job.")
+            except Exception as e_qe:
+                logger.error(f"Failed to initialize query engine from loaded index: {e_qe}")
                 global_query_engine = None
         else:
-            logger.warning("No index loaded, global query engine not initialized")
+            logger.warning(f"No index loaded for user {user_id}, collection '{collection_name}'. Document search may not be available.")
             global_query_engine = None
+
+        user_data_for_session = UserData(
+            user_id=user_id,
+            collection_name=collection_name,
+            agent_behavior_config=agent_b_config,
+            index=index
+        )
         
-        # If phone number is provided, initiate an outbound call
-        if GLOBAL_PHONE_NUMBER:
-            logger.info(f"Outbound call mode: Calling {GLOBAL_PHONE_NUMBER}")
-            await create_sip_participant(ctx.room.name, GLOBAL_PHONE_NUMBER)
+        required_env_keys = ["OPENAI_API_KEY", "DEEPGRAM_API_KEY", "LIVEKIT_URL", "LIVEKIT_API_KEY", "LIVEKIT_API_SECRET"]
+        if os.environ.get("CARTESIA_API_KEY"): required_env_keys.append("CARTESIA_API_KEY")
+        if phone_number_to_dial and not os.environ.get("SIP_TRUNK_ID"):
+            logger.error(f"CRITICAL: SIP_TRUNK_ID is required for outbound call to {phone_number_to_dial} but not set.")
+            raise ValueError("SIP_TRUNK_ID missing for an intended outbound call.")
+
+        for req_key in required_env_keys:
+            if not os.environ.get(req_key):
+                logger.error(f"CRITICAL: Required environment variable '{req_key}' is not set for user {user_id}. Agent cannot function.")
+                raise EnvironmentError(f"Agent misconfiguration: Missing environment variable {req_key}")
+
+        await ctx.connect()
+        logger.info(f"Connected to LiveKit room: {ctx.room.name} for user {user_id}")
+        
+        @ctx.room.on("participant_connected")
+        def on_participant_connected(participant, *_):
+            logger.info(f"Room {ctx.room.name}: Participant joined: {participant.identity} ({participant.name})")
+        
+        @ctx.room.on("participant_disconnected")
+        def on_participant_disconnected(participant, *_):
+            logger.info(f"Room {ctx.room.name}: Participant left: {participant.identity} ({participant.name})")
+        
+        if phone_number_to_dial:
+            logger.info(f"Outbound call mode: Attempting to call {phone_number_to_dial} for room {ctx.room.name}")
+            try:
+                await create_sip_participant(ctx.room.name, phone_number_to_dial)
+            except Exception as e_sip:
+                logger.error(f"Failed to initiate SIP call to {phone_number_to_dial}: {e_sip}")
         else:
-            # ADD INBOUND SUPPORT: Log inbound mode
-            logger.info("Inbound call mode: Waiting for participants to join")
+            logger.info(f"Inbound/Web call mode for room {ctx.room.name}: Waiting for participants.")
         
-        # Get VAD from context
-        vad = ctx.proc.userdata.get("vad")
-        if not vad:
-            logger.info("Loading new VAD instance")
-            vad = silero.VAD.load()
+        vad = silero.VAD.load()
+        logger.info("Silero VAD loaded for session.")
         
-        # Log metrics
         usage_collector = metrics.UsageCollector()
-        
-        # EXACTLY like main.py
-        logger.info("Creating agent session exactly like main.py")
+        llm_model_to_use = agent_b_config.get("model", "gpt-4o-mini")
+
+        agent_instance = SimpleAgent(agent_b_config)
+
         session = AgentSession[UserData](
             vad=vad,
-            llm=openai.LLM(model="gpt-4o-mini", temperature=0.7),
+            llm=openai.LLM(model=llm_model_to_use, temperature=0.7),
             stt=deepgram.STT(model="nova-2-general"),
-            tts=cartesia.TTS(),  # Standard TTS with no modifications
-            userdata=userdata
+            tts=cartesia.TTS(), 
+            userdata=user_data_for_session
         )
         
-        # Add metrics collection
+        original_say_method = session.say 
+        async def filtered_say_wrapper(text: str, **kwargs):
+            # The agent_instance created above is accessible here due to closure
+            filtered_text = agent_instance._filter_text_for_speech(text) 
+            return await original_say_method(filtered_text, **kwargs)
+        session.say = filtered_say_wrapper
+
         @session.on("metrics_collected")
         def _on_metrics_collected(ev: MetricsCollectedEvent):
-            metrics.log_metrics(ev.metrics)
-            usage_collector.collect(ev.metrics)
-            logger.info(f"Metrics collected: {ev.metrics}")
+            metrics.log_metrics(ev.metrics); usage_collector.collect(ev.metrics)
+            logger.info(f"User {user_id} Metrics: {ev.metrics}")
         
-        # Add verbose logging
-        @session.on("speech_started")
-        def on_speech_started():
-            logger.info("SPEECH STARTED: User is speaking")
+        @session.on("transcription_updated")
+        def on_transcription_updated(text: str, final: bool):
+            if final and text.strip():
+                logger.info(f"User {user_id} FINAL TRANSCRIPTION: '{text}'")
+                asyncio.create_task(agent_instance.process_user_text(session, text))
+            elif not final:
+                logger.debug(f"User {user_id} INTERIM TRANSCRIPTION: '{text}'")
+
+        @session.on("agent_speech_started")
+        def on_agent_speech_started(): logger.info(f"User {user_id} AGENT SPEECH STARTED")
         
-        @session.on("speech_stopped")
-        def on_speech_stopped():
-            logger.info("SPEECH STOPPED: User stopped speaking")
-        
-        @session.on("transcription")
-        def on_transcription(text):
-            logger.info(f"TRANSCRIPTION: {text}")
-        
-        @session.on("agent_speaking")
-        def on_agent_speaking():
-            logger.info("AGENT SPEAKING: TTS output started")
-        
-        @session.on("agent_done_speaking")
-        def on_agent_done_speaking():
-            logger.info("AGENT DONE SPEAKING: TTS output finished")
-        
-        # Add shutdown callback
-        async def log_usage():
+        @session.on("agent_speech_finished")
+        def on_agent_speech_finished(): logger.info(f"User {user_id} AGENT SPEECH FINISHED")
+
+        async def log_final_usage():
             summary = usage_collector.get_summary()
-            logger.info(f"Usage summary: {summary}")
+            logger.info(f"User {user_id} Final Usage Summary for job {ctx.job.id}: {summary}")
         
-        ctx.add_shutdown_callback(log_usage)
-        
-        # Start session
-        logger.info("Starting agent session")
+        ctx.add_shutdown_callback(log_final_usage)
+
+        logger.info(f"Starting agent session processing for user {user_id} in room {ctx.room.name}...")
         await session.start(
-            agent=SimpleAgent(config),
             room=ctx.room,
+            agent=agent_instance,
             room_input_options=RoomInputOptions(),
-            room_output_options=RoomOutputOptions(transcription_enabled=True),
+            room_output_options=RoomOutputOptions(transcription_enabled=True)
         )
-        logger.info("Agent session started successfully")
+        logger.info(f"Agent session processing finished for user {user_id} in room {ctx.room.name}.")
         
     except Exception as e:
-        logger.error(f"Error in agent entrypoint: {str(e)}")
+        logger.error(f"Error in agent entrypoint for job {ctx.job.id}, user {user_id}: {str(e)}", exc_info=True)
+        try:
+            if ctx.room and ctx.room.local_participant:
+                error_payload = {"error": "An agent processing error occurred.", "detail": str(e)[:200]}
+                await ctx.room.local_participant.publish_data(
+                    payload=json.dumps(error_payload)
+                )
+                logger.info(f"Sent error details to room for user {user_id}.")
+            else:
+                logger.warning(f"Cannot send error to room for user {user_id}: room or local_participant not available during error handling.")
+        except Exception as send_e:
+            logger.error(f"Failed to send error details to room for user {user_id}: {send_e}")
         raise
+    finally:
+        logger.info(f"Agent entrypoint cleanup for job {ctx.job.id}, user {user_id}.")
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=os.environ.get("LOG_LEVEL", "INFO").upper(),
+        format="%(asctime)s - %(name)s - [%(levelname)s] - %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+    main_script_logger = logging.getLogger("user-agent") 
+    main_script_logger.info(f"{Path(__file__).name} executed directly as __main__. User ID from ENV: {os.environ.get('USER_AGENT_USER_ID')}")
+
     cli.run_app(WorkerOptions(
-        entrypoint_fnc=entrypoint, 
+        entrypoint_fnc=entrypoint,
         prewarm_fnc=prewarm,
-        # Add a unique agent name for explicit dispatch
-        agent_name="aaple-sarkar-agent"
+        # agent_name="your-web-agent-worker-name" # Optional: if you want to explicitly name this worker type
     ))

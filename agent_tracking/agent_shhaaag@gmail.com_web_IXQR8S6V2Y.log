@@ -1,0 +1,680 @@
+--- agent_runner.py: Initializing for user: shhaaag@gmail.com, using core script: web-user.py ---
+INFO (agent_runner.py): Successfully loaded configuration for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\config\agent_config.json
+INFO (agent_runner.py): Setting environment variables for user shhaaag@gmail.com...
+  SET USER_AGENT_USER_ID=shhaaag@gmail.com
+  INFO: USER_AGENT_COLLECTION not set (not found in user config).
+  INFO: USER_AGENT_PHONE not set (not found in user config).
+  SET OPENAI_API_KEY (from user config)
+  SET LIVEKIT_URL (from user config)
+  SET LIVEKIT_API_KEY (from user config)
+  SET LIVEKIT_API_SECRET (from user config)
+  SET DEEPGRAM_API_KEY (from user config)
+  SET CARTESIA_API_KEY (from user config)
+  SET SIP_TRUNK_ID (from user config)
+INFO (agent_runner.py): Environment variables set based on user 'shhaaag@gmail.com' configuration.
+INFO (agent_runner.py): Starting core agent script: C:\Users\User\Repnix\venv\Scripts\python.exe C:\Users\User\Repnix\web-user.py start
+--- agent_runner.py: Handing off to web-user.py for user shhaaag@gmail.com ---
+2025-06-19 07:22:55 - user-agent - [INFO] - web-user.py executed directly as __main__. User ID from ENV: shhaaag@gmail.com
+2025-06-19 07:22:55 - livekit.agents - [INFO] - starting worker
+{"message": "starting worker", "level": "INFO", "name": "livekit.agents", "version": "1.0.23", "rtc-version": "1.0.8", "timestamp": "2025-06-19T01:52:55.890442+00:00"}
+2025-06-19 07:22:55 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 11480, "timestamp": "2025-06-19T01:52:55.899530+00:00"}
+2025-06-19 07:22:55 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 6760, "timestamp": "2025-06-19T01:52:55.900485+00:00"}
+2025-06-19 07:22:55 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 13412, "timestamp": "2025-06-19T01:52:55.900986+00:00"}
+2025-06-19 07:22:55 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 15696, "timestamp": "2025-06-19T01:52:55.901371+00:00"}
+2025-06-19 07:22:55 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:52:55.901702+00:00"}
+2025-06-19 07:22:55 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:52:55.902014+00:00"}
+2025-06-19 07:22:55 - user-agent - [INFO] - Prewarming VAD model...
+2025-06-19 07:22:55 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:52:55.902418+00:00"}
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:52:55.902616+00:00"}
+2025-06-19 07:22:56 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:52:56.360343+00:00"}
+2025-06-19 07:22:56 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:52:56.732806+00:00"}
+2025-06-19 07:22:56 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:52:56.976594+00:00"}
+2025-06-19 07:22:56 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:52:56.976776+00:00"}
+2025-06-19 07:22:56 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 6760, "elapsed_time": 1.08, "timestamp": "2025-06-19T01:52:56.977860+00:00"}
+2025-06-19 07:22:56 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 11480, "elapsed_time": 1.08, "timestamp": "2025-06-19T01:52:56.978904+00:00"}
+2025-06-19 07:22:56 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 13412, "elapsed_time": 1.08, "timestamp": "2025-06-19T01:52:56.979870+00:00"}
+2025-06-19 07:22:56 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 15696, "elapsed_time": 1.08, "timestamp": "2025-06-19T01:52:56.983343+00:00"}
+2025-06-19 07:22:56 - livekit.agents - [INFO] - see tracing information at http://localhost:8081/debug
+{"message": "see tracing information at http://localhost:8081/debug", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T01:52:56.986157+00:00"}
+2025-06-19 07:22:58 - livekit.agents - [INFO] - registered worker
+{"message": "registered worker", "level": "INFO", "name": "livekit.agents", "id": "AW_zgzSfofFEWKJ", "url": "wss://fgsdfg-92vkkxvz.livekit.cloud", "region": "Germany", "protocol": 16, "timestamp": "2025-06-19T01:52:58.006485+00:00"}
+2025-06-19 07:22:58 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.802, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:52:58.007018+00:00"}
+2025-06-19 07:23:00 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.46659999999999996, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:53:00.547002+00:00"}
+2025-06-19 07:23:03 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8228, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:53:03.056058+00:00"}
+2025-06-19 07:23:10 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.27980000000000005, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:53:10.583438+00:00"}
+2025-06-19 07:23:28 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8104000000000002, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:53:28.264210+00:00"}
+2025-06-19 07:23:50 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.47860000000000047, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:53:50.860039+00:00"}
+2025-06-19 07:23:53 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8200000000000005, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:53:53.373827+00:00"}
+2025-06-19 07:24:33 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.5584000000000012, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:54:33.669422+00:00"}
+2025-06-19 07:24:38 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.9262000000000011, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:54:38.691283+00:00"}
+2025-06-19 07:24:41 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.512600000000001, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:54:41.194830+00:00"}
+2025-06-19 07:24:46 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.960200000000001, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:54:46.238914+00:00"}
+2025-06-19 07:24:51 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.6042000000000013, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:54:51.246058+00:00"}
+2025-06-19 07:24:56 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8460000000000013, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:54:56.276384+00:00"}
+2025-06-19 07:24:58 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.42000000000000137, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:54:58.787244+00:00"}
+2025-06-19 07:25:29 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.7920000000000014, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:55:29.052422+00:00"}
+2025-06-19 07:25:31 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.5090000000000015, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:55:31.558418+00:00"}
+2025-06-19 07:25:34 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8492000000000015, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:55:34.062151+00:00"}
+2025-06-19 07:25:36 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.6186000000000015, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:55:36.562239+00:00"}
+2025-06-19 07:25:39 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.9810000000000016, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:55:39.066666+00:00"}
+2025-06-19 07:25:44 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.6460000000000015, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:55:44.096821+00:00"}
+2025-06-19 07:26:09 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.7766000000000016, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:56:09.318253+00:00"}
+2025-06-19 07:26:11 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.37580000000000163, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:56:11.823564+00:00"}
+2025-06-19 07:26:19 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.7816000000000018, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:56:19.403672+00:00"}
+2025-06-19 07:26:21 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.2052000000000019, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:56:21.917443+00:00"}
+2025-06-19 07:26:49 - livekit.agents - [INFO] - received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_yYQegurko4aT", "dispatch_id": "", "room_name": "sbx-1tv4rf-Lm9av4jyCjxc66PJMCD5jZ", "agent_name": "", "resuming": false, "timestamp": "2025-06-19T01:56:49.605508+00:00"}
+2025-06-19 07:26:49 - user-agent - [INFO] - Agent entrypoint started for job AJ_yYQegurko4aT, user_id: shhaaag@gmail.com
+{"message": "Agent entrypoint started for job AJ_yYQegurko4aT, user_id: shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:49.748119+00:00"}
+2025-06-19 07:26:49 - user-agent - [INFO] -   Collection from ENV: None
+{"message": "  Collection from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:49.748537+00:00"}
+2025-06-19 07:26:49 - user-agent - [INFO] -   Phone from ENV: None
+{"message": "  Phone from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:49.749151+00:00"}
+2025-06-19 07:26:49 - user-agent - [INFO] - Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}
+{"message": "Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:49.750693+00:00"}
+2025-06-19 07:26:49 - user-agent - [INFO] - No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:49.750999+00:00"}
+2025-06-19 07:26:49 - llama_index.core.indices.loading - [INFO] - Loading all indices.
+{"message": "Loading all indices.", "level": "INFO", "name": "llama_index.core.indices.loading", "timestamp": "2025-06-19T01:56:49.797519+00:00"}
+2025-06-19 07:26:49 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 12308, "timestamp": "2025-06-19T01:56:49.821512+00:00"}
+2025-06-19 07:26:49 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:49.822194+00:00"}
+2025-06-19 07:26:50 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:50.080626+00:00"}
+2025-06-19 07:26:50 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 12308, "elapsed_time": 0.26, "timestamp": "2025-06-19T01:56:50.081989+00:00"}
+2025-06-19 07:26:50 - user-agent - [INFO] - Successfully loaded index for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "Successfully loaded index for user shhaaag@gmail.com from user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:50.494959+00:00"}
+2025-06-19 07:26:50 - user-agent - [INFO] - Index loaded successfully for user shhaaag@gmail.com, collection 'None'.
+{"message": "Index loaded successfully for user shhaaag@gmail.com, collection 'None'.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:50.495217+00:00"}
+2025-06-19 07:26:50 - user-agent - [INFO] - Query engine initialized/updated successfully for this job.
+{"message": "Query engine initialized/updated successfully for this job.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:50.538216+00:00"}
+2025-06-19 07:26:51 - user-agent - [INFO] - Connected to LiveKit room: sbx-1tv4rf-Lm9av4jyCjxc66PJMCD5jZ for user shhaaag@gmail.com
+{"message": "Connected to LiveKit room: sbx-1tv4rf-Lm9av4jyCjxc66PJMCD5jZ for user shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:51.976301+00:00"}
+2025-06-19 07:26:51 - user-agent - [INFO] - Inbound/Web call mode for room sbx-1tv4rf-Lm9av4jyCjxc66PJMCD5jZ: Waiting for participants.
+{"message": "Inbound/Web call mode for room sbx-1tv4rf-Lm9av4jyCjxc66PJMCD5jZ: Waiting for participants.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:51.977628+00:00"}
+2025-06-19 07:26:52 - user-agent - [INFO] - Silero VAD loaded for session.
+{"message": "Silero VAD loaded for session.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:52.597133+00:00"}
+2025-06-19 07:26:52 - user-agent - [INFO] - SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'
+{"message": "SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:52.598627+00:00"}
+2025-06-19 07:26:54 - user-agent - [INFO] - Starting agent session processing for user shhaaag@gmail.com in room sbx-1tv4rf-Lm9av4jyCjxc66PJMCD5jZ...
+{"message": "Starting agent session processing for user shhaaag@gmail.com in room sbx-1tv4rf-Lm9av4jyCjxc66PJMCD5jZ...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:54.651702+00:00"}
+2025-06-19 07:26:54 - user-agent - [INFO] - Agent session processing finished for user shhaaag@gmail.com in room sbx-1tv4rf-Lm9av4jyCjxc66PJMCD5jZ.
+{"message": "Agent session processing finished for user shhaaag@gmail.com in room sbx-1tv4rf-Lm9av4jyCjxc66PJMCD5jZ.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:54.656701+00:00"}
+2025-06-19 07:26:54 - user-agent - [INFO] - Agent entrypoint cleanup for job AJ_yYQegurko4aT, user shhaaag@gmail.com.
+{"message": "Agent entrypoint cleanup for job AJ_yYQegurko4aT, user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:54.656958+00:00"}
+2025-06-19 07:26:54 - livekit.agents - [WARNING] - Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\Users\User\Repnix\web-user.py:251> result=None> took too long: 2.68 seconds
+{"message": "Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\\Users\\User\\Repnix\\web-user.py:251> result=None> took too long: 2.68 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:56:54.657179+00:00"}
+2025-06-19 07:26:54 - livekit.agents - [WARNING] - Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\Users\User\Repnix\web-user.py:251> result=None> took too long: 2.68 seconds
+{"message": "Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\\Users\\User\\Repnix\\web-user.py:251> result=None> took too long: 2.68 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:56:54.657392+00:00"}
+2025-06-19 07:26:54 - livekit.agents - [WARNING] - Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\Users\User\Repnix\web-user.py:251> result=None> took too long: 2.68 seconds
+{"message": "Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\\Users\\User\\Repnix\\web-user.py:251> result=None> took too long: 2.68 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:56:54.657563+00:00"}
+2025-06-19 07:26:54 - livekit.agents - [WARNING] - Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\Users\User\Repnix\web-user.py:251> result=None> took too long: 2.68 seconds
+{"message": "Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\\Users\\User\\Repnix\\web-user.py:251> result=None> took too long: 2.68 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:56:54.657722+00:00"}
+2025-06-19 07:26:54 - livekit.agents - [WARNING] - Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\Users\User\Repnix\web-user.py:251> result=None> took too long: 2.68 seconds
+{"message": "Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\\Users\\User\\Repnix\\web-user.py:251> result=None> took too long: 2.68 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:56:54.657898+00:00"}
+2025-06-19 07:26:54 - livekit.agents - [WARNING] - Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\Users\User\Repnix\web-user.py:251> result=None> took too long: 2.68 seconds
+{"message": "Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\\Users\\User\\Repnix\\web-user.py:251> result=None> took too long: 2.68 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:56:54.658066+00:00"}
+2025-06-19 07:26:54 - asyncio - [ERROR] - Task exception was never retrieved
+future: <Task finished name='AgentTask_on_enter' coro=<SimpleAgent.on_enter() done, defined at C:\Users\User\Repnix\web-user.py:176> exception=AttributeError("'AgentSession' object has no attribute 'user_data'")>
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 182, in on_enter
+    if self.session.user_data: # Check if user_data is also set
+       ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AgentSession' object has no attribute 'user_data'. Did you mean: 'userdata'?
+{"message": "Task exception was never retrieved\nfuture: <Task finished name='AgentTask_on_enter' coro=<SimpleAgent.on_enter() done, defined at C:\\Users\\User\\Repnix\\web-user.py:176> exception=AttributeError(\"'AgentSession' object has no attribute 'user_data'\")>", "level": "ERROR", "name": "asyncio", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 182, in on_enter\n    if self.session.user_data: # Check if user_data is also set\n       ^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'AgentSession' object has no attribute 'user_data'. Did you mean: 'userdata'?", "timestamp": "2025-06-19T01:56:54.803875+00:00"}
+2025-06-19 07:26:55 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8802000000000015, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:56:55.097612+00:00"}
+2025-06-19 07:26:55 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298215.6942081 idle_time=1.0345125000021653 inference_duration_total=0.041108399993390776 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298215.6942081 idle_time=1.0345125000021653 inference_duration_total=0.041108399993390776 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:55.694750+00:00"}
+2025-06-19 07:26:56 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298216.7149775 idle_time=2.0552874999993946 inference_duration_total=0.041230799979530275 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298216.7149775 idle_time=2.0552874999993946 inference_duration_total=0.041230799979530275 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:56.715307+00:00"}
+2025-06-19 07:26:57 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.3772000000000016, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:56:57.598857+00:00"}
+2025-06-19 07:26:57 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298217.7445185 idle_time=3.084834499997669 inference_duration_total=0.038795300002675503 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298217.7445185 idle_time=3.084834499997669 inference_duration_total=0.038795300002675503 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:57.745162+00:00"}
+2025-06-19 07:26:58 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298218.763794 idle_time=4.104115599999204 inference_duration_total=0.0466353000010713 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298218.763794 idle_time=4.104115599999204 inference_duration_total=0.0466353000010713 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:58.764132+00:00"}
+2025-06-19 07:26:59 - livekit.agents - [INFO] - STT metrics: audio_duration=5.00
+{"message": "STT metrics: audio_duration=5.00", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T01:56:59.695179+00:00"}
+2025-06-19 07:26:59 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='d8c1876a-18a2-4f1b-bde0-ba6315203aa1' timestamp=1750298219.6947658 duration=0.0 audio_duration=4.99999999999999 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='d8c1876a-18a2-4f1b-bde0-ba6315203aa1' timestamp=1750298219.6947658 duration=0.0 audio_duration=4.99999999999999 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:59.695638+00:00"}
+2025-06-19 07:26:59 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298219.7942598 idle_time=5.1345874999969965 inference_duration_total=0.046853499981807545 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298219.7942598 idle_time=5.1345874999969965 inference_duration_total=0.046853499981807545 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:56:59.794530+00:00"}
+2025-06-19 07:27:00 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298220.8144858 idle_time=6.154819399998814 inference_duration_total=0.04835440000897506 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298220.8144858 idle_time=6.154819399998814 inference_duration_total=0.04835440000897506 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:00.814825+00:00"}
+2025-06-19 07:27:01 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298221.8354158 idle_time=7.175755500000378 inference_duration_total=0.04881980000209296 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298221.8354158 idle_time=7.175755500000378 inference_duration_total=0.04881980000209296 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:01.835791+00:00"}
+2025-06-19 07:27:02 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298222.8649113 idle_time=8.205257000001438 inference_duration_total=0.16114680000464432 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298222.8649113 idle_time=8.205257000001438 inference_duration_total=0.16114680000464432 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:02.865289+00:00"}
+2025-06-19 07:27:03 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298223.884975 idle_time=9.2253264999963 inference_duration_total=0.05743670001538703 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298223.884975 idle_time=9.2253264999963 inference_duration_total=0.05743670001538703 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:03.885399+00:00"}
+2025-06-19 07:27:04 - livekit.agents - [INFO] - STT metrics: audio_duration=5.05
+{"message": "STT metrics: audio_duration=5.05", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T01:57:04.753980+00:00"}
+2025-06-19 07:27:04 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='d8c1876a-18a2-4f1b-bde0-ba6315203aa1' timestamp=1750298224.7536733 duration=0.0 audio_duration=5.04999999999999 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='d8c1876a-18a2-4f1b-bde0-ba6315203aa1' timestamp=1750298224.7536733 duration=0.0 audio_duration=5.04999999999999 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:04.754448+00:00"}
+2025-06-19 07:27:04 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298224.9137046 idle_time=10.25406230000226 inference_duration_total=0.04250740000134101 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298224.9137046 idle_time=10.25406230000226 inference_duration_total=0.04250740000134101 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:04.913962+00:00"}
+2025-06-19 07:27:05 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8076000000000014, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:57:05.103065+00:00"}
+2025-06-19 07:27:05 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298225.935783 idle_time=11.276146500000323 inference_duration_total=0.04197500000009313 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298225.935783 idle_time=11.276146500000323 inference_duration_total=0.04197500000009313 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:05.936053+00:00"}
+2025-06-19 07:27:06 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298226.955067 idle_time=12.295436100001098 inference_duration_total=0.03807650000817375 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298226.955067 idle_time=12.295436100001098 inference_duration_total=0.03807650000817375 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:06.955347+00:00"}
+2025-06-19 07:27:07 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.4110000000000015, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:57:07.604272+00:00"}
+2025-06-19 07:27:07 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298227.9849315 idle_time=13.325306799997634 inference_duration_total=0.05073679997440195 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298227.9849315 idle_time=13.325306799997634 inference_duration_total=0.05073679997440195 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:07.985219+00:00"}
+2025-06-19 07:27:09 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298229.0049646 idle_time=14.345345599998836 inference_duration_total=0.04230930002813693 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298229.0049646 idle_time=14.345345599998836 inference_duration_total=0.04230930002813693 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:09.005321+00:00"}
+2025-06-19 07:27:09 - livekit.agents - [INFO] - STT metrics: audio_duration=5.05
+{"message": "STT metrics: audio_duration=5.05", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T01:57:09.774451+00:00"}
+2025-06-19 07:27:09 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='d8c1876a-18a2-4f1b-bde0-ba6315203aa1' timestamp=1750298229.7740824 duration=0.0 audio_duration=5.04999999999999 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='d8c1876a-18a2-4f1b-bde0-ba6315203aa1' timestamp=1750298229.7740824 duration=0.0 audio_duration=5.04999999999999 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:09.774879+00:00"}
+2025-06-19 07:27:10 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298230.035852 idle_time=15.376239299999725 inference_duration_total=0.05370189998211572 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298230.035852 idle_time=15.376239299999725 inference_duration_total=0.05370189998211572 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:10.036259+00:00"}
+2025-06-19 07:27:11 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298231.054302 idle_time=16.39469509999617 inference_duration_total=0.03824840001470875 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298231.054302 idle_time=16.39469509999617 inference_duration_total=0.03824840001470875 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:11.054582+00:00"}
+2025-06-19 07:27:12 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298232.075798 idle_time=17.416196899997885 inference_duration_total=0.054828500004077796 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298232.075798 idle_time=17.416196899997885 inference_duration_total=0.054828500004077796 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:12.076266+00:00"}
+2025-06-19 07:27:13 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298233.1039 idle_time=18.44430480000301 inference_duration_total=0.0376927000033902 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298233.1039 idle_time=18.44430480000301 inference_duration_total=0.0376927000033902 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:13.104144+00:00"}
+2025-06-19 07:27:14 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298234.124249 idle_time=19.46465989999706 inference_duration_total=0.03714810000383295 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298234.124249 idle_time=19.46465989999706 inference_duration_total=0.03714810000383295 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:14.124484+00:00"}
+2025-06-19 07:27:14 - livekit.agents - [INFO] - STT metrics: audio_duration=5.00
+{"message": "STT metrics: audio_duration=5.00", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T01:57:14.803246+00:00"}
+2025-06-19 07:27:14 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='d8c1876a-18a2-4f1b-bde0-ba6315203aa1' timestamp=1750298234.8030002 duration=0.0 audio_duration=4.99999999999999 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='d8c1876a-18a2-4f1b-bde0-ba6315203aa1' timestamp=1750298234.8030002 duration=0.0 audio_duration=4.99999999999999 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:14.803517+00:00"}
+2025-06-19 07:27:15 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298235.1549113 idle_time=20.495328099998005 inference_duration_total=0.03616379997401964 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298235.1549113 idle_time=20.495328099998005 inference_duration_total=0.03616379997401964 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:15.155147+00:00"}
+2025-06-19 07:27:16 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298236.1753 idle_time=21.515722500000265 inference_duration_total=0.038564200011023786 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298236.1753 idle_time=21.515722500000265 inference_duration_total=0.038564200011023786 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:16.175542+00:00"}
+2025-06-19 07:27:17 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298237.1947796 idle_time=22.53520820000267 inference_duration_total=0.03627610001421999 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298237.1947796 idle_time=22.53520820000267 inference_duration_total=0.03627610001421999 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:17.195041+00:00"}
+2025-06-19 07:27:18 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298238.22543 idle_time=0.4513433000029181 inference_duration_total=0.03650720001314767 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298238.22543 idle_time=0.4513433000029181 inference_duration_total=0.03650720001314767 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:18.225674+00:00"}
+2025-06-19 07:27:19 - livekit.agents - [INFO] - EOU metrics: end_of_utterance_delay=1.01, transcription_delay=1.01
+{"message": "EOU metrics: end_of_utterance_delay=1.01, transcription_delay=1.01", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T01:57:19.229874+00:00"}
+2025-06-19 07:27:19 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='eou_metrics' timestamp=1750298239.228971 end_of_utterance_delay=1.0096583366394043 transcription_delay=1.0085887908935547 on_user_turn_completed_delay=4.76837158203125e-06 speech_id='speech_c6fa91cf698d'
+{"message": "User shhaaag@gmail.com Metrics: type='eou_metrics' timestamp=1750298239.228971 end_of_utterance_delay=1.0096583366394043 transcription_delay=1.0085887908935547 on_user_turn_completed_delay=4.76837158203125e-06 speech_id='speech_c6fa91cf698d'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:19.230696+00:00"}
+2025-06-19 07:27:19 - livekit.agents - [WARNING] - failed to generate LLM completion, retrying in 2.0s
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\llm.py", line 569, in _run
+    tools=to_fnc_ctx(self._tools) if self._tools else openai.NOT_GIVEN,
+          ~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\utils.py", line 28, in to_fnc_ctx
+    return [llm.utils.build_strict_openai_schema(fnc) for fnc in fnc_ctx]
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\utils.py", line 205, in build_strict_openai_schema
+    model = function_arguments_to_pydantic_model(function_tool)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\utils.py", line 321, in function_arguments_to_pydantic_model
+    return create_model(model_name, **fields)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\main.py", line 1763, in create_model
+    return meta(
+        model_name,
+    ...<4 lines>...
+        **kwds,
+    )
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_model_construction.py", line 237, in __new__
+    complete_model_class(
+    ~~~~~~~~~~~~~~~~~~~~^
+        cls,
+        ^^^^
+    ...<3 lines>...
+        create_model_module=_create_model_module,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_model_construction.py", line 597, in complete_model_class
+    schema = gen_schema.generate_schema(cls)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 706, in generate_schema
+    schema = self._generate_schema_inner(obj)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 999, in _generate_schema_inner
+    return self._model_schema(obj)
+           ~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 832, in _model_schema
+    {k: self._generate_md_field_schema(k, v, decorators) for k, v in fields.items()},
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1201, in _generate_md_field_schema
+    common_field = self._common_field_schema(name, field_info, decorators)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1367, in _common_field_schema
+    schema = self._apply_annotations(
+        source_type,
+        annotations + validators_from_decorators,
+    )
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 2279, in _apply_annotations
+    schema = get_inner_schema(source_type)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 2261, in inner_handler
+    schema = self._generate_schema_inner(obj)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1004, in _generate_schema_inner
+    return self.match_type(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1122, in match_type
+    return self._unknown_type_schema(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 634, in _unknown_type_schema
+    raise PydanticSchemaGenerationError(
+    ...<7 lines>...
+    )
+pydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'livekit.agents.voice.agent_session.AgentSession'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+
+If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+
+For further information visit https://errors.pydantic.dev/2.11/u/schema-for-unknown-type
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\llm.py", line 138, in _main_task
+    return await self._run()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\llm.py", line 607, in _run
+    raise APIConnectionError(retryable=retryable) from e
+livekit.agents._exceptions.APIConnectionError: Connection error.
+{"message": "failed to generate LLM completion, retrying in 2.0s", "level": "WARNING", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\llm.py\", line 569, in _run\n    tools=to_fnc_ctx(self._tools) if self._tools else openai.NOT_GIVEN,\n          ~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\utils.py\", line 28, in to_fnc_ctx\n    return [llm.utils.build_strict_openai_schema(fnc) for fnc in fnc_ctx]\n            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\utils.py\", line 205, in build_strict_openai_schema\n    model = function_arguments_to_pydantic_model(function_tool)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\utils.py\", line 321, in function_arguments_to_pydantic_model\n    return create_model(model_name, **fields)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\main.py\", line 1763, in create_model\n    return meta(\n        model_name,\n    ...<4 lines>...\n        **kwds,\n    )\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_model_construction.py\", line 237, in __new__\n    complete_model_class(\n    ~~~~~~~~~~~~~~~~~~~~^\n        cls,\n        ^^^^\n    ...<3 lines>...\n        create_model_module=_create_model_module,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_model_construction.py\", line 597, in complete_model_class\n    schema = gen_schema.generate_schema(cls)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 706, in generate_schema\n    schema = self._generate_schema_inner(obj)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 999, in _generate_schema_inner\n    return self._model_schema(obj)\n           ~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 832, in _model_schema\n    {k: self._generate_md_field_schema(k, v, decorators) for k, v in fields.items()},\n        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1201, in _generate_md_field_schema\n    common_field = self._common_field_schema(name, field_info, decorators)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1367, in _common_field_schema\n    schema = self._apply_annotations(\n        source_type,\n        annotations + validators_from_decorators,\n    )\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 2279, in _apply_annotations\n    schema = get_inner_schema(source_type)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_schema_generation_shared.py\", line 83, in __call__\n    schema = self._handler(source_type)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 2261, in inner_handler\n    schema = self._generate_schema_inner(obj)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1004, in _generate_schema_inner\n    return self.match_type(obj)\n           ~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1122, in match_type\n    return self._unknown_type_schema(obj)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 634, in _unknown_type_schema\n    raise PydanticSchemaGenerationError(\n    ...<7 lines>...\n    )\npydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'livekit.agents.voice.agent_session.AgentSession'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.\n\nIf you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.\n\nFor further information visit https://errors.pydantic.dev/2.11/u/schema-for-unknown-type\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\llm.py\", line 138, in _main_task\n    return await self._run()\n           ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\llm.py\", line 607, in _run\n    raise APIConnectionError(retryable=retryable) from e\nlivekit.agents._exceptions.APIConnectionError: Connection error.", "llm": "livekit.plugins.openai.llm.LLM", "attempt": 1, "timestamp": "2025-06-19T01:57:19.620946+00:00"}
+2025-06-19 07:27:19 - livekit.agents - [INFO] - STT metrics: audio_duration=4.45
+{"message": "STT metrics: audio_duration=4.45", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T01:57:19.872978+00:00"}
+2025-06-19 07:27:19 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='d8c1876a-18a2-4f1b-bde0-ba6315203aa1' timestamp=1750298239.872607 duration=0.0 audio_duration=4.449999999999992 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='d8c1876a-18a2-4f1b-bde0-ba6315203aa1' timestamp=1750298239.872607 duration=0.0 audio_duration=4.449999999999992 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:19.873491+00:00"}
+2025-06-19 07:27:19 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298239.876555 idle_time=1.0817447000008542 inference_duration_total=0.037671800011594314 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298239.876555 idle_time=1.0817447000008542 inference_duration_total=0.037671800011594314 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:19.876815+00:00"}
+2025-06-19 07:27:20 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298240.2739644 idle_time=1.4791562000027625 inference_duration_total=0.041346799982420634 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298240.2739644 idle_time=1.4791562000027625 inference_duration_total=0.041346799982420634 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:20.274219+00:00"}
+2025-06-19 07:27:21 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298241.294238 idle_time=2.499436099999002 inference_duration_total=0.037050300008559134 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298241.294238 idle_time=2.499436099999002 inference_duration_total=0.037050300008559134 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:21.294509+00:00"}
+2025-06-19 07:27:21 - livekit.agents - [WARNING] - failed to generate LLM completion, retrying in 2.0s
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\llm.py", line 569, in _run
+    tools=to_fnc_ctx(self._tools) if self._tools else openai.NOT_GIVEN,
+          ~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\utils.py", line 28, in to_fnc_ctx
+    return [llm.utils.build_strict_openai_schema(fnc) for fnc in fnc_ctx]
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\utils.py", line 205, in build_strict_openai_schema
+    model = function_arguments_to_pydantic_model(function_tool)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\utils.py", line 321, in function_arguments_to_pydantic_model
+    return create_model(model_name, **fields)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\main.py", line 1763, in create_model
+    return meta(
+        model_name,
+    ...<4 lines>...
+        **kwds,
+    )
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_model_construction.py", line 237, in __new__
+    complete_model_class(
+    ~~~~~~~~~~~~~~~~~~~~^
+        cls,
+        ^^^^
+    ...<3 lines>...
+        create_model_module=_create_model_module,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_model_construction.py", line 597, in complete_model_class
+    schema = gen_schema.generate_schema(cls)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 706, in generate_schema
+    schema = self._generate_schema_inner(obj)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 999, in _generate_schema_inner
+    return self._model_schema(obj)
+           ~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 832, in _model_schema
+    {k: self._generate_md_field_schema(k, v, decorators) for k, v in fields.items()},
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1201, in _generate_md_field_schema
+    common_field = self._common_field_schema(name, field_info, decorators)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1367, in _common_field_schema
+    schema = self._apply_annotations(
+        source_type,
+        annotations + validators_from_decorators,
+    )
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 2279, in _apply_annotations
+    schema = get_inner_schema(source_type)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 2261, in inner_handler
+    schema = self._generate_schema_inner(obj)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1004, in _generate_schema_inner
+    return self.match_type(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1122, in match_type
+    return self._unknown_type_schema(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 634, in _unknown_type_schema
+    raise PydanticSchemaGenerationError(
+    ...<7 lines>...
+    )
+pydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'livekit.agents.voice.agent_session.AgentSession'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+
+If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+
+For further information visit https://errors.pydantic.dev/2.11/u/schema-for-unknown-type
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\llm.py", line 138, in _main_task
+    return await self._run()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\llm.py", line 607, in _run
+    raise APIConnectionError(retryable=retryable) from e
+livekit.agents._exceptions.APIConnectionError: Connection error.
+{"message": "failed to generate LLM completion, retrying in 2.0s", "level": "WARNING", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\llm.py\", line 569, in _run\n    tools=to_fnc_ctx(self._tools) if self._tools else openai.NOT_GIVEN,\n          ~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\utils.py\", line 28, in to_fnc_ctx\n    return [llm.utils.build_strict_openai_schema(fnc) for fnc in fnc_ctx]\n            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\utils.py\", line 205, in build_strict_openai_schema\n    model = function_arguments_to_pydantic_model(function_tool)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\utils.py\", line 321, in function_arguments_to_pydantic_model\n    return create_model(model_name, **fields)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\main.py\", line 1763, in create_model\n    return meta(\n        model_name,\n    ...<4 lines>...\n        **kwds,\n    )\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_model_construction.py\", line 237, in __new__\n    complete_model_class(\n    ~~~~~~~~~~~~~~~~~~~~^\n        cls,\n        ^^^^\n    ...<3 lines>...\n        create_model_module=_create_model_module,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_model_construction.py\", line 597, in complete_model_class\n    schema = gen_schema.generate_schema(cls)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 706, in generate_schema\n    schema = self._generate_schema_inner(obj)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 999, in _generate_schema_inner\n    return self._model_schema(obj)\n           ~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 832, in _model_schema\n    {k: self._generate_md_field_schema(k, v, decorators) for k, v in fields.items()},\n        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1201, in _generate_md_field_schema\n    common_field = self._common_field_schema(name, field_info, decorators)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1367, in _common_field_schema\n    schema = self._apply_annotations(\n        source_type,\n        annotations + validators_from_decorators,\n    )\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 2279, in _apply_annotations\n    schema = get_inner_schema(source_type)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_schema_generation_shared.py\", line 83, in __call__\n    schema = self._handler(source_type)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 2261, in inner_handler\n    schema = self._generate_schema_inner(obj)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1004, in _generate_schema_inner\n    return self.match_type(obj)\n           ~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1122, in match_type\n    return self._unknown_type_schema(obj)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 634, in _unknown_type_schema\n    raise PydanticSchemaGenerationError(\n    ...<7 lines>...\n    )\npydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'livekit.agents.voice.agent_session.AgentSession'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.\n\nIf you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.\n\nFor further information visit https://errors.pydantic.dev/2.11/u/schema-for-unknown-type\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\llm.py\", line 138, in _main_task\n    return await self._run()\n           ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\llm.py\", line 607, in _run\n    raise APIConnectionError(retryable=retryable) from e\nlivekit.agents._exceptions.APIConnectionError: Connection error.", "llm": "livekit.plugins.openai.llm.LLM", "attempt": 2, "timestamp": "2025-06-19T01:57:21.861421+00:00"}
+2025-06-19 07:27:22 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298242.3149865 idle_time=3.5201901999971597 inference_duration_total=0.040925800014520064 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298242.3149865 idle_time=3.5201901999971597 inference_duration_total=0.040925800014520064 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:22.315367+00:00"}
+2025-06-19 07:27:23 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298243.3441994 idle_time=4.549409100000048 inference_duration_total=0.04108979998272844 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298243.3441994 idle_time=4.549409100000048 inference_duration_total=0.04108979998272844 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:23.344433+00:00"}
+2025-06-19 07:27:23 - livekit.agents - [WARNING] - failed to generate LLM completion, retrying in 2.0s
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\llm.py", line 569, in _run
+    tools=to_fnc_ctx(self._tools) if self._tools else openai.NOT_GIVEN,
+          ~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\utils.py", line 28, in to_fnc_ctx
+    return [llm.utils.build_strict_openai_schema(fnc) for fnc in fnc_ctx]
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\utils.py", line 205, in build_strict_openai_schema
+    model = function_arguments_to_pydantic_model(function_tool)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\utils.py", line 321, in function_arguments_to_pydantic_model
+    return create_model(model_name, **fields)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\main.py", line 1763, in create_model
+    return meta(
+        model_name,
+    ...<4 lines>...
+        **kwds,
+    )
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_model_construction.py", line 237, in __new__
+    complete_model_class(
+    ~~~~~~~~~~~~~~~~~~~~^
+        cls,
+        ^^^^
+    ...<3 lines>...
+        create_model_module=_create_model_module,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_model_construction.py", line 597, in complete_model_class
+    schema = gen_schema.generate_schema(cls)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 706, in generate_schema
+    schema = self._generate_schema_inner(obj)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 999, in _generate_schema_inner
+    return self._model_schema(obj)
+           ~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 832, in _model_schema
+    {k: self._generate_md_field_schema(k, v, decorators) for k, v in fields.items()},
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1201, in _generate_md_field_schema
+    common_field = self._common_field_schema(name, field_info, decorators)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1367, in _common_field_schema
+    schema = self._apply_annotations(
+        source_type,
+        annotations + validators_from_decorators,
+    )
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 2279, in _apply_annotations
+    schema = get_inner_schema(source_type)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 2261, in inner_handler
+    schema = self._generate_schema_inner(obj)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1004, in _generate_schema_inner
+    return self.match_type(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1122, in match_type
+    return self._unknown_type_schema(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 634, in _unknown_type_schema
+    raise PydanticSchemaGenerationError(
+    ...<7 lines>...
+    )
+pydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'livekit.agents.voice.agent_session.AgentSession'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+
+If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+
+For further information visit https://errors.pydantic.dev/2.11/u/schema-for-unknown-type
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\llm.py", line 138, in _main_task
+    return await self._run()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\llm.py", line 607, in _run
+    raise APIConnectionError(retryable=retryable) from e
+livekit.agents._exceptions.APIConnectionError: Connection error.
+{"message": "failed to generate LLM completion, retrying in 2.0s", "level": "WARNING", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\llm.py\", line 569, in _run\n    tools=to_fnc_ctx(self._tools) if self._tools else openai.NOT_GIVEN,\n          ~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\utils.py\", line 28, in to_fnc_ctx\n    return [llm.utils.build_strict_openai_schema(fnc) for fnc in fnc_ctx]\n            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\utils.py\", line 205, in build_strict_openai_schema\n    model = function_arguments_to_pydantic_model(function_tool)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\utils.py\", line 321, in function_arguments_to_pydantic_model\n    return create_model(model_name, **fields)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\main.py\", line 1763, in create_model\n    return meta(\n        model_name,\n    ...<4 lines>...\n        **kwds,\n    )\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_model_construction.py\", line 237, in __new__\n    complete_model_class(\n    ~~~~~~~~~~~~~~~~~~~~^\n        cls,\n        ^^^^\n    ...<3 lines>...\n        create_model_module=_create_model_module,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_model_construction.py\", line 597, in complete_model_class\n    schema = gen_schema.generate_schema(cls)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 706, in generate_schema\n    schema = self._generate_schema_inner(obj)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 999, in _generate_schema_inner\n    return self._model_schema(obj)\n           ~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 832, in _model_schema\n    {k: self._generate_md_field_schema(k, v, decorators) for k, v in fields.items()},\n        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1201, in _generate_md_field_schema\n    common_field = self._common_field_schema(name, field_info, decorators)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1367, in _common_field_schema\n    schema = self._apply_annotations(\n        source_type,\n        annotations + validators_from_decorators,\n    )\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 2279, in _apply_annotations\n    schema = get_inner_schema(source_type)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_schema_generation_shared.py\", line 83, in __call__\n    schema = self._handler(source_type)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 2261, in inner_handler\n    schema = self._generate_schema_inner(obj)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1004, in _generate_schema_inner\n    return self.match_type(obj)\n           ~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1122, in match_type\n    return self._unknown_type_schema(obj)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 634, in _unknown_type_schema\n    raise PydanticSchemaGenerationError(\n    ...<7 lines>...\n    )\npydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'livekit.agents.voice.agent_session.AgentSession'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.\n\nIf you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.\n\nFor further information visit https://errors.pydantic.dev/2.11/u/schema-for-unknown-type\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\llm.py\", line 138, in _main_task\n    return await self._run()\n           ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\llm.py\", line 607, in _run\n    raise APIConnectionError(retryable=retryable) from e\nlivekit.agents._exceptions.APIConnectionError: Connection error.", "llm": "livekit.plugins.openai.llm.LLM", "attempt": 3, "timestamp": "2025-06-19T01:57:23.887219+00:00"}
+2025-06-19 07:27:24 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298244.36396 idle_time=5.569175500000711 inference_duration_total=0.036760899994987994 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298244.36396 idle_time=5.569175500000711 inference_duration_total=0.036760899994987994 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:24.364206+00:00"}
+2025-06-19 07:27:24 - livekit.agents - [INFO] - STT metrics: audio_duration=5.65
+{"message": "STT metrics: audio_duration=5.65", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T01:57:24.883445+00:00"}
+2025-06-19 07:27:24 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='d8c1876a-18a2-4f1b-bde0-ba6315203aa1' timestamp=1750298244.883216 duration=0.0 audio_duration=5.649999999999988 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='d8c1876a-18a2-4f1b-bde0-ba6315203aa1' timestamp=1750298244.883216 duration=0.0 audio_duration=5.649999999999988 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:24.883707+00:00"}
+2025-06-19 07:27:25 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298245.3941631 idle_time=6.599384699999064 inference_duration_total=0.036380899997311644 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750298245.3941631 idle_time=6.599384699999064 inference_duration_total=0.036380899997311644 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:57:25.394406+00:00"}
+2025-06-19 07:27:25 - livekit.agents - [ERROR] - AgentSession is closing due to unrecoverable error
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\llm.py", line 569, in _run
+    tools=to_fnc_ctx(self._tools) if self._tools else openai.NOT_GIVEN,
+          ~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\utils.py", line 28, in to_fnc_ctx
+    return [llm.utils.build_strict_openai_schema(fnc) for fnc in fnc_ctx]
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\utils.py", line 205, in build_strict_openai_schema
+    model = function_arguments_to_pydantic_model(function_tool)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\utils.py", line 321, in function_arguments_to_pydantic_model
+    return create_model(model_name, **fields)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\main.py", line 1763, in create_model
+    return meta(
+        model_name,
+    ...<4 lines>...
+        **kwds,
+    )
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_model_construction.py", line 237, in __new__
+    complete_model_class(
+    ~~~~~~~~~~~~~~~~~~~~^
+        cls,
+        ^^^^
+    ...<3 lines>...
+        create_model_module=_create_model_module,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_model_construction.py", line 597, in complete_model_class
+    schema = gen_schema.generate_schema(cls)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 706, in generate_schema
+    schema = self._generate_schema_inner(obj)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 999, in _generate_schema_inner
+    return self._model_schema(obj)
+           ~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 832, in _model_schema
+    {k: self._generate_md_field_schema(k, v, decorators) for k, v in fields.items()},
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1201, in _generate_md_field_schema
+    common_field = self._common_field_schema(name, field_info, decorators)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1367, in _common_field_schema
+    schema = self._apply_annotations(
+        source_type,
+        annotations + validators_from_decorators,
+    )
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 2279, in _apply_annotations
+    schema = get_inner_schema(source_type)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 2261, in inner_handler
+    schema = self._generate_schema_inner(obj)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1004, in _generate_schema_inner
+    return self.match_type(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1122, in match_type
+    return self._unknown_type_schema(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 634, in _unknown_type_schema
+    raise PydanticSchemaGenerationError(
+    ...<7 lines>...
+    )
+pydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'livekit.agents.voice.agent_session.AgentSession'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+
+If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+
+For further information visit https://errors.pydantic.dev/2.11/u/schema-for-unknown-type
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\llm.py", line 138, in _main_task
+    return await self._run()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\llm.py", line 607, in _run
+    raise APIConnectionError(retryable=retryable) from e
+livekit.agents._exceptions.APIConnectionError: Connection error.
+{"message": "AgentSession is closing due to unrecoverable error", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\llm.py\", line 569, in _run\n    tools=to_fnc_ctx(self._tools) if self._tools else openai.NOT_GIVEN,\n          ~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\utils.py\", line 28, in to_fnc_ctx\n    return [llm.utils.build_strict_openai_schema(fnc) for fnc in fnc_ctx]\n            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\utils.py\", line 205, in build_strict_openai_schema\n    model = function_arguments_to_pydantic_model(function_tool)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\utils.py\", line 321, in function_arguments_to_pydantic_model\n    return create_model(model_name, **fields)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\main.py\", line 1763, in create_model\n    return meta(\n        model_name,\n    ...<4 lines>...\n        **kwds,\n    )\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_model_construction.py\", line 237, in __new__\n    complete_model_class(\n    ~~~~~~~~~~~~~~~~~~~~^\n        cls,\n        ^^^^\n    ...<3 lines>...\n        create_model_module=_create_model_module,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_model_construction.py\", line 597, in complete_model_class\n    schema = gen_schema.generate_schema(cls)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 706, in generate_schema\n    schema = self._generate_schema_inner(obj)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 999, in _generate_schema_inner\n    return self._model_schema(obj)\n           ~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 832, in _model_schema\n    {k: self._generate_md_field_schema(k, v, decorators) for k, v in fields.items()},\n        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1201, in _generate_md_field_schema\n    common_field = self._common_field_schema(name, field_info, decorators)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1367, in _common_field_schema\n    schema = self._apply_annotations(\n        source_type,\n        annotations + validators_from_decorators,\n    )\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 2279, in _apply_annotations\n    schema = get_inner_schema(source_type)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_schema_generation_shared.py\", line 83, in __call__\n    schema = self._handler(source_type)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 2261, in inner_handler\n    schema = self._generate_schema_inner(obj)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1004, in _generate_schema_inner\n    return self.match_type(obj)\n           ~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1122, in match_type\n    return self._unknown_type_schema(obj)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 634, in _unknown_type_schema\n    raise PydanticSchemaGenerationError(\n    ...<7 lines>...\n    )\npydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'livekit.agents.voice.agent_session.AgentSession'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.\n\nIf you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.\n\nFor further information visit https://errors.pydantic.dev/2.11/u/schema-for-unknown-type\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\llm.py\", line 138, in _main_task\n    return await self._run()\n           ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\llm.py\", line 607, in _run\n    raise APIConnectionError(retryable=retryable) from e\nlivekit.agents._exceptions.APIConnectionError: Connection error.", "timestamp": "2025-06-19T01:57:25.901022+00:00"}
+2025-06-19 07:27:25 - livekit.agents - [ERROR] - Error in _inference_task
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\llm.py", line 569, in _run
+    tools=to_fnc_ctx(self._tools) if self._tools else openai.NOT_GIVEN,
+          ~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\utils.py", line 28, in to_fnc_ctx
+    return [llm.utils.build_strict_openai_schema(fnc) for fnc in fnc_ctx]
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\utils.py", line 205, in build_strict_openai_schema
+    model = function_arguments_to_pydantic_model(function_tool)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\utils.py", line 321, in function_arguments_to_pydantic_model
+    return create_model(model_name, **fields)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\main.py", line 1763, in create_model
+    return meta(
+        model_name,
+    ...<4 lines>...
+        **kwds,
+    )
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_model_construction.py", line 237, in __new__
+    complete_model_class(
+    ~~~~~~~~~~~~~~~~~~~~^
+        cls,
+        ^^^^
+    ...<3 lines>...
+        create_model_module=_create_model_module,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_model_construction.py", line 597, in complete_model_class
+    schema = gen_schema.generate_schema(cls)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 706, in generate_schema
+    schema = self._generate_schema_inner(obj)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 999, in _generate_schema_inner
+    return self._model_schema(obj)
+           ~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 832, in _model_schema
+    {k: self._generate_md_field_schema(k, v, decorators) for k, v in fields.items()},
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1201, in _generate_md_field_schema
+    common_field = self._common_field_schema(name, field_info, decorators)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1367, in _common_field_schema
+    schema = self._apply_annotations(
+        source_type,
+        annotations + validators_from_decorators,
+    )
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 2279, in _apply_annotations
+    schema = get_inner_schema(source_type)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 2261, in inner_handler
+    schema = self._generate_schema_inner(obj)
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1004, in _generate_schema_inner
+    return self.match_type(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 1122, in match_type
+    return self._unknown_type_schema(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\pydantic\_internal\_generate_schema.py", line 634, in _unknown_type_schema
+    raise PydanticSchemaGenerationError(
+    ...<7 lines>...
+    )
+pydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'livekit.agents.voice.agent_session.AgentSession'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+
+If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+
+For further information visit https://errors.pydantic.dev/2.11/u/schema-for-unknown-type
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\llm.py", line 138, in _main_task
+    return await self._run()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\plugins\openai\llm.py", line 607, in _run
+    raise APIConnectionError(retryable=retryable) from e
+livekit.agents._exceptions.APIConnectionError: Connection error.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\utils\log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\voice\generation.py", line 85, in _inference_task
+    async for chunk in llm_node:
+    ...<29 lines>...
+            )
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\voice\agent.py", line 352, in llm_node
+    async for chunk in stream:
+        yield chunk
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\llm.py", line 232, in __anext__
+    raise exc  # noqa: B904
+    ^^^^^^^^^
+  File "C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\llm\llm.py", line 145, in _main_task
+    raise APIConnectionError(
+        f"failed to generate LLM completion after {self._conn_options.max_retry + 1} attempts",  # noqa: E501
+    ) from e
+livekit.agents._exceptions.APIConnectionError: failed to generate LLM completion after 4 attempts
+{"message": "Error in _inference_task", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\llm.py\", line 569, in _run\n    tools=to_fnc_ctx(self._tools) if self._tools else openai.NOT_GIVEN,\n          ~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\utils.py\", line 28, in to_fnc_ctx\n    return [llm.utils.build_strict_openai_schema(fnc) for fnc in fnc_ctx]\n            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\utils.py\", line 205, in build_strict_openai_schema\n    model = function_arguments_to_pydantic_model(function_tool)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\utils.py\", line 321, in function_arguments_to_pydantic_model\n    return create_model(model_name, **fields)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\main.py\", line 1763, in create_model\n    return meta(\n        model_name,\n    ...<4 lines>...\n        **kwds,\n    )\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_model_construction.py\", line 237, in __new__\n    complete_model_class(\n    ~~~~~~~~~~~~~~~~~~~~^\n        cls,\n        ^^^^\n    ...<3 lines>...\n        create_model_module=_create_model_module,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_model_construction.py\", line 597, in complete_model_class\n    schema = gen_schema.generate_schema(cls)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 706, in generate_schema\n    schema = self._generate_schema_inner(obj)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 999, in _generate_schema_inner\n    return self._model_schema(obj)\n           ~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 832, in _model_schema\n    {k: self._generate_md_field_schema(k, v, decorators) for k, v in fields.items()},\n        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1201, in _generate_md_field_schema\n    common_field = self._common_field_schema(name, field_info, decorators)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1367, in _common_field_schema\n    schema = self._apply_annotations(\n        source_type,\n        annotations + validators_from_decorators,\n    )\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 2279, in _apply_annotations\n    schema = get_inner_schema(source_type)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_schema_generation_shared.py\", line 83, in __call__\n    schema = self._handler(source_type)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 2261, in inner_handler\n    schema = self._generate_schema_inner(obj)\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1004, in _generate_schema_inner\n    return self.match_type(obj)\n           ~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 1122, in match_type\n    return self._unknown_type_schema(obj)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\pydantic\\_internal\\_generate_schema.py\", line 634, in _unknown_type_schema\n    raise PydanticSchemaGenerationError(\n    ...<7 lines>...\n    )\npydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'livekit.agents.voice.agent_session.AgentSession'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.\n\nIf you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.\n\nFor further information visit https://errors.pydantic.dev/2.11/u/schema-for-unknown-type\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\llm.py\", line 138, in _main_task\n    return await self._run()\n           ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\plugins\\openai\\llm.py\", line 607, in _run\n    raise APIConnectionError(retryable=retryable) from e\nlivekit.agents._exceptions.APIConnectionError: Connection error.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\utils\\log.py\", line 16, in async_fn_logs\n    return await fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\voice\\generation.py\", line 85, in _inference_task\n    async for chunk in llm_node:\n    ...<29 lines>...\n            )\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\voice\\agent.py\", line 352, in llm_node\n    async for chunk in stream:\n        yield chunk\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\llm.py\", line 232, in __anext__\n    raise exc  # noqa: B904\n    ^^^^^^^^^\n  File \"C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\llm\\llm.py\", line 145, in _main_task\n    raise APIConnectionError(\n        f\"failed to generate LLM completion after {self._conn_options.max_retry + 1} attempts\",  # noqa: E501\n    ) from e\nlivekit.agents._exceptions.APIConnectionError: failed to generate LLM completion after 4 attempts", "timestamp": "2025-06-19T01:57:25.925240+00:00"}
+2025-06-19 07:27:52 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.7574000000000014, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:57:52.640572+00:00"}
+2025-06-19 07:27:57 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.6522000000000012, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:57:57.642347+00:00"}
+2025-06-19 07:28:02 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.7612000000000012, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:58:02.644311+00:00"}
+2025-06-19 07:28:10 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.4812000000000015, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:58:10.150572+00:00"}
+2025-06-19 07:28:25 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8726000000000015, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:58:25.153946+00:00"}
+2025-06-19 07:28:27 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.6138000000000015, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:58:27.655300+00:00"}

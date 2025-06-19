@@ -1,0 +1,55 @@
+--- agent_runner.py: Initializing for user: shhaaag@gmail.com, using core script: web-user.py ---
+INFO (agent_runner.py): Successfully loaded configuration for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\config\agent_config.json
+INFO (agent_runner.py): Setting environment variables for user shhaaag@gmail.com...
+  SET USER_AGENT_USER_ID=shhaaag@gmail.com
+  INFO: USER_AGENT_COLLECTION not set (not found in user config).
+  INFO: USER_AGENT_PHONE not set (not found in user config).
+  SET OPENAI_API_KEY (from user config)
+  SET LIVEKIT_URL (from user config)
+  SET LIVEKIT_API_KEY (from user config)
+  SET LIVEKIT_API_SECRET (from user config)
+  SET DEEPGRAM_API_KEY (from user config)
+  SET CARTESIA_API_KEY (from user config)
+  SET SIP_TRUNK_ID (from user config)
+INFO (agent_runner.py): Environment variables set based on user 'shhaaag@gmail.com' configuration.
+INFO (agent_runner.py): Starting core agent script: C:\Users\User\Repnix\venv\Scripts\python.exe C:\Users\User\Repnix\web-user.py start
+--- agent_runner.py: Handing off to web-user.py for user shhaaag@gmail.com ---
+2025-06-19 07:51:41 - user-agent - [INFO] - web-user.py executed directly as __main__. User ID from ENV: shhaaag@gmail.com
+2025-06-19 07:51:41 - livekit.agents - [INFO] - starting worker
+{"message": "starting worker", "level": "INFO", "name": "livekit.agents", "version": "1.0.23", "rtc-version": "1.0.8", "timestamp": "2025-06-19T02:21:41.397379+00:00"}
+2025-06-19 07:51:41 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 15308, "timestamp": "2025-06-19T02:21:41.458491+00:00"}
+2025-06-19 07:51:41 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 11732, "timestamp": "2025-06-19T02:21:41.459890+00:00"}
+2025-06-19 07:51:41 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 2616, "timestamp": "2025-06-19T02:21:41.460590+00:00"}
+2025-06-19 07:51:41 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 7868, "timestamp": "2025-06-19T02:21:41.461143+00:00"}
+2025-06-19 07:51:41 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:21:41.461648+00:00"}
+2025-06-19 07:51:41 - user-agent - [INFO] - Prewarming VAD model...
+2025-06-19 07:51:41 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:21:41.462013+00:00"}
+2025-06-19 07:51:41 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:21:41.462383+00:00"}
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:21:41.462885+00:00"}
+2025-06-19 07:51:42 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:21:42.454300+00:00"}
+2025-06-19 07:51:42 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:21:42.460645+00:00"}
+2025-06-19 07:51:42 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+2025-06-19 07:51:42 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:21:42.794753+00:00"}
+2025-06-19 07:51:42 - livekit.agents - [INFO] - job runner initialized
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:21:42.802373+00:00"}
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 15308, "elapsed_time": 1.34, "timestamp": "2025-06-19T02:21:42.803988+00:00"}
+2025-06-19 07:51:42 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 7868, "elapsed_time": 1.34, "timestamp": "2025-06-19T02:21:42.805140+00:00"}
+2025-06-19 07:51:42 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 11732, "elapsed_time": 1.35, "timestamp": "2025-06-19T02:21:42.806252+00:00"}
+2025-06-19 07:51:42 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 2616, "elapsed_time": 1.35, "timestamp": "2025-06-19T02:21:42.806608+00:00"}
+2025-06-19 07:51:42 - livekit.agents - [INFO] - see tracing information at http://localhost:8081/debug
+{"message": "see tracing information at http://localhost:8081/debug", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:21:42.808605+00:00"}
+2025-06-19 07:51:43 - livekit.agents - [INFO] - registered worker
+{"message": "registered worker", "level": "INFO", "name": "livekit.agents", "id": "AW_wQ5aTozc7W2R", "url": "wss://fgsdfg-92vkkxvz.livekit.cloud", "region": "Germany", "protocol": 16, "timestamp": "2025-06-19T02:21:43.569655+00:00"}

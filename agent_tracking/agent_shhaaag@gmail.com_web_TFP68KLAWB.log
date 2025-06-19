@@ -1,0 +1,125 @@
+--- agent_runner.py: Initializing for user: shhaaag@gmail.com, using core script: web-user.py ---
+INFO (agent_runner.py): Successfully loaded configuration for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\config\agent_config.json
+INFO (agent_runner.py): Setting environment variables for user shhaaag@gmail.com...
+  SET USER_AGENT_USER_ID=shhaaag@gmail.com
+  INFO: USER_AGENT_COLLECTION not set (not found in user config).
+  INFO: USER_AGENT_PHONE not set (not found in user config).
+  SET OPENAI_API_KEY (from user config)
+  SET LIVEKIT_URL (from user config)
+  SET LIVEKIT_API_KEY (from user config)
+  SET LIVEKIT_API_SECRET (from user config)
+  SET DEEPGRAM_API_KEY (from user config)
+  SET CARTESIA_API_KEY (from user config)
+  SET SIP_TRUNK_ID (from user config)
+INFO (agent_runner.py): Environment variables set based on user 'shhaaag@gmail.com' configuration.
+INFO (agent_runner.py): Starting core agent script: C:\Users\User\Repnix\venv\Scripts\python.exe C:\Users\User\Repnix\web-user.py start
+--- agent_runner.py: Handing off to web-user.py for user shhaaag@gmail.com ---
+2025-06-19 07:48:10 - user-agent - [INFO] - web-user.py executed directly as __main__. User ID from ENV: shhaaag@gmail.com
+2025-06-19 07:48:10 - livekit.agents - [INFO] - starting worker
+{"message": "starting worker", "level": "INFO", "name": "livekit.agents", "version": "1.0.23", "rtc-version": "1.0.8", "timestamp": "2025-06-19T02:18:10.712322+00:00"}
+2025-06-19 07:48:10 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 9980, "timestamp": "2025-06-19T02:18:10.722976+00:00"}
+2025-06-19 07:48:10 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 13544, "timestamp": "2025-06-19T02:18:10.724038+00:00"}
+2025-06-19 07:48:10 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 11824, "timestamp": "2025-06-19T02:18:10.724622+00:00"}
+2025-06-19 07:48:10 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 10768, "timestamp": "2025-06-19T02:18:10.725140+00:00"}
+2025-06-19 07:48:10 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:10.725744+00:00"}
+2025-06-19 07:48:10 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:10.726204+00:00"}
+2025-06-19 07:48:10 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:10.726327+00:00"}
+2025-06-19 07:48:10 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:10.726889+00:00"}
+2025-06-19 07:48:11 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:11.272652+00:00"}
+2025-06-19 07:48:11 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:11.430750+00:00"}
+2025-06-19 07:48:11 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:11.585893+00:00"}
+2025-06-19 07:48:11 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:11.592414+00:00"}
+2025-06-19 07:48:11 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 9980, "elapsed_time": 0.87, "timestamp": "2025-06-19T02:18:11.593045+00:00"}
+2025-06-19 07:48:11 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 13544, "elapsed_time": 0.87, "timestamp": "2025-06-19T02:18:11.593678+00:00"}
+2025-06-19 07:48:11 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 10768, "elapsed_time": 0.87, "timestamp": "2025-06-19T02:18:11.594302+00:00"}
+2025-06-19 07:48:11 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 11824, "elapsed_time": 0.87, "timestamp": "2025-06-19T02:18:11.594820+00:00"}
+2025-06-19 07:48:11 - livekit.agents - [INFO] - see tracing information at http://localhost:8081/debug
+{"message": "see tracing information at http://localhost:8081/debug", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:18:11.597723+00:00"}
+2025-06-19 07:48:12 - livekit.agents - [INFO] - registered worker
+{"message": "registered worker", "level": "INFO", "name": "livekit.agents", "id": "AW_kjAQoAPJQqve", "url": "wss://fgsdfg-92vkkxvz.livekit.cloud", "region": "Germany", "protocol": 16, "timestamp": "2025-06-19T02:18:12.345027+00:00"}
+2025-06-19 07:48:13 - livekit.agents - [INFO] - received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_Q4KbPp3ZuUvB", "dispatch_id": "", "room_name": "sbx-1tv4rf-epZ9KHwTfM2PYbVZ38wwBp", "agent_name": "", "resuming": false, "timestamp": "2025-06-19T02:18:13.645680+00:00"}
+2025-06-19 07:48:13 - user-agent - [INFO] - Agent entrypoint started for job AJ_Q4KbPp3ZuUvB, user_id: shhaaag@gmail.com
+{"message": "Agent entrypoint started for job AJ_Q4KbPp3ZuUvB, user_id: shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:13.784025+00:00"}
+2025-06-19 07:48:13 - user-agent - [INFO] -   Collection from ENV: None
+{"message": "  Collection from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:13.784447+00:00"}
+2025-06-19 07:48:13 - user-agent - [INFO] -   Phone from ENV: None
+{"message": "  Phone from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:13.784760+00:00"}
+2025-06-19 07:48:13 - user-agent - [INFO] - Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}
+{"message": "Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:13.785794+00:00"}
+2025-06-19 07:48:13 - user-agent - [INFO] - No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:13.786224+00:00"}
+2025-06-19 07:48:13 - llama_index.core.indices.loading - [INFO] - Loading all indices.
+{"message": "Loading all indices.", "level": "INFO", "name": "llama_index.core.indices.loading", "timestamp": "2025-06-19T02:18:13.827221+00:00"}
+2025-06-19 07:48:13 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 6920, "timestamp": "2025-06-19T02:18:13.851980+00:00"}
+2025-06-19 07:48:13 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:13.852728+00:00"}
+2025-06-19 07:48:14 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:14.173802+00:00"}
+2025-06-19 07:48:14 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 6920, "elapsed_time": 0.33, "timestamp": "2025-06-19T02:18:14.182567+00:00"}
+2025-06-19 07:48:14 - user-agent - [INFO] - Successfully loaded index for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "Successfully loaded index for user shhaaag@gmail.com from user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:14.719214+00:00"}
+2025-06-19 07:48:14 - user-agent - [INFO] - Index loaded successfully for user shhaaag@gmail.com, collection 'None'.
+{"message": "Index loaded successfully for user shhaaag@gmail.com, collection 'None'.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:14.719941+00:00"}
+2025-06-19 07:48:14 - user-agent - [INFO] - Query engine initialized/updated successfully for this job.
+{"message": "Query engine initialized/updated successfully for this job.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:14.765532+00:00"}
+2025-06-19 07:48:16 - user-agent - [INFO] - Connected to LiveKit room: sbx-1tv4rf-epZ9KHwTfM2PYbVZ38wwBp for user shhaaag@gmail.com
+{"message": "Connected to LiveKit room: sbx-1tv4rf-epZ9KHwTfM2PYbVZ38wwBp for user shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:16.291031+00:00"}
+2025-06-19 07:48:16 - user-agent - [INFO] - Inbound/Web call mode for room sbx-1tv4rf-epZ9KHwTfM2PYbVZ38wwBp: Waiting for participants.
+{"message": "Inbound/Web call mode for room sbx-1tv4rf-epZ9KHwTfM2PYbVZ38wwBp: Waiting for participants.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:16.291497+00:00"}
+2025-06-19 07:48:16 - user-agent - [INFO] - Silero VAD loaded for session.
+{"message": "Silero VAD loaded for session.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:16.545689+00:00"}
+2025-06-19 07:48:16 - user-agent - [INFO] - SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'
+{"message": "SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:16.545945+00:00"}
+2025-06-19 07:48:17 - user-agent - [INFO] - Starting agent session processing for user shhaaag@gmail.com in room sbx-1tv4rf-epZ9KHwTfM2PYbVZ38wwBp...
+{"message": "Starting agent session processing for user shhaaag@gmail.com in room sbx-1tv4rf-epZ9KHwTfM2PYbVZ38wwBp...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:17.792873+00:00"}
+2025-06-19 07:48:17 - user-agent - [INFO] - Agent session processing finished for user shhaaag@gmail.com in room sbx-1tv4rf-epZ9KHwTfM2PYbVZ38wwBp.
+{"message": "Agent session processing finished for user shhaaag@gmail.com in room sbx-1tv4rf-epZ9KHwTfM2PYbVZ38wwBp.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:17.797655+00:00"}
+2025-06-19 07:48:17 - user-agent - [INFO] - Agent entrypoint cleanup for job AJ_Q4KbPp3ZuUvB, user shhaaag@gmail.com.
+{"message": "Agent entrypoint cleanup for job AJ_Q4KbPp3ZuUvB, user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:17.797925+00:00"}
+2025-06-19 07:48:17 - user-agent - [INFO] - Agent (ID: N/A) on_enter called for user shhaaag@gmail.com.
+{"message": "Agent (ID: N/A) on_enter called for user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:17.800225+00:00"}
+2025-06-19 07:48:18 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299498.8328571 idle_time=1.033009700004186 inference_duration_total=0.041949199978262186 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299498.8328571 idle_time=1.033009700004186 inference_duration_total=0.041949199978262186 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:18.833407+00:00"}
+2025-06-19 07:48:19 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299499.8524787 idle_time=2.0526347999984864 inference_duration_total=0.038727100007236004 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299499.8524787 idle_time=2.0526347999984864 inference_duration_total=0.038727100007236004 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:19.852722+00:00"}
+2025-06-19 07:48:20 - livekit.agents - [INFO] - TTS metrics: ttfb=0.3856510999976308, audio_duration=2.37
+{"message": "TTS metrics: ttfb=0.3856510999976308, audio_duration=2.37", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T02:18:20.072971+00:00"}
+2025-06-19 07:48:20 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='tts_metrics' label='livekit.plugins.cartesia.tts.TTS' request_id='c69a374a38b1' timestamp=1750299500.0723684 ttfb=0.3856510999976308 duration=1.635601099995256 audio_duration=2.368375000000001 cancelled=False characters_count=32 streamed=True speech_id='speech_d18488733b24'
+{"message": "User shhaaag@gmail.com Metrics: type='tts_metrics' label='livekit.plugins.cartesia.tts.TTS' request_id='c69a374a38b1' timestamp=1750299500.0723684 ttfb=0.3856510999976308 duration=1.635601099995256 audio_duration=2.368375000000001 cancelled=False characters_count=32 streamed=True speech_id='speech_d18488733b24'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:20.073244+00:00"}
+2025-06-19 07:48:20 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299500.8822637 idle_time=3.082424100000935 inference_duration_total=0.03709290000551846 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299500.8822637 idle_time=3.082424100000935 inference_duration_total=0.03709290000551846 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:20.882508+00:00"}
+2025-06-19 07:48:21 - user-agent - [INFO] - Agent N/A said greeting via on_enter.
+{"message": "Agent N/A said greeting via on_enter.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:21.596717+00:00"}
+2025-06-19 07:48:21 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299501.903634 idle_time=4.103799299999082 inference_duration_total=0.04258500000287313 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299501.903634 idle_time=4.103799299999082 inference_duration_total=0.04258500000287313 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:21.903983+00:00"}
+2025-06-19 07:48:22 - user-agent - [INFO] - Room sbx-1tv4rf-epZ9KHwTfM2PYbVZ38wwBp: Participant left: virtualized-snippet ()
+{"message": "Room sbx-1tv4rf-epZ9KHwTfM2PYbVZ38wwBp: Participant left: virtualized-snippet ()", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:22.665356+00:00"}
+2025-06-19 07:48:22 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299502.6937199 idle_time=4.893888600003265 inference_duration_total=0.0514453999712714 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750299502.6937199 idle_time=4.893888600003265 inference_duration_total=0.0514453999712714 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:22.694102+00:00"}
+2025-06-19 07:48:47 - livekit - [WARNING] - livekit::rtc_engine:450:livekit::rtc_engine - received session close: "signal client closed: \"stream closed\"" UnknownReason Resume
+{"message": "livekit::rtc_engine:450:livekit::rtc_engine - received session close: \"signal client closed: \\\"stream closed\\\"\" UnknownReason Resume", "level": "WARNING", "name": "livekit", "timestamp": "2025-06-19T02:18:47.797510+00:00"}
+2025-06-19 07:48:47 - user-agent - [INFO] - User shhaaag@gmail.com Final Usage Summary for job AJ_Q4KbPp3ZuUvB: UsageSummary(llm_prompt_tokens=0, llm_prompt_cached_tokens=0, llm_completion_tokens=0, tts_characters_count=32, stt_audio_duration=0.0)
+{"message": "User shhaaag@gmail.com Final Usage Summary for job AJ_Q4KbPp3ZuUvB: UsageSummary(llm_prompt_tokens=0, llm_prompt_cached_tokens=0, llm_completion_tokens=0, tts_characters_count=32, stt_audio_duration=0.0)", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T02:18:47.803207+00:00"}
+2025-06-19 07:48:47 - root - [ERROR] - Error while closing connector: ClientConnectionError('Connection lost: SSL shutdown timed out')
+{"message": "Error while closing connector: ClientConnectionError('Connection lost: SSL shutdown timed out')", "level": "ERROR", "name": "root", "timestamp": "2025-06-19T02:18:47.905160+00:00"}
+2025-06-19 07:48:47 - root - [ERROR] - Error while closing connector: ClientConnectionError('Connection lost: SSL shutdown timed out')
+{"message": "Error while closing connector: ClientConnectionError('Connection lost: SSL shutdown timed out')", "level": "ERROR", "name": "root", "timestamp": "2025-06-19T02:18:47.905788+00:00"}

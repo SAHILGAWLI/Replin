@@ -1,0 +1,279 @@
+--- agent_runner.py: Initializing for user: shhaaag@gmail.com, using core script: web-user.py ---
+INFO (agent_runner.py): Successfully loaded configuration for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\config\agent_config.json
+INFO (agent_runner.py): Setting environment variables for user shhaaag@gmail.com...
+  SET USER_AGENT_USER_ID=shhaaag@gmail.com
+  INFO: USER_AGENT_COLLECTION not set (not found in user config).
+  INFO: USER_AGENT_PHONE not set (not found in user config).
+  SET OPENAI_API_KEY (from user config)
+  SET LIVEKIT_URL (from user config)
+  SET LIVEKIT_API_KEY (from user config)
+  SET LIVEKIT_API_SECRET (from user config)
+  SET DEEPGRAM_API_KEY (from user config)
+  SET CARTESIA_API_KEY (from user config)
+  SET SIP_TRUNK_ID (from user config)
+INFO (agent_runner.py): Environment variables set based on user 'shhaaag@gmail.com' configuration.
+INFO (agent_runner.py): Starting core agent script: C:\Users\User\Repnix\venv\Scripts\python.exe C:\Users\User\Repnix\web-user.py start
+--- agent_runner.py: Handing off to web-user.py for user shhaaag@gmail.com ---
+2025-06-19 06:46:01 - user-agent - [INFO] - C:\Users\User\Repnix\web-user.py executed directly as __main__. User ID from ENV: shhaaag@gmail.com
+2025-06-19 06:46:01 - livekit.agents - [INFO] - starting worker
+{"message": "starting worker", "level": "INFO", "name": "livekit.agents", "version": "1.0.23", "rtc-version": "1.0.8", "timestamp": "2025-06-19T01:16:01.640461+00:00"}
+2025-06-19 06:46:01 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 14692, "timestamp": "2025-06-19T01:16:01.655677+00:00"}
+2025-06-19 06:46:01 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 9516, "timestamp": "2025-06-19T01:16:01.656981+00:00"}
+2025-06-19 06:46:01 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 10816, "timestamp": "2025-06-19T01:16:01.658077+00:00"}
+2025-06-19 06:46:01 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 14400, "timestamp": "2025-06-19T01:16:01.659383+00:00"}
+2025-06-19 06:46:01 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:01.660135+00:00"}
+2025-06-19 06:46:01 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:01.660708+00:00"}
+2025-06-19 06:46:01 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:01.661116+00:00"}
+2025-06-19 06:46:01 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:01.661576+00:00"}
+2025-06-19 06:46:03 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:03.020047+00:00"}
+2025-06-19 06:46:03 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:03.027613+00:00"}
+2025-06-19 06:46:03 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:03.035476+00:00"}
+2025-06-19 06:46:03 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:03.326451+00:00"}
+2025-06-19 06:46:03 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 14692, "elapsed_time": 1.67, "timestamp": "2025-06-19T01:16:03.326726+00:00"}
+2025-06-19 06:46:03 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 10816, "elapsed_time": 1.68, "timestamp": "2025-06-19T01:16:03.336457+00:00"}
+2025-06-19 06:46:03 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 9516, "elapsed_time": 1.68, "timestamp": "2025-06-19T01:16:03.337246+00:00"}
+2025-06-19 06:46:03 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 14400, "elapsed_time": 1.68, "timestamp": "2025-06-19T01:16:03.337976+00:00"}
+2025-06-19 06:46:03 - livekit.agents - [INFO] - see tracing information at http://localhost:8081/debug
+{"message": "see tracing information at http://localhost:8081/debug", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T01:16:03.338969+00:00"}
+2025-06-19 06:46:04 - livekit.agents - [INFO] - registered worker
+{"message": "registered worker", "level": "INFO", "name": "livekit.agents", "id": "AW_22XhC9NBYngY", "url": "wss://fgsdfg-92vkkxvz.livekit.cloud", "region": "Germany", "protocol": 16, "timestamp": "2025-06-19T01:16:04.268087+00:00"}
+2025-06-19 06:46:04 - livekit.agents - [INFO] - received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_r2S2xkjPvQnT", "dispatch_id": "", "room_name": "sbx-1tv4rf-KrUAbry63sPw4cBtrPm45f", "agent_name": "", "resuming": false, "timestamp": "2025-06-19T01:16:04.446993+00:00"}
+2025-06-19 06:46:04 - user-agent - [INFO] - Agent entrypoint started for user_id: shhaaag@gmail.com
+{"message": "Agent entrypoint started for user_id: shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:04.587420+00:00"}
+2025-06-19 06:46:04 - user-agent - [INFO] -   Collection from ENV: None
+{"message": "  Collection from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:04.587886+00:00"}
+2025-06-19 06:46:04 - user-agent - [INFO] -   Phone from ENV: None
+{"message": "  Phone from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:04.588175+00:00"}
+2025-06-19 06:46:04 - user-agent - [INFO] - Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}
+{"message": "Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:04.589144+00:00"}
+2025-06-19 06:46:04 - user-agent - [INFO] - No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:04.589536+00:00"}
+2025-06-19 06:46:04 - llama_index.core.indices.loading - [INFO] - Loading all indices.
+{"message": "Loading all indices.", "level": "INFO", "name": "llama_index.core.indices.loading", "timestamp": "2025-06-19T01:16:04.656106+00:00"}
+2025-06-19 06:46:04 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 16212, "timestamp": "2025-06-19T01:16:04.658969+00:00"}
+2025-06-19 06:46:04 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:04.659632+00:00"}
+2025-06-19 06:46:05 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:05.098422+00:00"}
+2025-06-19 06:46:05 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 16212, "elapsed_time": 0.44, "timestamp": "2025-06-19T01:16:05.099866+00:00"}
+2025-06-19 06:46:05 - user-agent - [INFO] - Successfully loaded index for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "Successfully loaded index for user shhaaag@gmail.com from user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:05.606605+00:00"}
+2025-06-19 06:46:05 - user-agent - [INFO] - Index loaded successfully for user shhaaag@gmail.com, collection 'None'.
+{"message": "Index loaded successfully for user shhaaag@gmail.com, collection 'None'.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:05.607298+00:00"}
+2025-06-19 06:46:05 - user-agent - [INFO] - Global query engine initialized/updated successfully.
+{"message": "Global query engine initialized/updated successfully.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:05.662636+00:00"}
+2025-06-19 06:46:06 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.7929999999999999, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:16:06.768930+00:00"}
+2025-06-19 06:46:06 - user-agent - [INFO] - Connected to LiveKit room: sbx-1tv4rf-KrUAbry63sPw4cBtrPm45f for user shhaaag@gmail.com
+{"message": "Connected to LiveKit room: sbx-1tv4rf-KrUAbry63sPw4cBtrPm45f for user shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:06.967816+00:00"}
+2025-06-19 06:46:06 - user-agent - [INFO] - Inbound/Web call mode for room sbx-1tv4rf-KrUAbry63sPw4cBtrPm45f: Waiting for participants to join.
+{"message": "Inbound/Web call mode for room sbx-1tv4rf-KrUAbry63sPw4cBtrPm45f: Waiting for participants to join.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:06.968319+00:00"}
+2025-06-19 06:46:07 - user-agent - [INFO] - Silero VAD loaded for session.
+{"message": "Silero VAD loaded for session.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:07.311182+00:00"}
+2025-06-19 06:46:07 - user-agent - [INFO] - Creating AgentSession with LLM: gpt-4o-mini
+{"message": "Creating AgentSession with LLM: gpt-4o-mini", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:07.311973+00:00"}
+2025-06-19 06:46:07 - user-agent - [INFO] - SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'
+{"message": "SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:07.312583+00:00"}
+2025-06-19 06:46:09 - user-agent - [ERROR] - Error in agent entrypoint for user shhaaag@gmail.com: AgentSession.__init__() got an unexpected keyword argument 'room'
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 536, in entrypoint
+    session = AgentSession[UserData](
+        room=ctx.room, # Pass room directly
+    ...<8 lines>...
+        room_output_options=RoomOutputOptions(transcription_enabled=True)
+    )
+  File "C:\Python313\Lib\typing.py", line 1317, in __call__
+    result = self.__origin__(*args, **kwargs)
+TypeError: AgentSession.__init__() got an unexpected keyword argument 'room'
+{"message": "Error in agent entrypoint for user shhaaag@gmail.com: AgentSession.__init__() got an unexpected keyword argument 'room'", "level": "ERROR", "name": "user-agent", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 536, in entrypoint\n    session = AgentSession[UserData](\n        room=ctx.room, # Pass room directly\n    ...<8 lines>...\n        room_output_options=RoomOutputOptions(transcription_enabled=True)\n    )\n  File \"C:\\Python313\\Lib\\typing.py\", line 1317, in __call__\n    result = self.__origin__(*args, **kwargs)\nTypeError: AgentSession.__init__() got an unexpected keyword argument 'room'", "timestamp": "2025-06-19T01:16:09.134748+00:00"}
+2025-06-19 06:46:09 - user-agent - [ERROR] - Failed to send error to room for user shhaaag@gmail.com: 'Room' object has no attribute 'send_data'
+{"message": "Failed to send error to room for user shhaaag@gmail.com: 'Room' object has no attribute 'send_data'", "level": "ERROR", "name": "user-agent", "timestamp": "2025-06-19T01:16:09.175282+00:00"}
+2025-06-19 06:46:09 - user-agent - [INFO] - Agent entrypoint cleanup for user shhaaag@gmail.com.
+{"message": "Agent entrypoint cleanup for user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:09.175474+00:00"}
+2025-06-19 06:46:09 - livekit.agents - [WARNING] - Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\Users\User\Repnix\web-user.py:387> exception=TypeError("AgentSession.__init__() got an unexpected keyword argument 'room'")> took too long: 2.21 seconds
+{"message": "Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\\Users\\User\\Repnix\\web-user.py:387> exception=TypeError(\"AgentSession.__init__() got an unexpected keyword argument 'room'\")> took too long: 2.21 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:16:09.175695+00:00"}
+2025-06-19 06:46:09 - livekit.agents - [WARNING] - Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\Users\User\Repnix\web-user.py:387> exception=TypeError("AgentSession.__init__() got an unexpected keyword argument 'room'")> took too long: 2.21 seconds
+{"message": "Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\\Users\\User\\Repnix\\web-user.py:387> exception=TypeError(\"AgentSession.__init__() got an unexpected keyword argument 'room'\")> took too long: 2.21 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:16:09.175888+00:00"}
+2025-06-19 06:46:09 - livekit.agents - [WARNING] - Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\Users\User\Repnix\web-user.py:387> exception=TypeError("AgentSession.__init__() got an unexpected keyword argument 'room'")> took too long: 2.21 seconds
+{"message": "Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\\Users\\User\\Repnix\\web-user.py:387> exception=TypeError(\"AgentSession.__init__() got an unexpected keyword argument 'room'\")> took too long: 2.21 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:16:09.176070+00:00"}
+2025-06-19 06:46:09 - livekit.agents - [WARNING] - Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\Users\User\Repnix\web-user.py:387> exception=TypeError("AgentSession.__init__() got an unexpected keyword argument 'room'")> took too long: 2.21 seconds
+{"message": "Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\\Users\\User\\Repnix\\web-user.py:387> exception=TypeError(\"AgentSession.__init__() got an unexpected keyword argument 'room'\")> took too long: 2.21 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:16:09.176234+00:00"}
+2025-06-19 06:46:09 - livekit.agents - [WARNING] - Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\Users\User\Repnix\web-user.py:387> exception=TypeError("AgentSession.__init__() got an unexpected keyword argument 'room'")> took too long: 2.21 seconds
+{"message": "Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\\Users\\User\\Repnix\\web-user.py:387> exception=TypeError(\"AgentSession.__init__() got an unexpected keyword argument 'room'\")> took too long: 2.21 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:16:09.176393+00:00"}
+2025-06-19 06:46:09 - livekit.agents - [WARNING] - Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\Users\User\Repnix\web-user.py:387> exception=TypeError("AgentSession.__init__() got an unexpected keyword argument 'room'")> took too long: 2.21 seconds
+{"message": "Running <Task finished name='job_user_entrypoint' coro=<entrypoint() done, defined at C:\\Users\\User\\Repnix\\web-user.py:387> exception=TypeError(\"AgentSession.__init__() got an unexpected keyword argument 'room'\")> took too long: 2.21 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:16:09.176755+00:00"}
+2025-06-19 06:46:09 - livekit.agents - [ERROR] - unhandled exception while running the job task
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 536, in entrypoint
+    session = AgentSession[UserData](
+        room=ctx.room, # Pass room directly
+    ...<8 lines>...
+        room_output_options=RoomOutputOptions(transcription_enabled=True)
+    )
+  File "C:\Python313\Lib\typing.py", line 1317, in __call__
+    result = self.__origin__(*args, **kwargs)
+TypeError: AgentSession.__init__() got an unexpected keyword argument 'room'
+{"message": "unhandled exception while running the job task", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 536, in entrypoint\n    session = AgentSession[UserData](\n        room=ctx.room, # Pass room directly\n    ...<8 lines>...\n        room_output_options=RoomOutputOptions(transcription_enabled=True)\n    )\n  File \"C:\\Python313\\Lib\\typing.py\", line 1317, in __call__\n    result = self.__origin__(*args, **kwargs)\nTypeError: AgentSession.__init__() got an unexpected keyword argument 'room'", "timestamp": "2025-06-19T01:16:09.177104+00:00"}
+2025-06-19 06:46:09 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.693, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:16:09.270018+00:00"}
+2025-06-19 06:46:09 - livekit.agents - [INFO] - received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_5mZbYHkd4Aq3", "dispatch_id": "", "room_name": "sbx-1tv4rf-bnBBP7WUfGBgwD8TwiLYUp", "agent_name": "", "resuming": false, "timestamp": "2025-06-19T01:16:09.431342+00:00"}
+2025-06-19 06:46:09 - user-agent - [INFO] - Agent entrypoint started for user_id: shhaaag@gmail.com
+{"message": "Agent entrypoint started for user_id: shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:09.570316+00:00"}
+2025-06-19 06:46:09 - user-agent - [INFO] -   Collection from ENV: None
+{"message": "  Collection from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:09.570567+00:00"}
+2025-06-19 06:46:09 - user-agent - [INFO] -   Phone from ENV: None
+{"message": "  Phone from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:09.570718+00:00"}
+2025-06-19 06:46:09 - user-agent - [INFO] - Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}
+{"message": "Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:09.571468+00:00"}
+2025-06-19 06:46:09 - user-agent - [INFO] - No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:09.571751+00:00"}
+2025-06-19 06:46:09 - llama_index.core.indices.loading - [INFO] - Loading all indices.
+{"message": "Loading all indices.", "level": "INFO", "name": "llama_index.core.indices.loading", "timestamp": "2025-06-19T01:16:09.595488+00:00"}
+2025-06-19 06:46:09 - user-agent - [INFO] - Successfully loaded index for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "Successfully loaded index for user shhaaag@gmail.com from user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:09.596294+00:00"}
+2025-06-19 06:46:09 - user-agent - [INFO] - Index loaded successfully for user shhaaag@gmail.com, collection 'None'.
+{"message": "Index loaded successfully for user shhaaag@gmail.com, collection 'None'.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:09.596484+00:00"}
+2025-06-19 06:46:09 - user-agent - [INFO] - Global query engine initialized/updated successfully.
+{"message": "Global query engine initialized/updated successfully.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:09.596782+00:00"}
+2025-06-19 06:46:11 - user-agent - [INFO] - Connected to LiveKit room: sbx-1tv4rf-bnBBP7WUfGBgwD8TwiLYUp for user shhaaag@gmail.com
+{"message": "Connected to LiveKit room: sbx-1tv4rf-bnBBP7WUfGBgwD8TwiLYUp for user shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:11.005416+00:00"}
+2025-06-19 06:46:11 - user-agent - [INFO] - Inbound/Web call mode for room sbx-1tv4rf-bnBBP7WUfGBgwD8TwiLYUp: Waiting for participants to join.
+{"message": "Inbound/Web call mode for room sbx-1tv4rf-bnBBP7WUfGBgwD8TwiLYUp: Waiting for participants to join.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:11.005816+00:00"}
+2025-06-19 06:46:11 - user-agent - [INFO] - Silero VAD loaded for session.
+{"message": "Silero VAD loaded for session.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:11.278970+00:00"}
+2025-06-19 06:46:11 - user-agent - [INFO] - Creating AgentSession with LLM: gpt-4o-mini
+{"message": "Creating AgentSession with LLM: gpt-4o-mini", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:11.279229+00:00"}
+2025-06-19 06:46:11 - user-agent - [INFO] - SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'
+{"message": "SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:11.279410+00:00"}
+2025-06-19 06:46:12 - user-agent - [ERROR] - Error in agent entrypoint for user shhaaag@gmail.com: AgentSession.__init__() got an unexpected keyword argument 'room'
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 536, in entrypoint
+    session = AgentSession[UserData](
+        room=ctx.room, # Pass room directly
+    ...<8 lines>...
+        room_output_options=RoomOutputOptions(transcription_enabled=True)
+    )
+  File "C:\Python313\Lib\typing.py", line 1317, in __call__
+    result = self.__origin__(*args, **kwargs)
+TypeError: AgentSession.__init__() got an unexpected keyword argument 'room'
+{"message": "Error in agent entrypoint for user shhaaag@gmail.com: AgentSession.__init__() got an unexpected keyword argument 'room'", "level": "ERROR", "name": "user-agent", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 536, in entrypoint\n    session = AgentSession[UserData](\n        room=ctx.room, # Pass room directly\n    ...<8 lines>...\n        room_output_options=RoomOutputOptions(transcription_enabled=True)\n    )\n  File \"C:\\Python313\\Lib\\typing.py\", line 1317, in __call__\n    result = self.__origin__(*args, **kwargs)\nTypeError: AgentSession.__init__() got an unexpected keyword argument 'room'", "timestamp": "2025-06-19T01:16:12.404803+00:00"}
+2025-06-19 06:46:12 - user-agent - [ERROR] - Failed to send error to room for user shhaaag@gmail.com: 'Room' object has no attribute 'send_data'
+{"message": "Failed to send error to room for user shhaaag@gmail.com: 'Room' object has no attribute 'send_data'", "level": "ERROR", "name": "user-agent", "timestamp": "2025-06-19T01:16:12.408249+00:00"}
+2025-06-19 06:46:12 - user-agent - [INFO] - Agent entrypoint cleanup for user shhaaag@gmail.com.
+{"message": "Agent entrypoint cleanup for user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:12.408438+00:00"}
+2025-06-19 06:46:12 - livekit.agents - [ERROR] - unhandled exception while running the job task
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 536, in entrypoint
+    session = AgentSession[UserData](
+        room=ctx.room, # Pass room directly
+    ...<8 lines>...
+        room_output_options=RoomOutputOptions(transcription_enabled=True)
+    )
+  File "C:\Python313\Lib\typing.py", line 1317, in __call__
+    result = self.__origin__(*args, **kwargs)
+TypeError: AgentSession.__init__() got an unexpected keyword argument 'room'
+{"message": "unhandled exception while running the job task", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 536, in entrypoint\n    session = AgentSession[UserData](\n        room=ctx.room, # Pass room directly\n    ...<8 lines>...\n        room_output_options=RoomOutputOptions(transcription_enabled=True)\n    )\n  File \"C:\\Python313\\Lib\\typing.py\", line 1317, in __call__\n    result = self.__origin__(*args, **kwargs)\nTypeError: AgentSession.__init__() got an unexpected keyword argument 'room'", "timestamp": "2025-06-19T01:16:12.408772+00:00"}
+2025-06-19 06:46:14 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 8584, "timestamp": "2025-06-19T01:16:14.400511+00:00"}
+2025-06-19 06:46:14 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:14.401486+00:00"}
+2025-06-19 06:46:14 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:14.652352+00:00"}
+2025-06-19 06:46:14 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 8584, "elapsed_time": 0.25, "timestamp": "2025-06-19T01:16:14.653532+00:00"}
+2025-06-19 06:46:19 - user-agent - [INFO] - Room sbx-1tv4rf-bnBBP7WUfGBgwD8TwiLYUp: Participant left: agile-quantum ()
+{"message": "Room sbx-1tv4rf-bnBBP7WUfGBgwD8TwiLYUp: Participant left: agile-quantum ()", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:19.001535+00:00"}
+2025-06-19 06:46:22 - livekit - [WARNING] - livekit::rtc_engine:450:livekit::rtc_engine - received session close: "signal client closed: \"stream closed\"" UnknownReason Resume
+{"message": "livekit::rtc_engine:450:livekit::rtc_engine - received session close: \"signal client closed: \\\"stream closed\\\"\" UnknownReason Resume", "level": "WARNING", "name": "livekit", "timestamp": "2025-06-19T01:16:22.815732+00:00"}
+2025-06-19 06:46:23 - livekit.agents - [INFO] - received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_3oeP99M25XDx", "dispatch_id": "", "room_name": "sbx-1tv4rf-muXadri3jbG4YDn5yScXEZ", "agent_name": "", "resuming": false, "timestamp": "2025-06-19T01:16:23.412642+00:00"}
+2025-06-19 06:46:23 - user-agent - [INFO] - Agent entrypoint started for user_id: shhaaag@gmail.com
+{"message": "Agent entrypoint started for user_id: shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:23.550836+00:00"}
+2025-06-19 06:46:23 - user-agent - [INFO] -   Collection from ENV: None
+{"message": "  Collection from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:23.551558+00:00"}
+2025-06-19 06:46:23 - user-agent - [INFO] -   Phone from ENV: None
+{"message": "  Phone from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:23.551971+00:00"}
+2025-06-19 06:46:23 - user-agent - [INFO] - Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}
+{"message": "Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:23.552680+00:00"}
+2025-06-19 06:46:23 - user-agent - [INFO] - No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:23.552926+00:00"}
+2025-06-19 06:46:23 - llama_index.core.indices.loading - [INFO] - Loading all indices.
+{"message": "Loading all indices.", "level": "INFO", "name": "llama_index.core.indices.loading", "timestamp": "2025-06-19T01:16:23.574731+00:00"}
+2025-06-19 06:46:23 - user-agent - [INFO] - Successfully loaded index for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "Successfully loaded index for user shhaaag@gmail.com from user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:23.575454+00:00"}
+2025-06-19 06:46:23 - user-agent - [INFO] - Index loaded successfully for user shhaaag@gmail.com, collection 'None'.
+{"message": "Index loaded successfully for user shhaaag@gmail.com, collection 'None'.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:23.575630+00:00"}
+2025-06-19 06:46:23 - user-agent - [INFO] - Global query engine initialized/updated successfully.
+{"message": "Global query engine initialized/updated successfully.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:23.575910+00:00"}
+2025-06-19 06:46:25 - user-agent - [INFO] - Connected to LiveKit room: sbx-1tv4rf-muXadri3jbG4YDn5yScXEZ for user shhaaag@gmail.com
+{"message": "Connected to LiveKit room: sbx-1tv4rf-muXadri3jbG4YDn5yScXEZ for user shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:25.039137+00:00"}
+2025-06-19 06:46:25 - user-agent - [INFO] - Inbound/Web call mode for room sbx-1tv4rf-muXadri3jbG4YDn5yScXEZ: Waiting for participants to join.
+{"message": "Inbound/Web call mode for room sbx-1tv4rf-muXadri3jbG4YDn5yScXEZ: Waiting for participants to join.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:25.039577+00:00"}
+2025-06-19 06:46:25 - user-agent - [INFO] - Silero VAD loaded for session.
+{"message": "Silero VAD loaded for session.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:25.285246+00:00"}
+2025-06-19 06:46:25 - user-agent - [INFO] - Creating AgentSession with LLM: gpt-4o-mini
+{"message": "Creating AgentSession with LLM: gpt-4o-mini", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:25.285536+00:00"}
+2025-06-19 06:46:25 - user-agent - [INFO] - SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'
+{"message": "SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:25.285705+00:00"}
+2025-06-19 06:46:26 - user-agent - [ERROR] - Error in agent entrypoint for user shhaaag@gmail.com: AgentSession.__init__() got an unexpected keyword argument 'room'
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 536, in entrypoint
+    session = AgentSession[UserData](
+        room=ctx.room, # Pass room directly
+    ...<8 lines>...
+        room_output_options=RoomOutputOptions(transcription_enabled=True)
+    )
+  File "C:\Python313\Lib\typing.py", line 1317, in __call__
+    result = self.__origin__(*args, **kwargs)
+TypeError: AgentSession.__init__() got an unexpected keyword argument 'room'
+{"message": "Error in agent entrypoint for user shhaaag@gmail.com: AgentSession.__init__() got an unexpected keyword argument 'room'", "level": "ERROR", "name": "user-agent", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 536, in entrypoint\n    session = AgentSession[UserData](\n        room=ctx.room, # Pass room directly\n    ...<8 lines>...\n        room_output_options=RoomOutputOptions(transcription_enabled=True)\n    )\n  File \"C:\\Python313\\Lib\\typing.py\", line 1317, in __call__\n    result = self.__origin__(*args, **kwargs)\nTypeError: AgentSession.__init__() got an unexpected keyword argument 'room'", "timestamp": "2025-06-19T01:16:26.480875+00:00"}
+2025-06-19 06:46:26 - user-agent - [ERROR] - Failed to send error to room for user shhaaag@gmail.com: 'Room' object has no attribute 'send_data'
+{"message": "Failed to send error to room for user shhaaag@gmail.com: 'Room' object has no attribute 'send_data'", "level": "ERROR", "name": "user-agent", "timestamp": "2025-06-19T01:16:26.483657+00:00"}
+2025-06-19 06:46:26 - user-agent - [INFO] - Agent entrypoint cleanup for user shhaaag@gmail.com.
+{"message": "Agent entrypoint cleanup for user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:26.483841+00:00"}
+2025-06-19 06:46:26 - livekit.agents - [ERROR] - unhandled exception while running the job task
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 536, in entrypoint
+    session = AgentSession[UserData](
+        room=ctx.room, # Pass room directly
+    ...<8 lines>...
+        room_output_options=RoomOutputOptions(transcription_enabled=True)
+    )
+  File "C:\Python313\Lib\typing.py", line 1317, in __call__
+    result = self.__origin__(*args, **kwargs)
+TypeError: AgentSession.__init__() got an unexpected keyword argument 'room'
+{"message": "unhandled exception while running the job task", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 536, in entrypoint\n    session = AgentSession[UserData](\n        room=ctx.room, # Pass room directly\n    ...<8 lines>...\n        room_output_options=RoomOutputOptions(transcription_enabled=True)\n    )\n  File \"C:\\Python313\\Lib\\typing.py\", line 1317, in __call__\n    result = self.__origin__(*args, **kwargs)\nTypeError: AgentSession.__init__() got an unexpected keyword argument 'room'", "timestamp": "2025-06-19T01:16:26.484113+00:00"}
+2025-06-19 06:46:28 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 5224, "timestamp": "2025-06-19T01:16:28.427160+00:00"}
+2025-06-19 06:46:28 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:28.427814+00:00"}
+2025-06-19 06:46:28 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:28.668972+00:00"}
+2025-06-19 06:46:28 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 5224, "elapsed_time": 0.24, "timestamp": "2025-06-19T01:16:28.669965+00:00"}
+2025-06-19 06:46:35 - user-agent - [INFO] - Room sbx-1tv4rf-muXadri3jbG4YDn5yScXEZ: Participant left: autonomous-log ()
+{"message": "Room sbx-1tv4rf-muXadri3jbG4YDn5yScXEZ: Participant left: autonomous-log ()", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:16:35.107104+00:00"}
+2025-06-19 06:46:42 - livekit - [WARNING] - livekit::rtc_engine:450:livekit::rtc_engine - received session close: "signal client closed: \"stream closed\"" UnknownReason Resume
+{"message": "livekit::rtc_engine:450:livekit::rtc_engine - received session close: \"signal client closed: \\\"stream closed\\\"\" UnknownReason Resume", "level": "WARNING", "name": "livekit", "timestamp": "2025-06-19T01:16:42.812757+00:00"}
+2025-06-19 06:46:59 - livekit - [WARNING] - livekit::rtc_engine:450:livekit::rtc_engine - received session close: "signal client closed: \"stream closed\"" UnknownReason Resume
+{"message": "livekit::rtc_engine:450:livekit::rtc_engine - received session close: \"signal client closed: \\\"stream closed\\\"\" UnknownReason Resume", "level": "WARNING", "name": "livekit", "timestamp": "2025-06-19T01:16:59.828602+00:00"}

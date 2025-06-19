@@ -1,0 +1,51 @@
+--- agent_runner.py: Initializing for user: shhaaag@gmail.com, using core script: web-user.py ---
+INFO (agent_runner.py): Successfully loaded configuration for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\config\agent_config.json
+INFO (agent_runner.py): Setting environment variables for user shhaaag@gmail.com...
+  SET USER_AGENT_USER_ID=shhaaag@gmail.com
+  INFO: USER_AGENT_COLLECTION not set (not found in user config).
+  INFO: USER_AGENT_PHONE not set (not found in user config).
+  SET OPENAI_API_KEY (from user config)
+  SET LIVEKIT_URL (from user config)
+  SET LIVEKIT_API_KEY (from user config)
+  SET LIVEKIT_API_SECRET (from user config)
+  SET DEEPGRAM_API_KEY (from user config)
+  SET CARTESIA_API_KEY (from user config)
+  SET SIP_TRUNK_ID (from user config)
+INFO (agent_runner.py): Environment variables set based on user 'shhaaag@gmail.com' configuration.
+INFO (agent_runner.py): Starting core agent script: C:\Users\User\Repnix\venv\Scripts\python.exe C:\Users\User\Repnix\web-user.py start
+--- agent_runner.py: Handing off to web-user.py for user shhaaag@gmail.com ---
+2025-06-19 06:23:06,597 - agent-manager - INFO - Detected platform: Windows
+C:\Users\User\Repnix\web-user.py:325: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+C:\Users\User\Repnix\web-user.py:340: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("shutdown")
+2025-06-19 06:23:06,606 - agent-manager - INFO - Verified PROJECT_ROOT_FOR_AGENTS_CWD: C:\Users\User\Repnix
+2025-06-19 06:23:06,607 - agent-manager - INFO - Starting Agent Manager API on http://0.0.0.0:8001
+INFO:     Started server process [5372]
+INFO:     Waiting for application startup.
+2025-06-19 06:23:06,742 - agent-manager - INFO - Agent Manager starting up. Main script: C:\Users\User\Repnix\web-user.py
+2025-06-19 06:23:06,742 - agent-manager - INFO - Python executable for manager: C:\Users\User\Repnix\venv\Scripts\python.exe
+2025-06-19 06:23:06,743 - agent-manager - INFO - Current working directory for manager: C:\Users\User\Repnix
+2025-06-19 06:23:06,743 - agent-manager - INFO - AGENT_MANAGER_DIR: C:\Users\User\Repnix
+2025-06-19 06:23:06,743 - agent-manager - INFO - PROJECT_ROOT_FOR_AGENTS_CWD: C:\Users\User\Repnix
+2025-06-19 06:23:06,743 - agent-manager - INFO - PATH_TO_WEB_AGENT_RUN_SCRIPT: C:\Users\User\Repnix\web-agent-run.py
+2025-06-19 06:23:06,744 - agent-manager - INFO - PATH_TO_DIALER_AGENT_RUN_SCRIPT: C:\Users\User\Repnix\run_agent.py
+2025-06-19 06:23:06,744 - agent-manager - INFO - Performing initial stale agent check...
+2025-06-19 06:23:06,744 - agent-manager - INFO - Periodic cleanup task scheduled.
+INFO:     Application startup complete.
+ERROR:    [Errno 10048] error while attempting to bind on address ('0.0.0.0', 8001): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+INFO:     Waiting for application shutdown.
+2025-06-19 06:23:06,745 - agent-manager - INFO - Agent Manager shutting down. Stopping all running agents...
+2025-06-19 06:23:06,746 - agent-manager - INFO - All tracked agents have been requested to stop.
+INFO:     Application shutdown complete.
+--- agent_runner.py: Core agent script 'web-user.py' for user shhaaag@gmail.com has exited with code 1. ---

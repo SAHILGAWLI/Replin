@@ -1,0 +1,181 @@
+--- agent_runner.py: Initializing for user: shhaaag@gmail.com, using core script: web-user.py ---
+INFO (agent_runner.py): Successfully loaded configuration for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\config\agent_config.json
+INFO (agent_runner.py): Setting environment variables for user shhaaag@gmail.com...
+  SET USER_AGENT_USER_ID=shhaaag@gmail.com
+  INFO: USER_AGENT_COLLECTION not set (not found in user config).
+  INFO: USER_AGENT_PHONE not set (not found in user config).
+  SET OPENAI_API_KEY (from user config)
+  SET LIVEKIT_URL (from user config)
+  SET LIVEKIT_API_KEY (from user config)
+  SET LIVEKIT_API_SECRET (from user config)
+  SET DEEPGRAM_API_KEY (from user config)
+  SET CARTESIA_API_KEY (from user config)
+  SET SIP_TRUNK_ID (from user config)
+INFO (agent_runner.py): Environment variables set based on user 'shhaaag@gmail.com' configuration.
+INFO (agent_runner.py): Starting core agent script: C:\Users\User\Repnix\venv\Scripts\python.exe C:\Users\User\Repnix\web-user.py start
+--- agent_runner.py: Handing off to web-user.py for user shhaaag@gmail.com ---
+2025-06-19 07:05:17 - user-agent - [INFO] - web-user.py executed directly as __main__. User ID from ENV: shhaaag@gmail.com
+2025-06-19 07:05:17 - livekit.agents - [INFO] - starting worker
+{"message": "starting worker", "level": "INFO", "name": "livekit.agents", "version": "1.0.23", "rtc-version": "1.0.8", "timestamp": "2025-06-19T01:35:17.588904+00:00"}
+2025-06-19 07:05:17 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 14928, "timestamp": "2025-06-19T01:35:17.598757+00:00"}
+2025-06-19 07:05:17 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 6760, "timestamp": "2025-06-19T01:35:17.599776+00:00"}
+2025-06-19 07:05:17 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 6980, "timestamp": "2025-06-19T01:35:17.600348+00:00"}
+2025-06-19 07:05:17 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 7188, "timestamp": "2025-06-19T01:35:17.600793+00:00"}
+2025-06-19 07:05:17 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:17.601206+00:00"}
+2025-06-19 07:05:17 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:17.601545+00:00"}
+2025-06-19 07:05:17 - user-agent - [INFO] - Prewarming VAD model...
+2025-06-19 07:05:17 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:17.601993+00:00"}
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:17.602337+00:00"}
+2025-06-19 07:05:18 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:18.147628+00:00"}
+2025-06-19 07:05:18 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:18.970266+00:00"}
+2025-06-19 07:05:19 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:19.255234+00:00"}
+2025-06-19 07:05:19 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:19.261382+00:00"}
+2025-06-19 07:05:19 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 14928, "elapsed_time": 1.67, "timestamp": "2025-06-19T01:35:19.268887+00:00"}
+2025-06-19 07:05:19 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 7188, "elapsed_time": 1.67, "timestamp": "2025-06-19T01:35:19.270164+00:00"}
+2025-06-19 07:05:19 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 6760, "elapsed_time": 1.67, "timestamp": "2025-06-19T01:35:19.271589+00:00"}
+2025-06-19 07:05:19 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 6980, "elapsed_time": 1.67, "timestamp": "2025-06-19T01:35:19.272897+00:00"}
+2025-06-19 07:05:19 - livekit.agents - [INFO] - see tracing information at http://localhost:8081/debug
+{"message": "see tracing information at http://localhost:8081/debug", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T01:35:19.274059+00:00"}
+2025-06-19 07:05:20 - livekit.agents - [INFO] - registered worker
+{"message": "registered worker", "level": "INFO", "name": "livekit.agents", "id": "AW_rdQVsFxotdYY", "url": "wss://fgsdfg-92vkkxvz.livekit.cloud", "region": "Germany", "protocol": 16, "timestamp": "2025-06-19T01:35:20.153448+00:00"}
+2025-06-19 07:05:55 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8052000000000001, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:35:55.259039+00:00"}
+2025-06-19 07:05:57 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.5204000000000001, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:35:57.771245+00:00"}
+2025-06-19 07:05:58 - livekit.agents - [INFO] - received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_wiQjtxKsmbAD", "dispatch_id": "", "room_name": "sbx-1tv4rf-PD23yzCMjcntVe62WPwwHq", "agent_name": "", "resuming": false, "timestamp": "2025-06-19T01:35:58.855396+00:00"}
+2025-06-19 07:05:58 - user-agent - [INFO] - Agent entrypoint started for job AJ_wiQjtxKsmbAD, user_id: shhaaag@gmail.com
+{"message": "Agent entrypoint started for job AJ_wiQjtxKsmbAD, user_id: shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:58.994316+00:00"}
+2025-06-19 07:05:58 - user-agent - [INFO] -   Collection from ENV: None
+{"message": "  Collection from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:58.994549+00:00"}
+2025-06-19 07:05:58 - user-agent - [INFO] -   Phone from ENV: None
+{"message": "  Phone from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:58.994771+00:00"}
+2025-06-19 07:05:58 - user-agent - [INFO] - Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}
+{"message": "Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:58.995584+00:00"}
+2025-06-19 07:05:58 - user-agent - [INFO] - No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:58.995853+00:00"}
+2025-06-19 07:05:59 - llama_index.core.indices.loading - [INFO] - Loading all indices.
+{"message": "Loading all indices.", "level": "INFO", "name": "llama_index.core.indices.loading", "timestamp": "2025-06-19T01:35:59.027775+00:00"}
+2025-06-19 07:05:59 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 1504, "timestamp": "2025-06-19T01:35:59.080392+00:00"}
+2025-06-19 07:05:59 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:59.080965+00:00"}
+2025-06-19 07:05:59 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:59.325581+00:00"}
+2025-06-19 07:05:59 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 1504, "elapsed_time": 0.25, "timestamp": "2025-06-19T01:35:59.326355+00:00"}
+2025-06-19 07:05:59 - user-agent - [INFO] - Successfully loaded index for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "Successfully loaded index for user shhaaag@gmail.com from user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:59.684447+00:00"}
+2025-06-19 07:05:59 - user-agent - [INFO] - Index loaded successfully for user shhaaag@gmail.com, collection 'None'.
+{"message": "Index loaded successfully for user shhaaag@gmail.com, collection 'None'.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:59.684799+00:00"}
+2025-06-19 07:05:59 - user-agent - [INFO] - Query engine initialized/updated successfully for this job.
+{"message": "Query engine initialized/updated successfully for this job.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:35:59.736580+00:00"}
+2025-06-19 07:06:01 - user-agent - [INFO] - Connected to LiveKit room: sbx-1tv4rf-PD23yzCMjcntVe62WPwwHq for user shhaaag@gmail.com
+{"message": "Connected to LiveKit room: sbx-1tv4rf-PD23yzCMjcntVe62WPwwHq for user shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:01.140092+00:00"}
+2025-06-19 07:06:01 - user-agent - [INFO] - Inbound/Web call mode for room sbx-1tv4rf-PD23yzCMjcntVe62WPwwHq: Waiting for participants.
+{"message": "Inbound/Web call mode for room sbx-1tv4rf-PD23yzCMjcntVe62WPwwHq: Waiting for participants.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:01.140535+00:00"}
+2025-06-19 07:06:01 - user-agent - [INFO] - Silero VAD loaded for session.
+{"message": "Silero VAD loaded for session.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:01.408128+00:00"}
+2025-06-19 07:06:01 - user-agent - [INFO] - SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'
+{"message": "SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:01.409355+00:00"}
+2025-06-19 07:06:03 - user-agent - [ERROR] - Error in agent entrypoint for job AJ_wiQjtxKsmbAD, user shhaaag@gmail.com: on_close
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 398, in entrypoint
+    ctx.job.on_close(log_final_usage)
+    ^^^^^^^^^^^^^^^^
+AttributeError: on_close
+{"message": "Error in agent entrypoint for job AJ_wiQjtxKsmbAD, user shhaaag@gmail.com: on_close", "level": "ERROR", "name": "user-agent", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 398, in entrypoint\n    ctx.job.on_close(log_final_usage)\n    ^^^^^^^^^^^^^^^^\nAttributeError: on_close", "timestamp": "2025-06-19T01:36:03.355370+00:00"}
+2025-06-19 07:06:03 - livekit.agents - [WARNING] - Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\Users\User\Repnix\web-user.py:414> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:274, _JobProc._run_job_task.<locals>.log_exception() at C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:276]> took too long: 2.27 seconds
+{"message": "Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\\Users\\User\\Repnix\\web-user.py:414> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:274, _JobProc._run_job_task.<locals>.log_exception() at C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:276]> took too long: 2.27 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:36:03.407001+00:00"}
+2025-06-19 07:06:03 - livekit.agents - [WARNING] - Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\Users\User\Repnix\web-user.py:414> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:274, _JobProc._run_job_task.<locals>.log_exception() at C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:276]> took too long: 2.27 seconds
+{"message": "Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\\Users\\User\\Repnix\\web-user.py:414> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:274, _JobProc._run_job_task.<locals>.log_exception() at C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:276]> took too long: 2.27 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:36:03.407493+00:00"}
+2025-06-19 07:06:03 - livekit.agents - [WARNING] - Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\Users\User\Repnix\web-user.py:414> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:274, _JobProc._run_job_task.<locals>.log_exception() at C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:276]> took too long: 2.27 seconds
+{"message": "Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\\Users\\User\\Repnix\\web-user.py:414> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:274, _JobProc._run_job_task.<locals>.log_exception() at C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:276]> took too long: 2.27 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:36:03.408418+00:00"}
+2025-06-19 07:06:03 - livekit.agents - [WARNING] - Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\Users\User\Repnix\web-user.py:414> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:274, _JobProc._run_job_task.<locals>.log_exception() at C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:276]> took too long: 2.27 seconds
+{"message": "Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\\Users\\User\\Repnix\\web-user.py:414> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:274, _JobProc._run_job_task.<locals>.log_exception() at C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:276]> took too long: 2.27 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:36:03.408855+00:00"}
+2025-06-19 07:06:03 - livekit.agents - [WARNING] - Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\Users\User\Repnix\web-user.py:414> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:274, _JobProc._run_job_task.<locals>.log_exception() at C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:276]> took too long: 2.27 seconds
+{"message": "Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\\Users\\User\\Repnix\\web-user.py:414> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:274, _JobProc._run_job_task.<locals>.log_exception() at C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:276]> took too long: 2.27 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:36:03.409492+00:00"}
+2025-06-19 07:06:03 - livekit.agents - [WARNING] - Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\Users\User\Repnix\web-user.py:414> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:274, _JobProc._run_job_task.<locals>.log_exception() at C:\Users\User\Repnix\venv\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:276]> took too long: 2.27 seconds
+{"message": "Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\\Users\\User\\Repnix\\web-user.py:414> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:274, _JobProc._run_job_task.<locals>.log_exception() at C:\\Users\\User\\Repnix\\venv\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:276]> took too long: 2.27 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T01:36:03.409878+00:00"}
+2025-06-19 07:06:04 - user-agent - [INFO] - Sent error details to room for user shhaaag@gmail.com.
+{"message": "Sent error details to room for user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:04.545531+00:00"}
+2025-06-19 07:06:04 - user-agent - [INFO] - Agent entrypoint cleanup for job AJ_wiQjtxKsmbAD, user shhaaag@gmail.com.
+{"message": "Agent entrypoint cleanup for job AJ_wiQjtxKsmbAD, user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:04.545912+00:00"}
+2025-06-19 07:06:04 - livekit.agents - [ERROR] - unhandled exception while running the job task
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 398, in entrypoint
+    ctx.job.on_close(log_final_usage)
+    ^^^^^^^^^^^^^^^^
+AttributeError: on_close
+{"message": "unhandled exception while running the job task", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 398, in entrypoint\n    ctx.job.on_close(log_final_usage)\n    ^^^^^^^^^^^^^^^^\nAttributeError: on_close", "timestamp": "2025-06-19T01:36:04.546323+00:00"}
+2025-06-19 07:06:10 - user-agent - [INFO] - Room sbx-1tv4rf-PD23yzCMjcntVe62WPwwHq: Participant left: ubiquitous-stack ()
+{"message": "Room sbx-1tv4rf-PD23yzCMjcntVe62WPwwHq: Participant left: ubiquitous-stack ()", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:10.141094+00:00"}
+2025-06-19 07:06:14 - livekit.agents - [INFO] - received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_2ozr3R6dRXxS", "dispatch_id": "", "room_name": "sbx-1tv4rf-e2rFDg6RTJTy7VBWNJMyiL", "agent_name": "", "resuming": false, "timestamp": "2025-06-19T01:36:14.253592+00:00"}
+2025-06-19 07:06:14 - user-agent - [INFO] - Agent entrypoint started for job AJ_2ozr3R6dRXxS, user_id: shhaaag@gmail.com
+{"message": "Agent entrypoint started for job AJ_2ozr3R6dRXxS, user_id: shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:14.392861+00:00"}
+2025-06-19 07:06:14 - user-agent - [INFO] -   Collection from ENV: None
+{"message": "  Collection from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:14.393108+00:00"}
+2025-06-19 07:06:14 - user-agent - [INFO] -   Phone from ENV: None
+{"message": "  Phone from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:14.393329+00:00"}
+2025-06-19 07:06:14 - user-agent - [INFO] - Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}
+{"message": "Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:14.393985+00:00"}
+2025-06-19 07:06:14 - user-agent - [INFO] - No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:14.394234+00:00"}
+2025-06-19 07:06:14 - llama_index.core.indices.loading - [INFO] - Loading all indices.
+{"message": "Loading all indices.", "level": "INFO", "name": "llama_index.core.indices.loading", "timestamp": "2025-06-19T01:36:14.416157+00:00"}
+2025-06-19 07:06:14 - user-agent - [INFO] - Successfully loaded index for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "Successfully loaded index for user shhaaag@gmail.com from user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:14.416923+00:00"}
+2025-06-19 07:06:14 - user-agent - [INFO] - Index loaded successfully for user shhaaag@gmail.com, collection 'None'.
+{"message": "Index loaded successfully for user shhaaag@gmail.com, collection 'None'.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:14.417107+00:00"}
+2025-06-19 07:06:14 - user-agent - [INFO] - Query engine initialized/updated successfully for this job.
+{"message": "Query engine initialized/updated successfully for this job.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:14.417424+00:00"}
+2025-06-19 07:06:15 - user-agent - [INFO] - Connected to LiveKit room: sbx-1tv4rf-e2rFDg6RTJTy7VBWNJMyiL for user shhaaag@gmail.com
+{"message": "Connected to LiveKit room: sbx-1tv4rf-e2rFDg6RTJTy7VBWNJMyiL for user shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:15.835908+00:00"}
+2025-06-19 07:06:15 - user-agent - [INFO] - Inbound/Web call mode for room sbx-1tv4rf-e2rFDg6RTJTy7VBWNJMyiL: Waiting for participants.
+{"message": "Inbound/Web call mode for room sbx-1tv4rf-e2rFDg6RTJTy7VBWNJMyiL: Waiting for participants.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:15.836185+00:00"}
+2025-06-19 07:06:16 - user-agent - [INFO] - Silero VAD loaded for session.
+{"message": "Silero VAD loaded for session.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:16.088317+00:00"}
+2025-06-19 07:06:16 - user-agent - [INFO] - SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'
+{"message": "SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:16.088917+00:00"}
+2025-06-19 07:06:17 - user-agent - [ERROR] - Error in agent entrypoint for job AJ_2ozr3R6dRXxS, user shhaaag@gmail.com: on_close
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 398, in entrypoint
+    ctx.job.on_close(log_final_usage)
+    ^^^^^^^^^^^^^^^^
+AttributeError: on_close
+{"message": "Error in agent entrypoint for job AJ_2ozr3R6dRXxS, user shhaaag@gmail.com: on_close", "level": "ERROR", "name": "user-agent", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 398, in entrypoint\n    ctx.job.on_close(log_final_usage)\n    ^^^^^^^^^^^^^^^^\nAttributeError: on_close", "timestamp": "2025-06-19T01:36:17.316293+00:00"}
+2025-06-19 07:06:18 - user-agent - [INFO] - Sent error details to room for user shhaaag@gmail.com.
+{"message": "Sent error details to room for user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:18.501964+00:00"}
+2025-06-19 07:06:18 - user-agent - [INFO] - Agent entrypoint cleanup for job AJ_2ozr3R6dRXxS, user shhaaag@gmail.com.
+{"message": "Agent entrypoint cleanup for job AJ_2ozr3R6dRXxS, user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:18.502219+00:00"}
+2025-06-19 07:06:18 - livekit.agents - [ERROR] - unhandled exception while running the job task
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 398, in entrypoint
+    ctx.job.on_close(log_final_usage)
+    ^^^^^^^^^^^^^^^^
+AttributeError: on_close
+{"message": "unhandled exception while running the job task", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 398, in entrypoint\n    ctx.job.on_close(log_final_usage)\n    ^^^^^^^^^^^^^^^^\nAttributeError: on_close", "timestamp": "2025-06-19T01:36:18.502412+00:00"}
+2025-06-19 07:06:19 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 3032, "timestamp": "2025-06-19T01:36:19.808059+00:00"}
+2025-06-19 07:06:19 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:19.808802+00:00"}
+2025-06-19 07:06:20 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:36:20.063859+00:00"}
+2025-06-19 07:06:20 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 3032, "elapsed_time": 0.26, "timestamp": "2025-06-19T01:36:20.065328+00:00"}

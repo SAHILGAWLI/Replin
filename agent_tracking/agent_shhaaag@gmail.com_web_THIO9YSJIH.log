@@ -1,0 +1,243 @@
+--- agent_runner.py: Initializing for user: shhaaag@gmail.com, using core script: web-user.py ---
+INFO (agent_runner.py): Successfully loaded configuration for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\config\agent_config.json
+INFO (agent_runner.py): Setting environment variables for user shhaaag@gmail.com...
+  SET USER_AGENT_USER_ID=shhaaag@gmail.com
+  INFO: USER_AGENT_COLLECTION not set (not found in user config).
+  INFO: USER_AGENT_PHONE not set (not found in user config).
+  SET OPENAI_API_KEY (from user config)
+  SET LIVEKIT_URL (from user config)
+  SET LIVEKIT_API_KEY (from user config)
+  SET LIVEKIT_API_SECRET (from user config)
+  SET DEEPGRAM_API_KEY (from user config)
+  SET CARTESIA_API_KEY (from user config)
+  SET SIP_TRUNK_ID (from user config)
+INFO (agent_runner.py): Environment variables set based on user 'shhaaag@gmail.com' configuration.
+INFO (agent_runner.py): Starting core agent script: C:\Users\User\Repnix\venv\Scripts\python.exe C:\Users\User\Repnix\web-user.py start
+--- agent_runner.py: Handing off to web-user.py for user shhaaag@gmail.com ---
+2025-06-19 06:52:59 - user-agent - [INFO] - web-user.py executed directly as __main__. User ID from ENV: shhaaag@gmail.com
+2025-06-19 06:52:59 - livekit.agents - [INFO] - starting worker
+{"message": "starting worker", "level": "INFO", "name": "livekit.agents", "version": "1.0.23", "rtc-version": "1.0.8", "timestamp": "2025-06-19T01:22:59.668878+00:00"}
+2025-06-19 06:52:59 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 11512, "timestamp": "2025-06-19T01:22:59.680988+00:00"}
+2025-06-19 06:52:59 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 15136, "timestamp": "2025-06-19T01:22:59.681572+00:00"}
+2025-06-19 06:52:59 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 14792, "timestamp": "2025-06-19T01:22:59.682015+00:00"}
+2025-06-19 06:52:59 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 6876, "timestamp": "2025-06-19T01:22:59.682386+00:00"}
+2025-06-19 06:52:59 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:22:59.682731+00:00"}
+2025-06-19 06:52:59 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:22:59.682984+00:00"}
+2025-06-19 06:52:59 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:22:59.683373+00:00"}
+2025-06-19 06:52:59 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:22:59.683596+00:00"}
+2025-06-19 06:53:00 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:00.782995+00:00"}
+2025-06-19 06:53:00 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:00.789021+00:00"}
+2025-06-19 06:53:00 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:00.871088+00:00"}
+2025-06-19 06:53:01 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+2025-06-19 06:53:01 - livekit.agents - [INFO] - job runner initialized
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:01.063808+00:00"}
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 15136, "elapsed_time": 1.38, "timestamp": "2025-06-19T01:23:01.065124+00:00"}
+2025-06-19 06:53:01 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 14792, "elapsed_time": 1.38, "timestamp": "2025-06-19T01:23:01.066568+00:00"}
+2025-06-19 06:53:01 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 11512, "elapsed_time": 1.39, "timestamp": "2025-06-19T01:23:01.068588+00:00"}
+2025-06-19 06:53:01 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 6876, "elapsed_time": 1.39, "timestamp": "2025-06-19T01:23:01.070623+00:00"}
+2025-06-19 06:53:01 - livekit.agents - [INFO] - see tracing information at http://localhost:8081/debug
+{"message": "see tracing information at http://localhost:8081/debug", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T01:23:01.072685+00:00"}
+2025-06-19 06:53:01 - livekit.agents - [INFO] - registered worker
+{"message": "registered worker", "level": "INFO", "name": "livekit.agents", "id": "AW_4cPN8dvGrnJx", "url": "wss://fgsdfg-92vkkxvz.livekit.cloud", "region": "Germany", "protocol": 16, "timestamp": "2025-06-19T01:23:01.834571+00:00"}
+2025-06-19 06:53:04 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.7626, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:23:04.345292+00:00"}
+2025-06-19 06:53:06 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.5641999999999999, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:23:06.846334+00:00"}
+2025-06-19 06:53:34 - livekit.agents - [INFO] - received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_oYg5FjcQjVqb", "dispatch_id": "", "room_name": "sbx-1tv4rf-8WC7scs4NcLye2T6xgEpKv", "agent_name": "", "resuming": false, "timestamp": "2025-06-19T01:23:34.614506+00:00"}
+2025-06-19 06:53:34 - user-agent - [INFO] - Agent entrypoint started for job AJ_oYg5FjcQjVqb, user_id: shhaaag@gmail.com
+{"message": "Agent entrypoint started for job AJ_oYg5FjcQjVqb, user_id: shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:34.757325+00:00"}
+2025-06-19 06:53:34 - user-agent - [INFO] -   Collection from ENV: None
+{"message": "  Collection from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:34.757565+00:00"}
+2025-06-19 06:53:34 - user-agent - [INFO] -   Phone from ENV: None
+{"message": "  Phone from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:34.757710+00:00"}
+2025-06-19 06:53:34 - user-agent - [INFO] - Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}
+{"message": "Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:34.758588+00:00"}
+2025-06-19 06:53:34 - user-agent - [INFO] - No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:34.758857+00:00"}
+2025-06-19 06:53:34 - llama_index.core.indices.loading - [INFO] - Loading all indices.
+{"message": "Loading all indices.", "level": "INFO", "name": "llama_index.core.indices.loading", "timestamp": "2025-06-19T01:23:34.801444+00:00"}
+2025-06-19 06:53:34 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 6608, "timestamp": "2025-06-19T01:23:34.803571+00:00"}
+2025-06-19 06:53:34 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:34.804068+00:00"}
+2025-06-19 06:53:35 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:35.066795+00:00"}
+2025-06-19 06:53:35 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 6608, "elapsed_time": 0.26, "timestamp": "2025-06-19T01:23:35.067773+00:00"}
+2025-06-19 06:53:35 - user-agent - [INFO] - Successfully loaded index for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "Successfully loaded index for user shhaaag@gmail.com from user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:35.455720+00:00"}
+2025-06-19 06:53:35 - user-agent - [INFO] - Index loaded successfully for user shhaaag@gmail.com, collection 'None'.
+{"message": "Index loaded successfully for user shhaaag@gmail.com, collection 'None'.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:35.456110+00:00"}
+2025-06-19 06:53:35 - user-agent - [INFO] - Query engine initialized/updated successfully for this job.
+{"message": "Query engine initialized/updated successfully for this job.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:35.504200+00:00"}
+2025-06-19 06:53:36 - user-agent - [INFO] - Connected to LiveKit room: sbx-1tv4rf-8WC7scs4NcLye2T6xgEpKv for user shhaaag@gmail.com
+{"message": "Connected to LiveKit room: sbx-1tv4rf-8WC7scs4NcLye2T6xgEpKv for user shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:36.888227+00:00"}
+2025-06-19 06:53:36 - user-agent - [INFO] - Inbound/Web call mode for room sbx-1tv4rf-8WC7scs4NcLye2T6xgEpKv: Waiting for participants.
+{"message": "Inbound/Web call mode for room sbx-1tv4rf-8WC7scs4NcLye2T6xgEpKv: Waiting for participants.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:36.888707+00:00"}
+2025-06-19 06:53:37 - user-agent - [INFO] - Silero VAD loaded for session.
+{"message": "Silero VAD loaded for session.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:37.247569+00:00"}
+2025-06-19 06:53:37 - user-agent - [INFO] - SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'
+{"message": "SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:37.248523+00:00"}
+2025-06-19 06:53:38 - user-agent - [ERROR] - Error in agent entrypoint for job AJ_oYg5FjcQjVqb, user shhaaag@gmail.com: AgentSession.__init__() got an unexpected keyword argument 'user_data'. Did you mean 'userdata'?
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 369, in entrypoint
+    session = AgentSession[UserData](
+        vad=vad,
+    ...<3 lines>...
+        user_data=user_data_for_session
+    )
+  File "C:\Python313\Lib\typing.py", line 1317, in __call__
+    result = self.__origin__(*args, **kwargs)
+TypeError: AgentSession.__init__() got an unexpected keyword argument 'user_data'. Did you mean 'userdata'?
+{"message": "Error in agent entrypoint for job AJ_oYg5FjcQjVqb, user shhaaag@gmail.com: AgentSession.__init__() got an unexpected keyword argument 'user_data'. Did you mean 'userdata'?", "level": "ERROR", "name": "user-agent", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 369, in entrypoint\n    session = AgentSession[UserData](\n        vad=vad,\n    ...<3 lines>...\n        user_data=user_data_for_session\n    )\n  File \"C:\\Python313\\Lib\\typing.py\", line 1317, in __call__\n    result = self.__origin__(*args, **kwargs)\nTypeError: AgentSession.__init__() got an unexpected keyword argument 'user_data'. Did you mean 'userdata'?", "timestamp": "2025-06-19T01:23:38.620775+00:00"}
+2025-06-19 06:53:38 - user-agent - [ERROR] - Failed to send error details to room for user shhaaag@gmail.com: LocalParticipant.publish_data() got an unexpected keyword argument 'kind'
+{"message": "Failed to send error details to room for user shhaaag@gmail.com: LocalParticipant.publish_data() got an unexpected keyword argument 'kind'", "level": "ERROR", "name": "user-agent", "timestamp": "2025-06-19T01:23:38.626539+00:00"}
+2025-06-19 06:53:38 - user-agent - [INFO] - Agent entrypoint cleanup for job AJ_oYg5FjcQjVqb, user shhaaag@gmail.com.
+{"message": "Agent entrypoint cleanup for job AJ_oYg5FjcQjVqb, user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:38.626737+00:00"}
+2025-06-19 06:53:38 - livekit.agents - [ERROR] - unhandled exception while running the job task
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 369, in entrypoint
+    session = AgentSession[UserData](
+        vad=vad,
+    ...<3 lines>...
+        user_data=user_data_for_session
+    )
+  File "C:\Python313\Lib\typing.py", line 1317, in __call__
+    result = self.__origin__(*args, **kwargs)
+TypeError: AgentSession.__init__() got an unexpected keyword argument 'user_data'. Did you mean 'userdata'?
+{"message": "unhandled exception while running the job task", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 369, in entrypoint\n    session = AgentSession[UserData](\n        vad=vad,\n    ...<3 lines>...\n        user_data=user_data_for_session\n    )\n  File \"C:\\Python313\\Lib\\typing.py\", line 1317, in __call__\n    result = self.__origin__(*args, **kwargs)\nTypeError: AgentSession.__init__() got an unexpected keyword argument 'user_data'. Did you mean 'userdata'?", "timestamp": "2025-06-19T01:23:38.627021+00:00"}
+2025-06-19 06:53:45 - user-agent - [INFO] - Room sbx-1tv4rf-8WC7scs4NcLye2T6xgEpKv: Participant left: rapid-byte ()
+{"message": "Room sbx-1tv4rf-8WC7scs4NcLye2T6xgEpKv: Participant left: rapid-byte ()", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:45.746424+00:00"}
+2025-06-19 06:53:48 - livekit.agents - [INFO] - received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_tyAgkdBJgizN", "dispatch_id": "", "room_name": "sbx-1tv4rf-GxmBqVEvBQf453KMManr3J", "agent_name": "", "resuming": false, "timestamp": "2025-06-19T01:23:48.906753+00:00"}
+2025-06-19 06:53:49 - user-agent - [INFO] - Agent entrypoint started for job AJ_tyAgkdBJgizN, user_id: shhaaag@gmail.com
+{"message": "Agent entrypoint started for job AJ_tyAgkdBJgizN, user_id: shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:49.049986+00:00"}
+2025-06-19 06:53:49 - user-agent - [INFO] -   Collection from ENV: None
+{"message": "  Collection from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:49.050505+00:00"}
+2025-06-19 06:53:49 - user-agent - [INFO] -   Phone from ENV: None
+{"message": "  Phone from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:49.050758+00:00"}
+2025-06-19 06:53:49 - user-agent - [INFO] - Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}
+{"message": "Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:49.051901+00:00"}
+2025-06-19 06:53:49 - user-agent - [INFO] - No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:49.052392+00:00"}
+2025-06-19 06:53:49 - llama_index.core.indices.loading - [INFO] - Loading all indices.
+{"message": "Loading all indices.", "level": "INFO", "name": "llama_index.core.indices.loading", "timestamp": "2025-06-19T01:23:49.103919+00:00"}
+2025-06-19 06:53:49 - user-agent - [INFO] - Successfully loaded index for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "Successfully loaded index for user shhaaag@gmail.com from user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:49.104738+00:00"}
+2025-06-19 06:53:49 - user-agent - [INFO] - Index loaded successfully for user shhaaag@gmail.com, collection 'None'.
+{"message": "Index loaded successfully for user shhaaag@gmail.com, collection 'None'.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:49.104940+00:00"}
+2025-06-19 06:53:49 - user-agent - [INFO] - Query engine initialized/updated successfully for this job.
+{"message": "Query engine initialized/updated successfully for this job.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:49.105307+00:00"}
+2025-06-19 06:53:50 - user-agent - [INFO] - Connected to LiveKit room: sbx-1tv4rf-GxmBqVEvBQf453KMManr3J for user shhaaag@gmail.com
+{"message": "Connected to LiveKit room: sbx-1tv4rf-GxmBqVEvBQf453KMManr3J for user shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:50.586373+00:00"}
+2025-06-19 06:53:50 - user-agent - [INFO] - Inbound/Web call mode for room sbx-1tv4rf-GxmBqVEvBQf453KMManr3J: Waiting for participants.
+{"message": "Inbound/Web call mode for room sbx-1tv4rf-GxmBqVEvBQf453KMManr3J: Waiting for participants.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:50.587020+00:00"}
+2025-06-19 06:53:50 - user-agent - [INFO] - Silero VAD loaded for session.
+{"message": "Silero VAD loaded for session.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:50.868344+00:00"}
+2025-06-19 06:53:50 - user-agent - [INFO] - SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'
+{"message": "SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:50.869209+00:00"}
+2025-06-19 06:53:52 - user-agent - [ERROR] - Error in agent entrypoint for job AJ_tyAgkdBJgizN, user shhaaag@gmail.com: AgentSession.__init__() got an unexpected keyword argument 'user_data'. Did you mean 'userdata'?
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 369, in entrypoint
+    session = AgentSession[UserData](
+        vad=vad,
+    ...<3 lines>...
+        user_data=user_data_for_session
+    )
+  File "C:\Python313\Lib\typing.py", line 1317, in __call__
+    result = self.__origin__(*args, **kwargs)
+TypeError: AgentSession.__init__() got an unexpected keyword argument 'user_data'. Did you mean 'userdata'?
+{"message": "Error in agent entrypoint for job AJ_tyAgkdBJgizN, user shhaaag@gmail.com: AgentSession.__init__() got an unexpected keyword argument 'user_data'. Did you mean 'userdata'?", "level": "ERROR", "name": "user-agent", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 369, in entrypoint\n    session = AgentSession[UserData](\n        vad=vad,\n    ...<3 lines>...\n        user_data=user_data_for_session\n    )\n  File \"C:\\Python313\\Lib\\typing.py\", line 1317, in __call__\n    result = self.__origin__(*args, **kwargs)\nTypeError: AgentSession.__init__() got an unexpected keyword argument 'user_data'. Did you mean 'userdata'?", "timestamp": "2025-06-19T01:23:52.345773+00:00"}
+2025-06-19 06:53:52 - user-agent - [ERROR] - Failed to send error details to room for user shhaaag@gmail.com: LocalParticipant.publish_data() got an unexpected keyword argument 'kind'
+{"message": "Failed to send error details to room for user shhaaag@gmail.com: LocalParticipant.publish_data() got an unexpected keyword argument 'kind'", "level": "ERROR", "name": "user-agent", "timestamp": "2025-06-19T01:23:52.351259+00:00"}
+2025-06-19 06:53:52 - user-agent - [INFO] - Agent entrypoint cleanup for job AJ_tyAgkdBJgizN, user shhaaag@gmail.com.
+{"message": "Agent entrypoint cleanup for job AJ_tyAgkdBJgizN, user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:52.351559+00:00"}
+2025-06-19 06:53:52 - livekit.agents - [ERROR] - unhandled exception while running the job task
+Traceback (most recent call last):
+  File "C:\Users\User\Repnix\web-user.py", line 369, in entrypoint
+    session = AgentSession[UserData](
+        vad=vad,
+    ...<3 lines>...
+        user_data=user_data_for_session
+    )
+  File "C:\Python313\Lib\typing.py", line 1317, in __call__
+    result = self.__origin__(*args, **kwargs)
+TypeError: AgentSession.__init__() got an unexpected keyword argument 'user_data'. Did you mean 'userdata'?
+{"message": "unhandled exception while running the job task", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\User\\Repnix\\web-user.py\", line 369, in entrypoint\n    session = AgentSession[UserData](\n        vad=vad,\n    ...<3 lines>...\n        user_data=user_data_for_session\n    )\n  File \"C:\\Python313\\Lib\\typing.py\", line 1317, in __call__\n    result = self.__origin__(*args, **kwargs)\nTypeError: AgentSession.__init__() got an unexpected keyword argument 'user_data'. Did you mean 'userdata'?", "timestamp": "2025-06-19T01:23:52.352058+00:00"}
+2025-06-19 06:53:55 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 3032, "timestamp": "2025-06-19T01:23:55.406824+00:00"}
+2025-06-19 06:53:55 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:55.407202+00:00"}
+2025-06-19 06:53:55 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:23:55.678199+00:00"}
+2025-06-19 06:53:55 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 3032, "elapsed_time": 0.27, "timestamp": "2025-06-19T01:23:55.679468+00:00"}
+2025-06-19 06:54:00 - user-agent - [INFO] - Room sbx-1tv4rf-GxmBqVEvBQf453KMManr3J: Participant left: distributed-array ()
+{"message": "Room sbx-1tv4rf-GxmBqVEvBQf453KMManr3J: Participant left: distributed-array ()", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T01:24:00.340722+00:00"}
+2025-06-19 06:54:07 - livekit - [WARNING] - livekit::rtc_engine:450:livekit::rtc_engine - received session close: "signal client closed: \"stream closed\"" UnknownReason Resume
+{"message": "livekit::rtc_engine:450:livekit::rtc_engine - received session close: \"signal client closed: \\\"stream closed\\\"\" UnknownReason Resume", "level": "WARNING", "name": "livekit", "timestamp": "2025-06-19T01:24:07.814349+00:00"}
+2025-06-19 06:54:21 - livekit - [WARNING] - livekit::rtc_engine:450:livekit::rtc_engine - received session close: "signal client closed: \"stream closed\"" UnknownReason Resume
+{"message": "livekit::rtc_engine:450:livekit::rtc_engine - received session close: \"signal client closed: \\\"stream closed\\\"\" UnknownReason Resume", "level": "WARNING", "name": "livekit", "timestamp": "2025-06-19T01:24:21.698271+00:00"}
+2025-06-19 06:55:24 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.9503999999999998, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:25:24.532456+00:00"}
+2025-06-19 06:55:29 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.6635999999999995, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:25:29.533298+00:00"}
+2025-06-19 06:55:32 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.7541999999999994, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:25:32.033755+00:00"}
+2025-06-19 06:55:37 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.7229999999999994, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:25:37.035312+00:00"}
+2025-06-19 06:55:39 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.9433999999999994, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:25:39.609456+00:00"}
+2025-06-19 06:55:44 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.6825999999999997, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:25:44.610759+00:00"}
+2025-06-19 06:55:52 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.7511999999999993, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:25:52.114794+00:00"}
+2025-06-19 06:55:57 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.7363999999999995, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:25:57.115741+00:00"}
+2025-06-19 06:56:02 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.7989999999999995, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:26:02.118797+00:00"}
+2025-06-19 06:56:07 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.6233999999999997, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:26:07.121799+00:00"}
+2025-06-19 06:56:24 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8961999999999998, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:26:24.626639+00:00"}
+2025-06-19 06:56:27 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.6759999999999997, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:26:27.127355+00:00"}
+2025-06-19 06:56:37 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8213999999999995, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:26:37.132311+00:00"}
+2025-06-19 06:56:44 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.7015999999999996, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:26:44.637663+00:00"}
+2025-06-19 06:56:54 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.9389999999999997, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:26:54.646344+00:00"}
+2025-06-19 06:56:57 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.6631999999999999, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:26:57.146719+00:00"}
+2025-06-19 06:57:02 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8452, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:27:02.147652+00:00"}
+2025-06-19 06:57:19 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.6764000000000004, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:27:19.654308+00:00"}
+2025-06-19 06:57:22 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.7574000000000006, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:27:22.155673+00:00"}
+2025-06-19 06:57:27 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.6952000000000007, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:27:27.157459+00:00"}
+2025-06-19 07:04:22 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8142000000000017, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:34:22.338403+00:00"}
+2025-06-19 07:04:24 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.7280000000000018, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:34:24.838625+00:00"}
+2025-06-19 07:04:32 - livekit.agents - [INFO] - worker is at full capacity, marking as unavailable
+{"message": "worker is at full capacity, marking as unavailable", "level": "INFO", "name": "livekit.agents", "load": 0.8012000000000017, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:34:32.341071+00:00"}
+2025-06-19 07:04:34 - livekit.agents - [INFO] - worker is below capacity, marking as available
+{"message": "worker is below capacity, marking as available", "level": "INFO", "name": "livekit.agents", "load": 0.7448000000000017, "threshold": "_WorkerEnvOption(dev_default=inf, prod_default=0.75)", "timestamp": "2025-06-19T01:34:34.841181+00:00"}

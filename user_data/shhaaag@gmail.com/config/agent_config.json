@@ -1,0 +1,14 @@
+{
+  "system_prompt": "You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.",
+  "voice": "alloy",
+  "model": "gpt-4o-mini",
+  "agent_name": "Assistant",
+  "language": "en",
+  "openai_api_key": "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",
+  "deepgram_api_key": "90012a4315133dc3929ac413a08019ee672620ec",
+  "cartesia_api_key": "sk_car_tYDUKmyR6QuVh5b3qS5wGN",
+  "livekit_url": "wss://fgsdfg-92vkkxvz.livekit.cloud",
+  "livekit_api_key": "APIxrdgunRQaDUw",
+  "livekit_api_secret": "vNPt4IUAjNFIgOmR2VeqJkfixjUBgZb0GnjyZvDnIOb",
+  "sip_trunk_id": "ST_jgGFecEDULvV"
+}
