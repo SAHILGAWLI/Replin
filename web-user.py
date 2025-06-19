@@ -4,11 +4,11 @@ import os
 import asyncio
 import re
 import json
-import ssl
+import ssl 
 from dataclasses import dataclass, field
 from typing import Optional, Dict, Any, List
 from pathlib import Path
-import aiohttp
+import aiohttp 
 
 from dotenv import load_dotenv
 
@@ -17,14 +17,13 @@ from livekit.agents import (
     Agent,
     AgentSession,
     JobContext,
-    # RunContext, # Not explicitly used for this level of function_tool
     RoomInputOptions,
     RoomOutputOptions,
     WorkerOptions,
-    cli,
+    cli,  
     metrics,
 )
-from livekit.plugins import deepgram, openai, silero, cartesia
+from livekit.plugins import deepgram, openai, silero, cartesia 
 from livekit.agents.voice import MetricsCollectedEvent
 from livekit.agents.llm import function_tool
 
@@ -33,10 +32,70 @@ from llama_index.core import (
     load_index_from_storage,
 )
 
-load_dotenv()
-logger = logging.getLogger("user-agent")
+load_dotenv() 
+logger = logging.getLogger("user-agent") 
 BASE_STORAGE_DIR = Path(os.environ.get("STORAGE_PATH", "./user_data"))
 global_query_engine = None
+
+# --- SSL Patching Logic ---
+_original_ssl_create_default_context = None
+_original_aiohttp_tcp_connector_init = None 
+
+def _get_custom_non_verifying_ssl_context_for_global_patch():
+    # Using logger here as basicConfig should be set by the time __main__ calls it,
+    # or if run as module, the parent logger should be configured.
+    # If this runs too early before logging is set, change to print().
+    logger.info("Creating custom non-verifying SSL context for global patch.")
+    custom_ctx = ssl.create_default_context() 
+    custom_ctx.check_hostname = False
+    custom_ctx.verify_mode = ssl.CERT_NONE
+    return custom_ctx
+
+def _apply_ssl_bypasses():
+    global _original_ssl_create_default_context, _original_aiohttp_tcp_connector_init
+    logger.warning("Attempting to apply ALL SSL bypass patches.")
+
+    if _original_ssl_create_default_context is None:
+        _original_ssl_create_default_context = ssl.create_default_context
+        _non_verifying_context_for_ssl_default = _original_ssl_create_default_context() 
+        _non_verifying_context_for_ssl_default.check_hostname = False
+        _non_verifying_context_for_ssl_default.verify_mode = ssl.CERT_NONE
+        logger.info("Created non-verifying SSL context for ssl.create_default_context patch.")
+        def _patched_create_default_context(purpose=ssl.Purpose.SERVER_AUTH, *, cafile=None, capath=None, cadata=None):
+            logger.warning(f"Global SSL Patch: ssl.create_default_context returning custom NON-VERIFYING SSL context (original purpose: {purpose}).")
+            return _non_verifying_context_for_ssl_default
+        if ssl.create_default_context is not _patched_create_default_context:
+            ssl.create_default_context = _patched_create_default_context
+            logger.info("Applied global monkey patch to ssl.create_default_context.")
+    else:
+        logger.debug("Original ssl.create_default_context already stored; patch might be active.")
+
+    if _original_aiohttp_tcp_connector_init is None:
+        if hasattr(aiohttp, 'TCPConnector'): 
+            _original_aiohttp_tcp_connector_init = aiohttp.TCPConnector.__init__
+            logger.info("Stored original aiohttp.TCPConnector.__init__ for patching.")
+            def PatchedAIOHTTPTCPConnector__init__(self_connector, *args_patch, **kwargs_patch):
+                original_ssl_kwarg = kwargs_patch.get('ssl')
+                kwargs_patch['ssl'] = False 
+                logger.warning(f"Patched aiohttp.TCPConnector.__init__ called, forcing ssl=False. Original ssl kwarg: {original_ssl_kwarg}.")
+                _original_aiohttp_tcp_connector_init(self_connector, *args_patch, **kwargs_patch)
+            if aiohttp.TCPConnector.__init__ is not PatchedAIOHTTPTCPConnector__init__:
+                aiohttp.TCPConnector.__init__ = PatchedAIOHTTPTCPConnector__init__
+                logger.info("aiohttp.TCPConnector has been monkey-patched to use ssl=False.")
+        else:
+            logger.warning("aiohttp.TCPConnector not found for patching.")
+    else:
+        logger.debug("Original aiohttp.TCPConnector.__init__ already stored for ssl=False patch.")
+
+    os.environ["AIOHTTP_SSL_VERIFY"] = "0"
+    logger.info("Set AIOHTTP_SSL_VERIFY=0 environment variable.")
+
+# !!!!! TEMPORARY CHANGE FOR DEBUGGING !!!!!
+# Force the patch to apply regardless of the environment variable for this test run
+logger.warning("FORCING SSL BYPASS PATCHES TO APPLY for this test run in web-user.py (module scope)!")
+_apply_ssl_bypasses()
+# !!!!! END TEMPORARY CHANGE !!!!!
+# --- End SSL Patching Logic ---
 
 @dataclass
 class UserData:
@@ -148,7 +207,6 @@ class SimpleAgent(Agent):
         system_prompt = agent_behavior_config.get("system_prompt", "You are a helpful assistant.")
         agent_name = agent_behavior_config.get("agent_name", "Assistant")
         llm_model = agent_behavior_config.get("model", "gpt-4o-mini")
-        self.tts_voice_setting = agent_behavior_config.get("voice", "alloy")
 
         enhanced_prompt = (
             f"{system_prompt}\n\n"
@@ -180,7 +238,6 @@ class SimpleAgent(Agent):
             
             logger.info(f"Agent (ID: {self.id if hasattr(self, 'id') else 'N/A'}) on_enter called for user {user_id_log}.")
             greeting_text = "Hello! How can I help you today?"
-            # CORRECTED: Removed 'interrupt=False' from the call to self.session.say()
             await self.session.say(greeting_text) 
             logger.info(f"Agent {self.id if hasattr(self, 'id') else 'N/A'} said greeting via on_enter.")
         else:
@@ -206,40 +263,32 @@ class SimpleAgent(Agent):
         return filtered_content
 
     @function_tool()
-    async def query_documents(self, query: str) -> str: # Removed session from args
+    async def query_documents(self, query: str) -> str:
         global global_query_engine
-        
         if not hasattr(self, 'session') or not self.session:
             logger.error("query_documents called but self.session is not available on the agent instance.")
             return "I'm having trouble accessing session details right now."
-        
         user_data: UserData = self.session.userdata
         if not user_data or not user_data.user_id:
             logger.error("query_documents called but user_id is not available in self.session.userdata.")
             return "User context is missing for document search."
-
         try:
             logger.info(f"User {user_data.user_id} document query request: '{query}'")
-            
             current_job_query_engine = global_query_engine
             if current_job_query_engine is None:
                 logger.error(f"Query engine not available for user {user_data.user_id}. Index might not have loaded or engine init failed.")
                 return "I currently don't have access to the documents to answer that."
-            
             logger.info(f"Executing RAG query for user {user_data.user_id}: '{query}'")
             res = await current_job_query_engine.aquery(query)
             raw_result = str(res)
             logger.info(f"RAG query for user {user_data.user_id} successful, result length: {len(raw_result)}")
-            
             if not raw_result.strip():
                 logger.warning(f"Empty RAG result for user {user_data.user_id} on query: '{query}'")
                 return "I searched the documents but couldn't find relevant information for your query."
-            
             cleaned_document_text = self._filter_text_for_speech(raw_result)
             final_text = f"Based on the available documents: {cleaned_document_text}"
             logger.info(f"Cleaned document search result for user {user_data.user_id}: {final_text[:100]}...")
             return final_text
-            
         except Exception as e:
             logger.error(f"General error in query_documents for user {user_data.user_id} on query '{query}': {str(e)}", exc_info=True)
             return f"I encountered an unexpected issue while searching the documents: {str(e)}"
@@ -250,7 +299,7 @@ def prewarm(worker: WorkerOptions):
         silero.VAD.load()
         logger.info("Silero VAD model prewarmed (cached).")
     except Exception as e:
-        logger.error(f"Error during VAD prewarming: {e}")
+        logger.error(f"Error during VAD prewarming: {e}", exc_info=True)
 
 async def entrypoint(ctx: JobContext):
     user_id = os.environ.get("USER_AGENT_USER_ID")
@@ -266,21 +315,8 @@ async def entrypoint(ctx: JobContext):
     logger.info(f"  Collection from ENV: {collection_name}")
     logger.info(f"  Phone from ENV: {phone_number_to_dial}")
 
-    if os.environ.get("DISABLE_SSL_VERIFY") == "1":
-        try:
-            logger.warning("DISABLE_SSL_VERIFY=1 found. Disabling SSL certificate verification for aiohttp.")
-            ssl_context_no_verify = ssl.create_default_context()
-            ssl_context_no_verify.check_hostname = False
-            ssl_context_no_verify.verify_mode = ssl.CERT_NONE
-            os.environ["AIOHTTP_SSL_VERIFY"] = "0" 
-            original_tcp_connector_init = aiohttp.TCPConnector.__init__
-            def patched_tcp_connector_init(self, *args_patch, **kwargs_patch):
-                kwargs_patch['ssl'] = False
-                original_tcp_connector_init(self, *args_patch, **kwargs_patch)
-            aiohttp.TCPConnector.__init__ = patched_tcp_connector_init
-            logger.info("aiohttp.TCPConnector SSL verification monkey-patched to be disabled for new instances.")
-        except Exception as e_ssl:
-            logger.error(f"Error during SSL monkey-patching: {e_ssl}")
+    # Global SSL patch is applied at module load time if DISABLE_SSL_VERIFY=1.
+    # No specific SSL action needed within entrypoint itself now.
 
     try:
         agent_b_config = load_user_behavioral_config(user_id)
@@ -307,7 +343,9 @@ async def entrypoint(ctx: JobContext):
         )
         
         required_env_keys = ["OPENAI_API_KEY", "DEEPGRAM_API_KEY", "LIVEKIT_URL", "LIVEKIT_API_KEY", "LIVEKIT_API_SECRET"]
-        if os.environ.get("CARTESIA_API_KEY"): required_env_keys.append("CARTESIA_API_KEY")
+        if os.environ.get("CARTESIA_API_KEY"): 
+            required_env_keys.append("CARTESIA_API_KEY")
+        
         if phone_number_to_dial and not os.environ.get("SIP_TRUNK_ID"):
             logger.error(f"CRITICAL: SIP_TRUNK_ID is required for outbound call to {phone_number_to_dial} but not set.")
             raise ValueError("SIP_TRUNK_ID missing for an intended outbound call.")
@@ -355,8 +393,7 @@ async def entrypoint(ctx: JobContext):
         
         original_say_method = session.say 
         async def filtered_say_wrapper(text: str, **kwargs):
-            # The agent_instance created above is accessible here due to closure
-            filtered_text = agent_instance._filter_text_for_speech(text) 
+            filtered_text = agent_instance._filter_text_for_speech(text)
             return await original_say_method(filtered_text, **kwargs)
         session.say = filtered_say_wrapper
 
@@ -418,10 +455,14 @@ if __name__ == "__main__":
         datefmt="%Y-%m-%d %H:%M:%S",
     )
     main_script_logger = logging.getLogger("user-agent") 
+    
+    # The global SSL patch (_apply_ssl_bypasses_if_needed) is called when the module is first loaded (see top of file)
+    # conditional on DISABLE_SSL_VERIFY=1.
+    
     main_script_logger.info(f"{Path(__file__).name} executed directly as __main__. User ID from ENV: {os.environ.get('USER_AGENT_USER_ID')}")
 
     cli.run_app(WorkerOptions(
         entrypoint_fnc=entrypoint,
-        prewarm_fnc=prewarm,
-        # agent_name="your-web-agent-worker-name" # Optional: if you want to explicitly name this worker type
+        prewarm_fnc=prewarm, 
+        port=0 
     ))

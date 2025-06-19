@@ -1,0 +1,21 @@
+--- agent_runner.py: Initializing for user: shhaaag@gmail.com, using core script: web-user.py ---
+INFO (agent_runner.py): Successfully loaded configuration for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\config\agent_config.json
+INFO (agent_runner.py): Setting environment variables for user shhaaag@gmail.com...
+  SET USER_AGENT_USER_ID=shhaaag@gmail.com
+  INFO: USER_AGENT_COLLECTION not set (not found in user config).
+  INFO: USER_AGENT_PHONE not set (not found in user config).
+  SET OPENAI_API_KEY (from user config)
+  SET LIVEKIT_URL (from user config)
+  SET LIVEKIT_API_KEY (from user config)
+  SET LIVEKIT_API_SECRET (from user config)
+  SET DEEPGRAM_API_KEY (from user config)
+  SET CARTESIA_API_KEY (from user config)
+  SET SIP_TRUNK_ID (from user config)
+INFO (agent_runner.py): Environment variables set based on user 'shhaaag@gmail.com' configuration.
+INFO (agent_runner.py): Starting core agent script: C:\Users\Administrator\Replin\env\Scripts\python.exe C:\Users\Administrator\Replin\web-user.py start
+--- agent_runner.py: Handing off to web-user.py for user shhaaag@gmail.com ---
+  File "C:\Users\Administrator\Replin\web-user.py", line 289
+    defPatchedTCPConnector__init__(self, *args, **kwargs_patch):
+                                                               ^
+SyntaxError: invalid syntax
+--- agent_runner.py: Core agent script 'web-user.py' for user shhaaag@gmail.com has exited with code 1. ---

@@ -5,7 +5,7 @@ import asyncio
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 
 
 

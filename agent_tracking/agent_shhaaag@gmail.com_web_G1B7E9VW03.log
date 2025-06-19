@@ -1,0 +1,323 @@
+--- agent_runner.py: Initializing for user: shhaaag@gmail.com, using core script: web-user.py ---
+INFO (agent_runner.py): Successfully loaded configuration for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\config\agent_config.json
+INFO (agent_runner.py): Setting environment variables for user shhaaag@gmail.com...
+  SET USER_AGENT_USER_ID=shhaaag@gmail.com
+  INFO: USER_AGENT_COLLECTION not set (not found in user config).
+  INFO: USER_AGENT_PHONE not set (not found in user config).
+  SET OPENAI_API_KEY (from user config)
+  SET LIVEKIT_URL (from user config)
+  SET LIVEKIT_API_KEY (from user config)
+  SET LIVEKIT_API_SECRET (from user config)
+  SET DEEPGRAM_API_KEY (from user config)
+  SET CARTESIA_API_KEY (from user config)
+  SET SIP_TRUNK_ID (from user config)
+INFO (agent_runner.py): Environment variables set based on user 'shhaaag@gmail.com' configuration.
+INFO (agent_runner.py): Starting core agent script: C:\Users\Administrator\Replin\env\Scripts\python.exe C:\Users\Administrator\Replin\web-user.py start
+--- agent_runner.py: Handing off to web-user.py for user shhaaag@gmail.com ---
+C:\Users\Administrator\Replin\env\Lib\site-packages\onnxruntime\capi\onnxruntime_validation.py:27: UserWarning: Unsupported Windows version (2022server). ONNX Runtime supports Windows 10 and above, only.
+  warnings.warn(
+2025-06-19 12:31:50 - user-agent - [INFO] - web-user.py executed directly as __main__. User ID from ENV: shhaaag@gmail.com
+2025-06-19 12:31:50 - livekit.agents - [INFO] - starting worker
+{"message": "starting worker", "level": "INFO", "name": "livekit.agents", "version": "1.0.13", "rtc-version": "1.0.8", "timestamp": "2025-06-19T12:31:50.329605+00:00"}
+2025-06-19 12:31:50 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 5488, "timestamp": "2025-06-19T12:31:50.595606+00:00"}
+2025-06-19 12:31:50 - livekit.agents - [INFO] - initializing job runner
+2025-06-19 12:31:50 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 2652, "timestamp": "2025-06-19T12:31:50.610075+00:00"}
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:31:50.611076+00:00"}
+2025-06-19 12:31:50 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:31:50.612078+00:00"}
+2025-06-19 12:31:52 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:31:52.289713+00:00"}
+2025-06-19 12:31:52 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:31:52.291736+00:00"}
+2025-06-19 12:31:52 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 2652, "timestamp": "2025-06-19T12:31:52.351080+00:00"}
+2025-06-19 12:31:52 - livekit.agents - [INFO] - see tracing information at http://localhost:8081/debug
+{"message": "see tracing information at http://localhost:8081/debug", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T12:31:52.372245+00:00"}
+2025-06-19 12:31:52 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 5488, "timestamp": "2025-06-19T12:31:52.445927+00:00"}
+2025-06-19 12:31:53 - livekit.agents - [WARNING] - job executor is unresponsive
+{"message": "job executor is unresponsive", "level": "WARNING", "name": "livekit.agents", "delay": 1077, "tid": 2652, "timestamp": "2025-06-19T12:31:53.587685+00:00"}
+2025-06-19 12:31:54 - livekit.agents - [INFO] - registered worker
+{"message": "registered worker", "level": "INFO", "name": "livekit.agents", "id": "AW_EFVVxcChZpbK", "url": "wss://fgsdfg-92vkkxvz.livekit.cloud", "region": "Zurich", "protocol": 16, "timestamp": "2025-06-19T12:31:54.905409+00:00"}
+2025-06-19 12:32:47 - livekit.agents - [INFO] - received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_mJW2PPLyaQfS", "dispatch_id": "", "room_name": "sbx-1tv4rf-nPkbKFqJA4gKG4jQFrerKZ", "agent_name": "", "resuming": false, "timestamp": "2025-06-19T12:32:47.678503+00:00"}
+2025-06-19 12:32:47 - user-agent - [INFO] - Agent entrypoint started for job AJ_mJW2PPLyaQfS, user_id: shhaaag@gmail.com
+{"message": "Agent entrypoint started for job AJ_mJW2PPLyaQfS, user_id: shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:47.951300+00:00"}
+2025-06-19 12:32:47 - user-agent - [INFO] -   Collection from ENV: None
+{"message": "  Collection from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:47.951300+00:00"}
+2025-06-19 12:32:47 - user-agent - [INFO] -   Phone from ENV: None
+{"message": "  Phone from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:47.951300+00:00"}
+2025-06-19 12:32:48 - user-agent - [INFO] - Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}
+{"message": "Loaded behavioral config for user shhaaag@gmail.com: {'system_prompt': 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise information based on the documents provided.', 'voice': 'alloy', 'model': 'gpt-4o-mini', 'agent_name': 'Assistant'}", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:48.035785+00:00"}
+2025-06-19 12:32:48 - user-agent - [INFO] - No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "No specific collection name provided for user shhaaag@gmail.com. Attempting to load index from default location: user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:48.046847+00:00"}
+2025-06-19 12:32:48 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 3980, "timestamp": "2025-06-19T12:32:48.161188+00:00"}
+2025-06-19 12:32:48 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:48.170753+00:00"}
+2025-06-19 12:32:48 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:48.681907+00:00"}
+2025-06-19 12:32:48 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 3980, "timestamp": "2025-06-19T12:32:48.697984+00:00"}
+2025-06-19 12:32:49 - llama_index.core.indices.loading - [INFO] - Loading all indices.
+{"message": "Loading all indices.", "level": "INFO", "name": "llama_index.core.indices.loading", "timestamp": "2025-06-19T12:32:49.594015+00:00"}
+2025-06-19 12:32:51 - user-agent - [INFO] - Successfully loaded index for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\knowledge-storage
+{"message": "Successfully loaded index for user shhaaag@gmail.com from user_data\\shhaaag@gmail.com\\knowledge-storage", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:51.134834+00:00"}
+2025-06-19 12:32:51 - user-agent - [INFO] - Index loaded successfully for user shhaaag@gmail.com, collection 'None'.
+{"message": "Index loaded successfully for user shhaaag@gmail.com, collection 'None'.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:51.134834+00:00"}
+2025-06-19 12:32:51 - user-agent - [INFO] - Query engine initialized/updated successfully for this job.
+{"message": "Query engine initialized/updated successfully for this job.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:51.610988+00:00"}
+2025-06-19 12:32:51 - livekit.agents - [WARNING] - Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\Users\Administrator\Replin\web-user.py:320> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:276, _JobProc._run_job_task.<locals>.log_exception() at C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:278]> took too long: 3.80 seconds
+{"message": "Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\\Users\\Administrator\\Replin\\web-user.py:320> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:276, _JobProc._run_job_task.<locals>.log_exception() at C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:278]> took too long: 3.80 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T12:32:51.754213+00:00"}
+2025-06-19 12:32:51 - livekit.agents - [WARNING] - Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\Users\Administrator\Replin\web-user.py:320> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:276, _JobProc._run_job_task.<locals>.log_exception() at C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:278]> took too long: 3.81 seconds
+{"message": "Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\\Users\\Administrator\\Replin\\web-user.py:320> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:276, _JobProc._run_job_task.<locals>.log_exception() at C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:278]> took too long: 3.81 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T12:32:51.754213+00:00"}
+2025-06-19 12:32:51 - livekit.agents - [WARNING] - Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\Users\Administrator\Replin\web-user.py:320> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:276, _JobProc._run_job_task.<locals>.log_exception() at C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\ipc\job_proc_lazy_main.py:278]> took too long: 3.81 seconds
+{"message": "Running <Task pending name='job_user_entrypoint' coro=<entrypoint() running at C:\\Users\\Administrator\\Replin\\web-user.py:320> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_JobProc._run_job_task.<locals>.<lambda>() at C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:276, _JobProc._run_job_task.<locals>.log_exception() at C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\ipc\\job_proc_lazy_main.py:278]> took too long: 3.81 seconds", "level": "WARNING", "name": "livekit.agents", "timestamp": "2025-06-19T12:32:51.754213+00:00"}
+2025-06-19 12:32:52 - user-agent - [INFO] - Connected to LiveKit room: sbx-1tv4rf-nPkbKFqJA4gKG4jQFrerKZ for user shhaaag@gmail.com
+{"message": "Connected to LiveKit room: sbx-1tv4rf-nPkbKFqJA4gKG4jQFrerKZ for user shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:52.770057+00:00"}
+2025-06-19 12:32:52 - user-agent - [INFO] - Inbound/Web call mode for room sbx-1tv4rf-nPkbKFqJA4gKG4jQFrerKZ: Waiting for participants.
+{"message": "Inbound/Web call mode for room sbx-1tv4rf-nPkbKFqJA4gKG4jQFrerKZ: Waiting for participants.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:52.771324+00:00"}
+2025-06-19 12:32:52 - user-agent - [INFO] - Silero VAD loaded for session.
+{"message": "Silero VAD loaded for session.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:52.939693+00:00"}
+2025-06-19 12:32:52 - user-agent - [INFO] - SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'
+{"message": "SimpleAgent initializing with: Name='Assistant', Model='gpt-4o-mini'. Prompt starts: 'You are a helpful assistant that help humans solve the query they have. Provide accurate and concise...'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:52.952087+00:00"}
+2025-06-19 12:32:54 - user-agent - [INFO] - Starting agent session processing for user shhaaag@gmail.com in room sbx-1tv4rf-nPkbKFqJA4gKG4jQFrerKZ...
+{"message": "Starting agent session processing for user shhaaag@gmail.com in room sbx-1tv4rf-nPkbKFqJA4gKG4jQFrerKZ...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:54.486601+00:00"}
+2025-06-19 12:32:54 - user-agent - [INFO] - Room sbx-1tv4rf-nPkbKFqJA4gKG4jQFrerKZ: Participant joined: versatile-module ()
+{"message": "Room sbx-1tv4rf-nPkbKFqJA4gKG4jQFrerKZ: Participant joined: versatile-module ()", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:54.600112+00:00"}
+2025-06-19 12:32:55 - user-agent - [INFO] - Agent session processing finished for user shhaaag@gmail.com in room sbx-1tv4rf-nPkbKFqJA4gKG4jQFrerKZ.
+{"message": "Agent session processing finished for user shhaaag@gmail.com in room sbx-1tv4rf-nPkbKFqJA4gKG4jQFrerKZ.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:55.332825+00:00"}
+2025-06-19 12:32:55 - user-agent - [INFO] - Agent entrypoint cleanup for job AJ_mJW2PPLyaQfS, user shhaaag@gmail.com.
+{"message": "Agent entrypoint cleanup for job AJ_mJW2PPLyaQfS, user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:55.333812+00:00"}
+2025-06-19 12:32:55 - user-agent - [INFO] - Agent (ID: N/A) on_enter called for user shhaaag@gmail.com.
+{"message": "Agent (ID: N/A) on_enter called for user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:55.391876+00:00"}
+2025-06-19 12:32:55 - livekit.agents - [ERROR] - Error in _inference_task
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\utils\log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\voice\generation.py", line 142, in _inference_task
+    async for audio_frame in tts_node:
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\voice\agent.py", line 473, in tts_node
+    async for ev in stream:
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\tts\tts.py", line 449, in __anext__
+    raise exc from None
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\tts\tts.py", line 301, in _main_task
+    return await self._run()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\plugins\cartesia\tts.py", line 373, in _run
+    async with self._pool.connection() as ws:
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\utils\connection_pool.py", line 76, in connection
+    conn = await self.get()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\utils\connection_pool.py", line 108, in get
+    return await self._connect()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\utils\connection_pool.py", line 59, in _connect
+    connection = await self._connect_cb()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\plugins\cartesia\tts.py", line 146, in _connect_ws
+    return await asyncio.wait_for(session.ws_connect(url), self._conn_options.timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\client.py", line 1049, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\client.py", line 761, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\client.py", line 716, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\connector.py", line 596, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\connector.py", line 1120, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\connector.py", line 1492, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\connector.py", line 1461, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\connector.py", line 1196, in _wrap_create_connection
+    raise ClientConnectorCertificateError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorCertificateError: Cannot connect to host api.cartesia.ai:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')]
+{"message": "Error in _inference_task", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\utils\\log.py\", line 16, in async_fn_logs\n    return await fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\voice\\generation.py\", line 142, in _inference_task\n    async for audio_frame in tts_node:\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\voice\\agent.py\", line 473, in tts_node\n    async for ev in stream:\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\tts\\tts.py\", line 449, in __anext__\n    raise exc from None\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\tts\\tts.py\", line 301, in _main_task\n    return await self._run()\n           ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\plugins\\cartesia\\tts.py\", line 373, in _run\n    async with self._pool.connection() as ws:\n  File \"C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\contextlib.py\", line 210, in __aenter__\n    return await anext(self.gen)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\utils\\connection_pool.py\", line 76, in connection\n    conn = await self.get()\n           ^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\utils\\connection_pool.py\", line 108, in get\n    return await self._connect()\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\utils\\connection_pool.py\", line 59, in _connect\n    connection = await self._connect_cb()\n                 ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\plugins\\cartesia\\tts.py\", line 146, in _connect_ws\n    return await asyncio.wait_for(session.ws_connect(url), self._conn_options.timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\client.py\", line 1049, in _ws_connect\n    resp = await self.request(\n           ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\client.py\", line 761, in _request\n    resp = await handler(req)\n           ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\client.py\", line 716, in _connect_and_send_request\n    conn = await self._connector.connect(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\connector.py\", line 596, in connect\n    proto = await self._create_connection(req, traces, timeout)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\connector.py\", line 1120, in _create_connection\n    _, proto = await self._create_direct_connection(req, traces, timeout)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\connector.py\", line 1492, in _create_direct_connection\n    raise last_exc\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\connector.py\", line 1461, in _create_direct_connection\n    transp, proto = await self._wrap_create_connection(\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\connector.py\", line 1196, in _wrap_create_connection\n    raise ClientConnectorCertificateError(req.connection_key, exc) from exc\naiohttp.client_exceptions.ClientConnectorCertificateError: Cannot connect to host api.cartesia.ai:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')]", "timestamp": "2025-06-19T12:32:55.908828+00:00"}
+2025-06-19 12:32:57 - user-agent - [INFO] - Agent N/A said greeting via on_enter.
+{"message": "Agent N/A said greeting via on_enter.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:57.466419+00:00"}
+2025-06-19 12:32:57 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336377.488528 idle_time=2.1071736000012606 inference_duration_total=0.21628449973650277 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336377.488528 idle_time=2.1071736000012606 inference_duration_total=0.21628449973650277 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:57.502401+00:00"}
+2025-06-19 12:32:57 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336377.533428 idle_time=2.1521228000056 inference_duration_total=0.03871579986298457 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336377.533428 idle_time=2.1521228000056 inference_duration_total=0.03871579986298457 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:57.534408+00:00"}
+2025-06-19 12:32:58 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336378.3630137 idle_time=2.981963599973824 inference_duration_total=0.03525650006486103 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336378.3630137 idle_time=2.981963599973824 inference_duration_total=0.03525650006486103 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:58.364030+00:00"}
+2025-06-19 12:32:59 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336379.3830185 idle_time=4.001021999982186 inference_duration_total=0.035597899986896664 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336379.3830185 idle_time=4.001021999982186 inference_duration_total=0.035597899986896664 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:32:59.383018+00:00"}
+2025-06-19 12:33:00 - livekit.agents - [INFO] - STT metrics: audio_duration=5.10
+{"message": "STT metrics: audio_duration=5.10", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T12:33:00.413873+00:00"}
+2025-06-19 12:33:00 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='75d450a4-6e99-47a7-8f0b-c9bb52b6f627' timestamp=1750336380.41287 duration=0.0 audio_duration=5.09999999999999 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='75d450a4-6e99-47a7-8f0b-c9bb52b6f627' timestamp=1750336380.41287 duration=0.0 audio_duration=5.09999999999999 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:00.414868+00:00"}
+2025-06-19 12:33:00 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336380.4148679 idle_time=5.0336992999655195 inference_duration_total=0.04509130003862083 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336380.4148679 idle_time=5.0336992999655195 inference_duration_total=0.04509130003862083 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:00.415878+00:00"}
+2025-06-19 12:33:01 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336381.4328816 idle_time=6.051337199984118 inference_duration_total=0.035255700116977096 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336381.4328816 idle_time=6.051337199984118 inference_duration_total=0.035255700116977096 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:01.432882+00:00"}
+2025-06-19 12:33:02 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336382.4572415 idle_time=7.075600399984978 inference_duration_total=0.03932929987786338 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336382.4572415 idle_time=7.075600399984978 inference_duration_total=0.03932929987786338 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:02.457886+00:00"}
+2025-06-19 12:33:03 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336383.4828663 idle_time=8.101080599997658 inference_duration_total=0.037503500236198306 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336383.4828663 idle_time=8.101080599997658 inference_duration_total=0.037503500236198306 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:03.482866+00:00"}
+2025-06-19 12:33:04 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336384.5028617 idle_time=9.121826399990823 inference_duration_total=0.03575639991322532 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336384.5028617 idle_time=9.121826399990823 inference_duration_total=0.03575639991322532 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:04.503875+00:00"}
+2025-06-19 12:33:05 - livekit.agents - [INFO] - STT metrics: audio_duration=5.00
+{"message": "STT metrics: audio_duration=5.00", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T12:33:05.401853+00:00"}
+2025-06-19 12:33:05 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='75d450a4-6e99-47a7-8f0b-c9bb52b6f627' timestamp=1750336385.4018533 duration=0.0 audio_duration=4.99999999999999 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='75d450a4-6e99-47a7-8f0b-c9bb52b6f627' timestamp=1750336385.4018533 duration=0.0 audio_duration=4.99999999999999 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:05.401853+00:00"}
+2025-06-19 12:33:05 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336385.533856 idle_time=0.839660300000105 inference_duration_total=0.03713280020747334 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336385.533856 idle_time=0.839660300000105 inference_duration_total=0.03713280020747334 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:05.533856+00:00"}
+2025-06-19 12:33:05 - livekit.agents - [INFO] - EOU metrics: end_of_utterance_delay=0.58, transcription_delay=0.49
+{"message": "EOU metrics: end_of_utterance_delay=0.58, transcription_delay=0.49", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T12:33:05.888865+00:00"}
+2025-06-19 12:33:05 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='eou_metrics' timestamp=1750336385.886847 end_of_utterance_delay=0.5789916515350342 transcription_delay=0.4889945983886719 on_user_turn_completed_delay=0.0 speech_id='speech_2c3e708a383b'
+{"message": "User shhaaag@gmail.com Metrics: type='eou_metrics' timestamp=1750336385.886847 end_of_utterance_delay=0.5789916515350342 transcription_delay=0.4889945983886719 on_user_turn_completed_delay=0.0 speech_id='speech_2c3e708a383b'", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:05.888865+00:00"}
+2025-06-19 12:33:07 - livekit.agents - [ERROR] - Error in _inference_task
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\utils\log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\voice\generation.py", line 142, in _inference_task
+    async for audio_frame in tts_node:
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\voice\agent.py", line 473, in tts_node
+    async for ev in stream:
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\tts\tts.py", line 449, in __anext__
+    raise exc from None
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\tts\tts.py", line 301, in _main_task
+    return await self._run()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\plugins\cartesia\tts.py", line 373, in _run
+    async with self._pool.connection() as ws:
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\utils\connection_pool.py", line 76, in connection
+    conn = await self.get()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\utils\connection_pool.py", line 108, in get
+    return await self._connect()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\utils\connection_pool.py", line 59, in _connect
+    connection = await self._connect_cb()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\plugins\cartesia\tts.py", line 146, in _connect_ws
+    return await asyncio.wait_for(session.ws_connect(url), self._conn_options.timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\client.py", line 1049, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\client.py", line 761, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\client.py", line 716, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\connector.py", line 596, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\connector.py", line 1120, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\connector.py", line 1492, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\connector.py", line 1461, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\aiohttp\connector.py", line 1196, in _wrap_create_connection
+    raise ClientConnectorCertificateError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorCertificateError: Cannot connect to host api.cartesia.ai:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')]
+{"message": "Error in _inference_task", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\utils\\log.py\", line 16, in async_fn_logs\n    return await fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\voice\\generation.py\", line 142, in _inference_task\n    async for audio_frame in tts_node:\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\voice\\agent.py\", line 473, in tts_node\n    async for ev in stream:\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\tts\\tts.py\", line 449, in __anext__\n    raise exc from None\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\tts\\tts.py\", line 301, in _main_task\n    return await self._run()\n           ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\plugins\\cartesia\\tts.py\", line 373, in _run\n    async with self._pool.connection() as ws:\n  File \"C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\contextlib.py\", line 210, in __aenter__\n    return await anext(self.gen)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\utils\\connection_pool.py\", line 76, in connection\n    conn = await self.get()\n           ^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\utils\\connection_pool.py\", line 108, in get\n    return await self._connect()\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\utils\\connection_pool.py\", line 59, in _connect\n    connection = await self._connect_cb()\n                 ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\plugins\\cartesia\\tts.py\", line 146, in _connect_ws\n    return await asyncio.wait_for(session.ws_connect(url), self._conn_options.timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\client.py\", line 1049, in _ws_connect\n    resp = await self.request(\n           ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\client.py\", line 761, in _request\n    resp = await handler(req)\n           ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\client.py\", line 716, in _connect_and_send_request\n    conn = await self._connector.connect(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\connector.py\", line 596, in connect\n    proto = await self._create_connection(req, traces, timeout)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\connector.py\", line 1120, in _create_connection\n    _, proto = await self._create_direct_connection(req, traces, timeout)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\connector.py\", line 1492, in _create_direct_connection\n    raise last_exc\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\connector.py\", line 1461, in _create_direct_connection\n    transp, proto = await self._wrap_create_connection(\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\aiohttp\\connector.py\", line 1196, in _wrap_create_connection\n    raise ClientConnectorCertificateError(req.connection_key, exc) from exc\naiohttp.client_exceptions.ClientConnectorCertificateError: Cannot connect to host api.cartesia.ai:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')]", "timestamp": "2025-06-19T12:33:07.629416+00:00"}
+2025-06-19 12:33:07 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336387.6500485 idle_time=1.764744799991604 inference_duration_total=0.04594940005335957 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336387.6500485 idle_time=1.764744799991604 inference_duration_total=0.04594940005335957 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:07.651035+00:00"}
+2025-06-19 12:33:07 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336387.6950421 idle_time=1.8091290000011213 inference_duration_total=0.03495359991211444 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336387.6950421 idle_time=1.8091290000011213 inference_duration_total=0.03495359991211444 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:07.695042+00:00"}
+2025-06-19 12:33:08 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336388.604034 idle_time=2.7180920999962837 inference_duration_total=0.04070589994080365 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336388.604034 idle_time=2.7180920999962837 inference_duration_total=0.04070589994080365 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:08.604034+00:00"}
+2025-06-19 12:33:09 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336389.623016 idle_time=3.7378417000290938 inference_duration_total=0.03713960002642125 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336389.623016 idle_time=3.7378417000290938 inference_duration_total=0.03713960002642125 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:09.624016+00:00"}
+2025-06-19 12:33:10 - livekit.agents - [WARNING] - failed to generate LLM completion, retrying in 2.0s
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\llm\llm.py", line 137, in _main_task
+    return await self._run()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\plugins\openai\llm.py", line 599, in _run
+    raise APIStatusError(
+livekit.agents._exceptions.APIStatusError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************K38A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}} (status_code=401, request_id=req_2ecb5d5245b3045e9c740e10b0e1361d, body={'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************K38A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'})
+{"message": "failed to generate LLM completion, retrying in 2.0s", "level": "WARNING", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\llm\\llm.py\", line 137, in _main_task\n    return await self._run()\n           ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\plugins\\openai\\llm.py\", line 599, in _run\n    raise APIStatusError(\nlivekit.agents._exceptions.APIStatusError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************K38A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}} (status_code=401, request_id=req_2ecb5d5245b3045e9c740e10b0e1361d, body={'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************K38A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'})", "llm": "livekit.plugins.openai.llm.LLM", "attempt": 1, "timestamp": "2025-06-19T12:33:10.201021+00:00"}
+2025-06-19 12:33:10 - livekit.agents - [INFO] - STT metrics: audio_duration=5.05
+{"message": "STT metrics: audio_duration=5.05", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T12:33:10.463015+00:00"}
+2025-06-19 12:33:10 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='75d450a4-6e99-47a7-8f0b-c9bb52b6f627' timestamp=1750336390.463015 duration=0.0 audio_duration=5.04999999999999 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='75d450a4-6e99-47a7-8f0b-c9bb52b6f627' timestamp=1750336390.463015 duration=0.0 audio_duration=5.04999999999999 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:10.463015+00:00"}
+2025-06-19 12:33:10 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336390.653013 idle_time=4.767139000003226 inference_duration_total=0.039388599689118564 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336390.653013 idle_time=4.767139000003226 inference_duration_total=0.039388599689118564 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:10.653013+00:00"}
+2025-06-19 12:33:11 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336391.6730566 idle_time=5.7870773000177 inference_duration_total=0.03427059989189729 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336391.6730566 idle_time=5.7870773000177 inference_duration_total=0.03427059989189729 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:11.673057+00:00"}
+2025-06-19 12:33:12 - livekit.agents - [WARNING] - failed to generate LLM completion, retrying in 2.0s
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\llm\llm.py", line 137, in _main_task
+    return await self._run()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\plugins\openai\llm.py", line 599, in _run
+    raise APIStatusError(
+livekit.agents._exceptions.APIStatusError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************K38A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}} (status_code=401, request_id=req_118e666eac41cb37b6bd22ffdb8d40d1, body={'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************K38A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'})
+{"message": "failed to generate LLM completion, retrying in 2.0s", "level": "WARNING", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\llm\\llm.py\", line 137, in _main_task\n    return await self._run()\n           ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\plugins\\openai\\llm.py\", line 599, in _run\n    raise APIStatusError(\nlivekit.agents._exceptions.APIStatusError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************K38A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}} (status_code=401, request_id=req_118e666eac41cb37b6bd22ffdb8d40d1, body={'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************K38A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'})", "llm": "livekit.plugins.openai.llm.LLM", "attempt": 2, "timestamp": "2025-06-19T12:33:12.493020+00:00"}
+2025-06-19 12:33:12 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336392.69303 idle_time=6.807431299996097 inference_duration_total=0.035848200030159205 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336392.69303 idle_time=6.807431299996097 inference_duration_total=0.035848200030159205 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:12.693030+00:00"}
+2025-06-19 12:33:13 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336393.7230048 idle_time=7.837814300030004 inference_duration_total=0.035215800045989454 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336393.7230048 idle_time=7.837814300030004 inference_duration_total=0.035215800045989454 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:13.724025+00:00"}
+2025-06-19 12:33:14 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336394.7420082 idle_time=8.856884100008756 inference_duration_total=0.03591279999818653 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336394.7420082 idle_time=8.856884100008756 inference_duration_total=0.03591279999818653 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:14.743028+00:00"}
+2025-06-19 12:33:14 - livekit.agents - [WARNING] - failed to generate LLM completion, retrying in 2.0s
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\llm\llm.py", line 137, in _main_task
+    return await self._run()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\plugins\openai\llm.py", line 599, in _run
+    raise APIStatusError(
+livekit.agents._exceptions.APIStatusError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************K38A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}} (status_code=401, request_id=req_156560f89906590cf21e512a64e475e7, body={'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************K38A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'})
+{"message": "failed to generate LLM completion, retrying in 2.0s", "level": "WARNING", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\llm\\llm.py\", line 137, in _main_task\n    return await self._run()\n           ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\plugins\\openai\\llm.py\", line 599, in _run\n    raise APIStatusError(\nlivekit.agents._exceptions.APIStatusError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************K38A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}} (status_code=401, request_id=req_156560f89906590cf21e512a64e475e7, body={'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************K38A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'})", "llm": "livekit.plugins.openai.llm.LLM", "attempt": 3, "timestamp": "2025-06-19T12:33:14.767012+00:00"}
+2025-06-19 12:33:15 - livekit.agents - [INFO] - STT metrics: audio_duration=5.05
+{"message": "STT metrics: audio_duration=5.05", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T12:33:15.521582+00:00"}
+2025-06-19 12:33:15 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='75d450a4-6e99-47a7-8f0b-c9bb52b6f627' timestamp=1750336395.5215821 duration=0.0 audio_duration=5.04999999999999 streamed=True
+{"message": "User shhaaag@gmail.com Metrics: type='stt_metrics' label='livekit.plugins.deepgram.stt.STT' request_id='75d450a4-6e99-47a7-8f0b-c9bb52b6f627' timestamp=1750336395.5215821 duration=0.0 audio_duration=5.04999999999999 streamed=True", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:15.521582+00:00"}
+2025-06-19 12:33:15 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336395.7725859 idle_time=9.887548800033983 inference_duration_total=0.03704199998173863 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336395.7725859 idle_time=9.887548800033983 inference_duration_total=0.03704199998173863 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:15.773594+00:00"}
+2025-06-19 12:33:16 - user-agent - [INFO] - User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336396.792597 idle_time=10.907053100003395 inference_duration_total=0.042921500105876476 inference_count=32
+{"message": "User shhaaag@gmail.com Metrics: type='vad_metrics' label='livekit.plugins.silero.vad.VAD' timestamp=1750336396.792597 idle_time=10.907053100003395 inference_duration_total=0.042921500105876476 inference_count=32", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:16.792597+00:00"}
+2025-06-19 12:33:17 - livekit.agents - [ERROR] - Error in _inference_task
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\utils\log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\voice\generation.py", line 80, in _inference_task
+    async for chunk in llm_node:
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\voice\agent.py", line 445, in llm_node
+    async for chunk in stream:
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\llm\llm.py", line 226, in __anext__
+    raise exc from None
+  File "C:\Users\Administrator\Replin\env\Lib\site-packages\livekit\agents\llm\llm.py", line 144, in _main_task
+    raise APIConnectionError(
+livekit.agents._exceptions.APIConnectionError: failed to generate LLM completion after 4 attempts
+{"message": "Error in _inference_task", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\utils\\log.py\", line 16, in async_fn_logs\n    return await fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\voice\\generation.py\", line 80, in _inference_task\n    async for chunk in llm_node:\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\voice\\agent.py\", line 445, in llm_node\n    async for chunk in stream:\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\llm\\llm.py\", line 226, in __anext__\n    raise exc from None\n  File \"C:\\Users\\Administrator\\Replin\\env\\Lib\\site-packages\\livekit\\agents\\llm\\llm.py\", line 144, in _main_task\n    raise APIConnectionError(\nlivekit.agents._exceptions.APIConnectionError: failed to generate LLM completion after 4 attempts", "timestamp": "2025-06-19T12:33:17.068676+00:00"}
+2025-06-19 12:33:54 - user-agent - [INFO] - Room sbx-1tv4rf-nPkbKFqJA4gKG4jQFrerKZ: Participant left: versatile-module ()
+{"message": "Room sbx-1tv4rf-nPkbKFqJA4gKG4jQFrerKZ: Participant left: versatile-module ()", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:33:54.987786+00:00"}
+2025-06-19 12:34:16 - livekit - [WARNING] - livekit::rtc_engine:450:livekit::rtc_engine - received session close: "signal client closed: \"stream closed\"" UnknownReason Resume
+{"message": "livekit::rtc_engine:450:livekit::rtc_engine - received session close: \"signal client closed: \\\"stream closed\\\"\" UnknownReason Resume", "level": "WARNING", "name": "livekit", "timestamp": "2025-06-19T12:34:16.967055+00:00"}
+2025-06-19 12:34:17 - user-agent - [INFO] - User shhaaag@gmail.com Final Usage Summary for job AJ_mJW2PPLyaQfS: UsageSummary(llm_prompt_tokens=0, llm_completion_tokens=0, tts_characters_count=0, stt_audio_duration=20.19999999999996)
+{"message": "User shhaaag@gmail.com Final Usage Summary for job AJ_mJW2PPLyaQfS: UsageSummary(llm_prompt_tokens=0, llm_completion_tokens=0, tts_characters_count=0, stt_audio_duration=20.19999999999996)", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T12:34:17.024058+00:00"}

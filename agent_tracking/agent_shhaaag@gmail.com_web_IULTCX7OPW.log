@@ -1,0 +1,75 @@
+--- agent_runner.py: Initializing for user: shhaaag@gmail.com, using core script: web-user.py ---
+INFO (agent_runner.py): Successfully loaded configuration for user shhaaag@gmail.com from user_data\shhaaag@gmail.com\config\agent_config.json
+INFO (agent_runner.py): Setting environment variables for user shhaaag@gmail.com...
+  SET USER_AGENT_USER_ID=shhaaag@gmail.com
+  INFO: USER_AGENT_COLLECTION not set (not found in user config).
+  INFO: USER_AGENT_PHONE not set (not found in user config).
+  SET OPENAI_API_KEY (from user config)
+  SET LIVEKIT_URL (from user config)
+  SET LIVEKIT_API_KEY (from user config)
+  SET LIVEKIT_API_SECRET (from user config)
+  SET DEEPGRAM_API_KEY (from user config)
+  SET CARTESIA_API_KEY (from user config)
+  SET SIP_TRUNK_ID (from user config)
+INFO (agent_runner.py): Environment variables set based on user 'shhaaag@gmail.com' configuration.
+INFO (agent_runner.py): Starting core agent script: C:\Users\Administrator\Replin\env\Scripts\python.exe C:\Users\Administrator\Replin\web-user.py start
+--- agent_runner.py: Handing off to web-user.py for user shhaaag@gmail.com ---
+C:\Users\Administrator\Replin\env\Lib\site-packages\onnxruntime\capi\onnxruntime_validation.py:27: UserWarning: Unsupported Windows version (2022server). ONNX Runtime supports Windows 10 and above, only.
+  warnings.warn(
+2025-06-19 13:01:10 - user-agent - [INFO] - web-user.py executed directly as __main__. User ID from ENV: shhaaag@gmail.com
+2025-06-19 13:01:10 - livekit.agents - [INFO] - starting worker
+{"message": "starting worker", "level": "INFO", "name": "livekit.agents", "version": "1.0.13", "rtc-version": "1.0.8", "timestamp": "2025-06-19T13:01:10.783329+00:00"}
+2025-06-19 13:01:10 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 4140, "timestamp": "2025-06-19T13:01:10.939334+00:00"}
+2025-06-19 13:01:10 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 1708, "timestamp": "2025-06-19T13:01:10.941340+00:00"}
+2025-06-19 13:01:10 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T13:01:10.942420+00:00"}
+2025-06-19 13:01:10 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T13:01:10.942420+00:00"}
+2025-06-19 13:01:11 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T13:01:11.314394+00:00"}
+2025-06-19 13:01:11 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T13:01:11.506200+00:00"}
+2025-06-19 13:01:11 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 4140, "timestamp": "2025-06-19T13:01:11.507190+00:00"}
+2025-06-19 13:01:11 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 1708, "timestamp": "2025-06-19T13:01:11.508192+00:00"}
+2025-06-19 13:01:11 - livekit.agents - [INFO] - see tracing information at http://localhost:57770/debug
+{"message": "see tracing information at http://localhost:57770/debug", "level": "INFO", "name": "livekit.agents", "timestamp": "2025-06-19T13:01:11.514308+00:00"}
+2025-06-19 13:01:12 - livekit.agents - [INFO] - registered worker
+{"message": "registered worker", "level": "INFO", "name": "livekit.agents", "id": "AW_2R4wwHCgZDgM", "url": "wss://fgsdfg-92vkkxvz.livekit.cloud", "region": "Zurich", "protocol": 16, "timestamp": "2025-06-19T13:01:12.120144+00:00"}
+2025-06-19 13:01:57 - livekit.agents - [INFO] - received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_B4LCQzTjyT8W", "dispatch_id": "", "room_name": "sbx-1tv4rf-mN49UXE3T3RrtonfwwBeVH", "agent_name": "", "resuming": false, "timestamp": "2025-06-19T13:01:57.877608+00:00"}
+2025-06-19 13:01:58 - user-agent - [INFO] - Agent entrypoint started for job AJ_B4LCQzTjyT8W, user_id: shhaaag@gmail.com
+{"message": "Agent entrypoint started for job AJ_B4LCQzTjyT8W, user_id: shhaaag@gmail.com", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T13:01:58.033483+00:00"}
+2025-06-19 13:01:58 - user-agent - [INFO] -   Collection from ENV: None
+{"message": "  Collection from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T13:01:58.033483+00:00"}
+2025-06-19 13:01:58 - user-agent - [INFO] -   Phone from ENV: None
+{"message": "  Phone from ENV: None", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T13:01:58.033483+00:00"}
+2025-06-19 13:01:58 - user-agent - [ERROR] - Error in agent entrypoint for job AJ_B4LCQzTjyT8W, user shhaaag@gmail.com: name 'load_user_behavioral_config' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Replin\web-user.py", line 211, in entrypoint
+    agent_b_config = load_user_behavioral_config(user_id)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'load_user_behavioral_config' is not defined
+{"message": "Error in agent entrypoint for job AJ_B4LCQzTjyT8W, user shhaaag@gmail.com: name 'load_user_behavioral_config' is not defined", "level": "ERROR", "name": "user-agent", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Replin\\web-user.py\", line 211, in entrypoint\n    agent_b_config = load_user_behavioral_config(user_id)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nNameError: name 'load_user_behavioral_config' is not defined", "timestamp": "2025-06-19T13:01:58.043033+00:00"}
+2025-06-19 13:01:58 - user-agent - [ERROR] - Failed to send error details to room for user shhaaag@gmail.com: cannot access local participant before connecting
+{"message": "Failed to send error details to room for user shhaaag@gmail.com: cannot access local participant before connecting", "level": "ERROR", "name": "user-agent", "timestamp": "2025-06-19T13:01:58.220606+00:00"}
+2025-06-19 13:01:58 - user-agent - [INFO] - Agent entrypoint cleanup for job AJ_B4LCQzTjyT8W, user shhaaag@gmail.com.
+{"message": "Agent entrypoint cleanup for job AJ_B4LCQzTjyT8W, user shhaaag@gmail.com.", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T13:01:58.220606+00:00"}
+2025-06-19 13:01:58 - livekit.agents - [ERROR] - unhandled exception while running the job task
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Replin\web-user.py", line 211, in entrypoint
+    agent_b_config = load_user_behavioral_config(user_id)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'load_user_behavioral_config' is not defined
+{"message": "unhandled exception while running the job task", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Replin\\web-user.py\", line 211, in entrypoint\n    agent_b_config = load_user_behavioral_config(user_id)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nNameError: name 'load_user_behavioral_config' is not defined", "timestamp": "2025-06-19T13:01:58.220606+00:00"}
+2025-06-19 13:01:58 - livekit.agents - [INFO] - initializing job runner
+{"message": "initializing job runner", "level": "INFO", "name": "livekit.agents", "tid": 3300, "timestamp": "2025-06-19T13:01:58.373902+00:00"}
+2025-06-19 13:01:58 - user-agent - [INFO] - Prewarming VAD model...
+{"message": "Prewarming VAD model...", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T13:01:58.377612+00:00"}
+2025-06-19 13:01:59 - user-agent - [INFO] - Silero VAD model prewarmed (cached).
+{"message": "Silero VAD model prewarmed (cached).", "level": "INFO", "name": "user-agent", "timestamp": "2025-06-19T13:01:59.056539+00:00"}
+2025-06-19 13:01:59 - livekit.agents - [INFO] - job runner initialized
+{"message": "job runner initialized", "level": "INFO", "name": "livekit.agents", "tid": 3300, "timestamp": "2025-06-19T13:01:59.057549+00:00"}
